@@ -13,7 +13,6 @@ class Dokumen extends Migration
 				'type'				=> 'int',
 				'constraint'		=> 10,
 				'auto_increment'	=> true,
-				'unsigned'   => true
 			],
 			'tahun'		=> [
 				'type'		=> 'varchar',
@@ -23,15 +22,13 @@ class Dokumen extends Migration
 				'type'		=> 'text',
 			],
 			'status'	=> [
-				'type'		=> 'ENUM',
-				'constraint' => ['berlaku', 'tidak berlaku'],
-				'default'	=> 'berlaku'
+				'type'		=> 'int',
+				'constraint' => 5,
 			],
 			'id_kategori_dokumen' =>
 			[
-				'type'		=> 'int',
-				'constraint' => 10,
-				'unsigned'   => true
+				'type'				=> 'int',
+				'constraint'		=> 10,
 			],
 			'dokumen' =>
 			[
@@ -59,7 +56,7 @@ class Dokumen extends Migration
 		]);
 
 		$this->forge->addKey('id', true);
-		// $this->forge->addForeignKey('id_kategori_dokumen', 'tbl_kategori_dokumen', 'id_kategori_dokumen', 'no action', 'no action');
+		$this->forge->addForeignKey('id_kategori_dokumen', 'tbl_kategori_dokumen', 'id_kategori_dokumen', 'no action', 'no action');
 		$this->forge->createTable('tbl_dokumen');
 	}
 

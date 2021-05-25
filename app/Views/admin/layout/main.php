@@ -81,8 +81,8 @@
     <!-- data table -->
     <script>
         $(document).ready(function() {
-            $('#example').DataTable({
-                "scrollX": true,
+            $('.table').DataTable({
+                // "scrollX": true,
                 "oLanguage": {
                     "sSearch": "",
                     "sSearchPlaceholder": "Cari",
@@ -94,6 +94,7 @@
             });
         });
     </script>
+
     <!-- pdf viewer -->
     <script>
         // Loaded via <script> tag, create shortcut to access PDF.js exports.

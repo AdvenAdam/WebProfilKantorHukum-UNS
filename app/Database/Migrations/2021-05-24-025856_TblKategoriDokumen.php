@@ -13,7 +13,6 @@ class TblKategoriDokumen extends Migration
 				'type'				=> 'int',
 				'constraint'		=> 10,
 				'auto_increment'	=> true,
-				'unsigned'   => true
 			],
 			'kategori_dokumen'	=> [
 				'type'				=> 'varchar',
