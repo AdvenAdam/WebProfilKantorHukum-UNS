@@ -72,7 +72,7 @@
                                             <button type="submit" class="btn btn-primary">Simpan</button>
                                         </div>
                                         <div class="col-6" align="right">
-                                            <a href="/Admin/Dokumen" class="btn btn-success">Kembali</a>
+                                            <a href="/Admin/Dokumen" class="btn btn-secondary">Kembali</a>
                                         </div>
                                     </div>
                                 </form>

@@ -14,7 +14,7 @@ class Home extends BaseController
 	public function index()
 	{
 
-		return view('/auth/login');
+		return view('/admin/layout/main');
 	}
 	public function cekBerlaku()
 	{

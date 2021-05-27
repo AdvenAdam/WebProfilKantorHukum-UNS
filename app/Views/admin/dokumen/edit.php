@@ -12,7 +12,6 @@
 
                                 <form action="/Admin/Dokumen/update/<?= $dokumen['id']; ?>" method="Post" enctype="multipart/form-data">
                                     <?= csrf_field(); ?>
-
                                     <div class="form-floating mb-4">
                                         <input type="text" value="<?= old('judul') ? old('judul') : $dokumen['judul']; ?>" name="judul" class="form-control <?= $validation->hasError('judul') ? 'is-invalid' : '' ?>" id="judul" placeholder="judul">
                                         <label for="judul">Judul</label>
@@ -76,7 +75,7 @@
                                             <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirm">Simpan</a>
                                         </div>
                                         <div class="col-6" align="right">
-                                            <a href="/Admin/Dokumen" class="btn btn-success">Kembali</a>
+                                            <a href="/Admin/Dokumen" class="btn btn-secondary">Kembali</a>
                                         </div>
                                     </div>
                                     <!-- Modal confirm-->

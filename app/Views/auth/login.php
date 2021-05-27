@@ -38,7 +38,7 @@
     </div>
     <div class="container">
         <div class="row justify-content-md-center">
-            <div class="col-md-12 col-lg-4">
+            <div class="col-md-12 col-lg-5">
                 <div class="card login-box-container">
                     <div class="card-body">
                         <div class="authent-logo">
@@ -47,23 +47,28 @@
                         <div class="authent-text">
                             <p>Welcome to Login Page!</p>
                             <h4 class="card-header">Insert Text Here</h4>
+                            <?php if (session()->getFlashdata('danger')) { ?>
+                                <div class="alert alert-danger fade show" role="alert">
+                                    <span><?= session()->getFlashdata('danger'); ?></span>
+                                </div>
+                            <?php } ?>
                         </div>
-                        <form action="<?= route_to('login') ?>" method="post">
+                        <form action="/login" method="post">
                             <div class="mb-3">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control <?php if (session('errors.login')) : ?>is-invalid<?php endif ?>" name="login" placeholder="<?= lang('Auth.emailOrUsername') ?>">
+                                    <input type="text" name="login" value="<?= old('login'); ?>" class="form-control <?= $validation->hasError('login') ? 'is-invalid' : '' ?>" placeholder="Email / Username">
                                     <label>Email atau Username</label>
                                     <div class="invalid-feedback">
-                                        <?= session('errors.login') ?>
+                                        <?= $validation->getError('login'); ?>
                                     </div>
                                 </div>
                             </div>
                             <div class="mb-3">
                                 <div class="form-floating">
-                                    <input type="password" name="password" class="form-control  <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>" placeholder="<?= lang('Auth.password') ?>">
+                                    <input type="password" name="password" value="<?= old('password'); ?>" class="form-control <?= $validation->hasError('password') ? 'is-invalid' : '' ?>" placeholder="Password">
                                     <label for="password">Password</label>
                                     <div class="invalid-feedback">
-                                        <?= session('errors.password') ?>
+                                        <?= $validation->getError('password'); ?>
                                     </div>
                                 </div>
                             </div>
@@ -84,6 +89,15 @@
     <script src="/tema/admin/circl/theme/assets/js/feather.min.js"></script>
     <script src="/tema/admin/circl/theme/assets/plugins/perfectscroll/perfect-scrollbar.min.js"></script>
     <script src="/tema/admin/circl/theme/assets/js/main.min.js"></script>
+
+
 </body>
 
 </html>
+<script>
+    window.setTimeout(function() {
+        $(".alert").fadeTo(500, 0).slideUp(500, function() {
+            $(this).remove();
+        })
+    }, 3000);
+</script>

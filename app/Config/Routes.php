@@ -2,6 +2,8 @@
 
 namespace Config;
 
+use PhpParser\Builder\Namespace_;
+
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes();
 
@@ -34,19 +36,29 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 
 $routes->get('/login', 'Auth::index');
-$routes->get('/ceklogin', 'Auth::login');
+$routes->post('/login', 'Auth::login');
 
-$routes->group('Admin', function ($routes) {
-	$routes->get('/', 'Admin\Dashboard::index');
+$routes->group('Admin', ["namespace" => "App\Controllers\Admin"], function ($routes) {
+	$routes->get('/', 'Dashboard::index');
 	//dokumen 
 	$routes->group('Dokumen',  function ($routes) {
-		$routes->get('/', 'Admin\DokumenController::index');
-		$routes->get('create', 'Admin\DokumenController::create');
-		$routes->post('save', 'Admin\DokumenController::save');
-		$routes->post('update/(:any)', 'Admin\DokumenController::update/$1');
-		$routes->post('delete/(:any)', 'Admin\DokumenController::delete/$1');
-		$routes->get('detail/(:any)', 'Admin\DokumenController::detail/$1');
-		$routes->get('edit/(:any)', 'Admin\DokumenController::edit/$1');
+		$routes->get('/', 'DokumenController::index');
+		$routes->get('create', 'DokumenController::create');
+		$routes->post('save', 'DokumenController::save');
+		$routes->post('update/(:any)', 'DokumenController::update/$1');
+		$routes->post('delete/(:any)', 'DokumenController::delete/$1');
+		$routes->get('detail/(:any)', 'DokumenController::detail/$1');
+		$routes->get('edit/(:any)', 'DokumenController::edit/$1');
+	});
+	$routes->group('User',  function ($routes) {
+		$routes->get('/', 'UserManage::index');
+		$routes->get('create', 'UserManage::create');
+		$routes->post('save', 'UserManage::save');
+		$routes->post('update/(:any)', 'UserManage::update/$1');
+		$routes->post('delete/(:any)', 'UserManage::delete/$1');
+		$routes->get('detail/(:any)', 'UserManage::detail/$1');
+		$routes->get('edit/(:any)', 'UserManage::edit/$1');
+		$routes->post('editPass/(:any)', 'UserManage::ubahPassword/$1');
 	});
 });
 
