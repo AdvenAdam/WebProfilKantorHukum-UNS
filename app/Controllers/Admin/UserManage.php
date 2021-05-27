@@ -229,4 +229,15 @@ class UserManage extends BaseController
 			return redirect()->to('/Admin/User/edit/' . $id)->withInput();
 		}
 	}
+	public function delete($id)
+	{
+		$user = $this->user->getUser($id);
+		$lokasi  = ('image/foto/' . $user['foto']);
+		if (file_exists($lokasi)) {
+			unlink($lokasi);
+		}
+		$this->user->delete($user['id']);
+		session()->setFlashdata('success', 'Data Berhasil Dihapus');
+		return redirect()->to('/Admin/User');
+	}
 }
