@@ -16,6 +16,8 @@ class UserManage extends BaseController
 	public function index()
 	{
 		$data = [
+			'active' => 'user',
+			'submenu' => '',
 			'title'  => 'User Management',
 			'user' 	 => $this->user->getUser(),
 			'validation' =>  \Config\Services::validation()
@@ -24,7 +26,10 @@ class UserManage extends BaseController
 	}
 	public function edit($id)
 	{
+		$active = $id == session()->user_id ? 'profil' : 'user';
 		$data = [
+			'active' => $active,
+			'submenu' => '',
 			'title'  => 'User Edit',
 			'list' 	 => $this->user->getUser($id),
 			'validation' =>  \Config\Services::validation()

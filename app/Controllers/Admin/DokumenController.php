@@ -23,7 +23,8 @@ class DokumenController extends BaseController
 			'title' => 'Manage Dokumen',
 			'kategori' => $this->kategori->getKategoriDokumen(),
 			'dokumen' => $this->dokumen->getDokumen(),
-			'sidebar' => 'Dokumen'
+			'active' => 'dokumen',
+			'submenu' => 'view'
 		];
 		return view('/admin/dokumen/index', $data);
 	}
@@ -32,7 +33,8 @@ class DokumenController extends BaseController
 		$data = [
 			'title' => 'Input Dokumen',
 			'kategori' => $this->kategori->getKategoriDokumen(),
-			'sidebar' => 'Dokumen',
+			'active' => 'dokumen',
+			'submenu' => 'input',
 			'validation' =>  \Config\Services::validation()
 		];
 		return view('/admin/dokumen/input', $data);
@@ -111,7 +113,8 @@ class DokumenController extends BaseController
 		$data = [
 			'title' => 'Detail Dokumen',
 			'dokumen' => $this->dokumen->getDokumen($id),
-			'sidebar' => 'Dokumen'
+			'active' => 'dokumen',
+			'submenu' => ''
 		];
 		return view('/admin/dokumen/detail', $data);
 	}
@@ -122,7 +125,8 @@ class DokumenController extends BaseController
 			'kategori' => $this->kategori->getKategoriDokumen(),
 			'dokumen' => $this->dokumen->getDokumen($id),
 			'validation' =>  \Config\Services::validation(),
-			'sidebar' => 'Dokumen'
+			'active' => 'dokumen',
+			'submenu' => ''
 		];
 		return view('/admin/dokumen/edit', $data);
 	}

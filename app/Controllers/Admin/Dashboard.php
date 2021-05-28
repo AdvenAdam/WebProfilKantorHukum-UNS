@@ -27,7 +27,8 @@ class Dashboard extends BaseController
 			'status'		=> $this->status(),
 			'kategori'		=> $this->kategori(),
 			'title' 	    => 'Dashboard Admin',
-			'side' 	        => 'dashboard'
+			'active' 	    => 'dashboard',
+			'submenu'		=> ''
 		];
 		// dd($this->status());
 		return view('/Admin/Dashboard', $data);
