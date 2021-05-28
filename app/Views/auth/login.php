@@ -11,7 +11,7 @@
     <!-- The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>Circl - Responsive Admin Dashboard Template</title>
+    <title><?= $title; ?></title>
 
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700,800&display=swap" rel="stylesheet">
@@ -38,15 +38,14 @@
     </div>
     <div class="container">
         <div class="row justify-content-md-center">
-            <div class="col-md-12 col-lg-5">
+            <div class="col-md-12 col-lg-4">
                 <div class="card login-box-container">
                     <div class="card-body">
                         <div class="authent-logo">
-                            <img src="/tema/admin/circl/theme/assets/images/logo@2x.png" alt="">
+                            <img src="/tema/admin/circl/theme/assets/images/logo.png" alt="">
                         </div>
                         <div class="authent-text">
-                            <p>Welcome to Login Page!</p>
-                            <h4 class="card-header">Insert Text Here</h4>
+                            <p>Selamat Datang di Halaman Login!</p>
                             <?php if (session()->getFlashdata('danger')) { ?>
                                 <div class="alert alert-danger fade show" role="alert">
                                     <span><?= session()->getFlashdata('danger'); ?></span>

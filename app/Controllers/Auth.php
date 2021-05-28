@@ -49,7 +49,7 @@ class Auth extends BaseController
 		// checking username / email 
 		$dataUser = $this->user->where('email=', $login)->orwhere('username=', $login)->first();
 		if (!$dataUser) {
-			session()->setFlashdata('danger', 'Pastikan Email/Username Anda Benar');
+			session()->setFlashdata('danger', 'Pastikan Email/Username & Password Anda Benar');
 			return redirect()->to('/login');
 		} else {
 			$pass = $dataUser['password'];
@@ -66,11 +66,17 @@ class Auth extends BaseController
 				];
 				session()->set($ses_data);
 				session()->setFlashdata('success', 'Selamat Datang, ' . session()->user_name);
-				return redirect()->to('/admin');
+				return redirect()->to('/Admin');
 			} else {
-				session()->setFlashdata('danger', 'Pasword Anda Salah');
+				session()->setFlashdata('danger', 'Pastikan Email/Username & Password Anda Benar');
 				return redirect()->to('/login');
 			}
 		}
+	}
+
+	public function logout()
+	{
+		session()->destroy();
+		return redirect()->to('/');
 	}
 }

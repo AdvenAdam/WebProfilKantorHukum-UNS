@@ -33,4 +33,10 @@ class Dokumen extends Model
 				->first();
 		}
 	}
+	public function getDokumenByKategori($kategori)
+	{
+		return $this
+			->where('tbl_dokumen.id_kategori_dokumen=', $kategori)
+			->findAll();
+	}
 }

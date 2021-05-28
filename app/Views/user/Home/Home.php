@@ -1,10 +1,12 @@
-<?= $this->extend('member/template/v_main'); ?>
+<?= $this->extend('user/layout/v_main'); ?>
 <?= $this->section('content'); ?>
 
-<?= $this->include('member/Home/Slider'); ?>
-<?= $this->include('member/Home/Statistik'); ?>
-<?= $this->include('member/Home/Data'); ?>
-<?= $this->include('member/Home/Tentang'); ?>
+<?= $this->include('user/Home/Slider'); ?>
+<?= $this->include('user/Home/Tentang'); ?>
+<?= $this->include('user/Home/ProdukHukum'); ?>
+
+
+<?= $this->include('user/Home/Kontak'); ?>
 
 
 <?= $this->endSection(); ?>

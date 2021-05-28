@@ -13,8 +13,13 @@ class Home extends BaseController
 	}
 	public function index()
 	{
-
-		return view('/admin/layout/main');
+		$data = [
+			'title' => 'Kantor Hukum UNS'
+		];
+		if (session()->logged_in == true) {
+			# code...
+		}
+		return view('/user/Home/Home', $data);
 	}
 	public function cekBerlaku()
 	{

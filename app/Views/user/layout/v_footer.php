@@ -47,7 +47,7 @@
               <div class="row">
                   <div class="col-lg-12">
                       <div class="footer-copyright">
-                          <p>Copyright By@ <span>WebTend</span> - 2021</p>
+                          @UNS2021
                       </div> <!-- footer copyright -->
                   </div>
               </div> <!-- row -->

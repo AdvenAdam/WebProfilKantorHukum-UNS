@@ -22,7 +22,9 @@ $routes->setDefaultNamespace('App\Controllers');
 $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
-$routes->set404Override();
+$routes->set404Override(function () {
+	echo view('404.html');
+});
 $routes->setAutoRoute(true);
 
 /*
@@ -35,10 +37,11 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
+$routes->get('/logout', 'Auth::logout');
 $routes->get('/login', 'Auth::index');
 $routes->post('/login', 'Auth::login');
 
-$routes->group('Admin', ["namespace" => "App\Controllers\Admin"], function ($routes) {
+$routes->group('Admin', ["namespace" => "App\Controllers\Admin", 'filter' => 'ceklogin'], function ($routes) {
 	$routes->get('/', 'Dashboard::index');
 	//dokumen 
 	$routes->group('Dokumen',  function ($routes) {
@@ -56,7 +59,6 @@ $routes->group('Admin', ["namespace" => "App\Controllers\Admin"], function ($rou
 		$routes->post('save', 'UserManage::save');
 		$routes->post('update/(:any)', 'UserManage::update/$1');
 		$routes->post('delete/(:any)', 'UserManage::delete/$1');
-		$routes->get('detail/(:any)', 'UserManage::detail/$1');
 		$routes->get('edit/(:any)', 'UserManage::edit/$1');
 		$routes->post('editPass/(:any)', 'UserManage::ubahPassword/$1');
 	});

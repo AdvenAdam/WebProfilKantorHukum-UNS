@@ -43,9 +43,9 @@
 </head>
 
 <body>
-    <?= $this->include('member/template/v_nav'); ?>
+    <?= $this->include('user/layout/v_nav'); ?>
     <?= $this->renderSection('content'); ?>
-    <?= $this->include('member/template/v_footer'); ?>
+    <?= $this->include('user/layout/v_footer'); ?>
 
     <!--====== jquery js ======-->
     <script src="/tema/user/template/assets/js/vendor/modernizr-3.6.0.min.js"></script>
