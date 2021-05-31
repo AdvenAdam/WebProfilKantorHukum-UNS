@@ -25,6 +25,9 @@
         <li class="<?= $active == 'kategori' ? 'active-page' : ''; ?>">
             <a href="/Admin/Kategori"><i data-feather="book"></i>Kategori</a>
         </li>
+        <li class="<?= $active == 'informasi' ? 'active-page' : ''; ?>">
+            <a href="/Admin/Informasi"><i data-feather="info"></i>Informasi</a>
+        </li>
         <li>
             <a href="/Admin/Struktur"><i data-feather="briefcase"></i>Struktur Organisasi</a>
         </li>

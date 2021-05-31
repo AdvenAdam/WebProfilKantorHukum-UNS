@@ -20,15 +20,16 @@ class Dashboard extends BaseController
 	{
 
 		$data = [
-			'jml_dokumen' 	=> count($this->dokumen->findAll()),
-			'usertampil'	=> $this->user->orderBy('id', 'DESC')->get(3)->getResultArray(),
-			'user'			=> $this->user->getUser(),
-			'tahun'			=> $this->tahundok(),
-			'status'		=> $this->status(),
-			'kategori'		=> $this->kategori(),
-			'title' 	    => 'Dashboard Admin',
-			'active' 	    => 'dashboard',
-			'submenu'		=> ''
+			'jml_dokumen' 	 => count($this->dokumen->findAll()),
+			'usertampil'	 => $this->user->orderBy('id', 'DESC')->get(3)->getResultArray(),
+			'user'			 => $this->user->getUser(),
+			'tahun'			 => $this->tahundok(),
+			'status'		 => $this->status(),
+			'kategori'		 => $this->kategori(),
+			'title' 	     => 'Dashboard Admin',
+			'active' 	     => 'dashboard',
+			'submenu'		 => '',
+			'jumlahKategori' => count($this->kategori->findAll()),
 		];
 		// dd($this->status());
 		return view('/Admin/Dashboard', $data);

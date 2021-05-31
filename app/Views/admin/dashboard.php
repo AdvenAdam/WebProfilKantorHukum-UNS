@@ -34,7 +34,7 @@
                 <div class="card stat-widget">
                     <div class="card-body">
                         <h5 class="card-title">Kategori Dokumen</h5>
-                        <h2>87</h2>
+                        <h2><?= $jumlahKategori; ?></h2>
                         <i class="fas fa-tags fa-7x"></i>
                     </div>
                 </div>
@@ -88,7 +88,6 @@
                     </div>
                 </div>
             </div>
-            <h2>Detail Data Dokumen</h2>
 
         </div>
         <?= $this->endSection(); ?>
@@ -114,7 +113,7 @@
                         "datasets": [{
                             "label": "My First Dataset",
                             "data": <?= json_encode($jumlahKategori); ?>,
-                            "backgroundColor": ["#8a75d5", "#00f7ff", "#00ff81"]
+                            "backgroundColor": ["#8a75d5", "#00f7ff", "#00ff81", "#e7ff00", "#f4670b", "#8100ff", "#39b5c6"]
                         }]
                     }
                 });
@@ -125,7 +124,7 @@
                         "datasets": [{
                             "label": "My First Dataset",
                             "data": <?= json_encode($jumlahStatus); ?>,
-                            "backgroundColor": ["#8a75d5", "#00f7ff", "#00ff81"]
+                            "backgroundColor": ["#8a75d5", "#00f7ff", "#00ff81", "#e7ff00", "#f4670b", "#8100ff", "#39b5c6"]
                         }]
                     }
                 });
