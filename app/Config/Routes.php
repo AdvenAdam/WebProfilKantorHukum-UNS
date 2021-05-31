@@ -76,6 +76,10 @@ $routes->group('Admin', ["namespace" => "App\Controllers\Admin", 'filter' => 'ce
 		$routes->get('/', 'StrukturOrganisasiController::index');
 		$routes->post('update/(:any)', 'StrukturOrganisasiController::update/$1');
 	});
+	$routes->group('Informasi',  function ($routes) {
+		$routes->get('/', 'InformasiController::index');
+		$routes->post('update/(:num)', 'InformasiController::update/$1');
+	});
 });
 
 /*
