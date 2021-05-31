@@ -70,7 +70,7 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="staticBackdropLabel">Masukan Password Untuk Mengubah Data</h5>
-                                            <button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                                            <a class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></a>
                                         </div>
                                         <div class="modal-body">
                                             <div class="form-floating mb-3">

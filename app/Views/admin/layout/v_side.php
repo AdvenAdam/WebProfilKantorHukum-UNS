@@ -23,7 +23,7 @@
             <a href="social.html"><i data-feather="sidebar"></i>Slider</a>
         </li>
         <li>
-            <a href="file-manager.html"><i data-feather="briefcase"></i>Struktur Organisasi</a>
+            <a href="/Admin/Struktur"><i data-feather="briefcase"></i>Struktur Organisasi</a>
         </li>
         <li class="sidebar-title">
             User

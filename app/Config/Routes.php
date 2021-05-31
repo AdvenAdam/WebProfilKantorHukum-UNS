@@ -39,6 +39,8 @@ $routes->get('/', 'Home::index');
 
 $routes->get('/logout', 'Auth::logout');
 $routes->get('/login', 'Auth::index');
+$routes->get('/dokumen/detailDokumen/(:any)', 'Home::detail/$1');
+$routes->get('/Download/(:any)', 'Home::download/$1');
 $routes->post('/login', 'Auth::login');
 
 $routes->group('Admin', ["namespace" => "App\Controllers\Admin", 'filter' => 'ceklogin'], function ($routes) {
@@ -61,6 +63,10 @@ $routes->group('Admin', ["namespace" => "App\Controllers\Admin", 'filter' => 'ce
 		$routes->post('delete/(:any)', 'UserManage::delete/$1');
 		$routes->get('edit/(:any)', 'UserManage::edit/$1');
 		$routes->post('editPass/(:any)', 'UserManage::ubahPassword/$1');
+	});
+	$routes->group('Struktur',  function ($routes) {
+		$routes->get('/', 'StrukturOrganisasiController::index');
+		$routes->post('update/(:any)', 'StrukturOrganisasiController::update/$1');
 	});
 });
 

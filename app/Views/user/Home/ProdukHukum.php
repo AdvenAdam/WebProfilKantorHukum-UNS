@@ -1,6 +1,6 @@
 <!--====== LATEST NEWS PART START ======-->
 
-<div class="latest-news-area gray-bg" id="berita">
+<div class="latest-news-area gray-bg pb-10" id="berita">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-6">
@@ -11,29 +11,46 @@
             </div>
         </div> <!-- row -->
     </div> <!-- container -->
-    <div class="letast-news-grid white-bg  ml-40 mr-40">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="latest-news">
-                        <div class="row justify-content-center">
-
-                            <div class="col-lg-4 col-md-6 wow slideInUp" data-wow-duration="1.5s" data-wow-delay="0s">
-                                <div class="letest-news-item mt-30">
-                                    <span>By author</span>
-                                    <h4 class="title"><a href="#">judul</a></h4>
-                                    <img src="image/foto/default.jpg" alt="team-member" style="height: 200px;">
-                                    isi
-                                    <a class="main-btn" href="#">Read More <i class="fal fa-long-arrow-right"></i></a>
-                                </div> <!-- lesast news item -->
-                            </div>
-
-                        </div>
-                    </div> <!-- latest news -->
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-    </div>
 </div>
+<section class="cart-area pt-50 pb-140">
+    <div class="container">
+        <div class="cart-table table-responsive">
+            <table class="table" id="example" width="100%">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Judul</th>
+                        <th>Tahun</th>
+                        <th>Kategori </th>
+                        <th>Berlaku</th>
+                        <th>Lihat</th>
+                        <th>Download</th>
+                    </tr>
+                </thead>
+                <?php $i = 1; ?>
+                <tbody>
+                    <?php foreach ($dokumen as $list) { ?>
+                        <tr>
+                            <td class="product-thumbnail">
+                                <?= $i++; ?>
+                            </td>
+                            <td><?= $list['judul']; ?></td>
+                            <td><?= $list['tahun']; ?></td>
+                            <td><?= $list['kategori_dokumen']; ?></td>
+                            <td><?= $list['created_at'] == '0000-00-00' ? '-' : format_indo($list['created_at']); ?></td>
+                            <td>
+                                <a href="dokumen/detailDokumen/<?= $list['id']; ?>" class="btn btn-primary">Lihat</a>
+                            </td>
+                            <td>
+                                <a href="Download/<?= $list['id']; ?>" class="btn btn-success">Download</a>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
 
 <!--====== LATEST NEWS PART ENDS ======-->

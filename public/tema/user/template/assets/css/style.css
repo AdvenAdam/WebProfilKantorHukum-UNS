@@ -7364,7 +7364,7 @@ nav .pagination.pagination-2 li a {
 ================================*/
 .latest-news-area {
   padding-top: 112px;
-  padding-bottom: 120px; }
+  padding-bottom: 10px; }
   .latest-news-area .section-title span {
     letter-spacing: 3px; }
   .latest-news-area .section-title .title {

@@ -23,13 +23,12 @@ class Dokumen extends Model
 		if ($id == false) {
 			return $this
 				->join('tbl_kategori_dokumen', 'tbl_dokumen.id_kategori_dokumen = tbl_kategori_dokumen.id_kategori_dokumen')
-				->orderBy('tbl_dokumen.id')
+				->orderBy('tbl_dokumen.id', 'DESC')
 				->get()->getResultArray();
 		} else {
 			return $this
 				->join('tbl_kategori_dokumen', 'tbl_dokumen.id_kategori_dokumen = tbl_kategori_dokumen.id_kategori_dokumen')
 				->where('tbl_dokumen.id=', $id)
-				->orderBy('tbl_dokumen.id')
 				->first();
 		}
 	}
