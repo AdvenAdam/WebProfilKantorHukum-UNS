@@ -22,6 +22,9 @@
         <li>
             <a href="social.html"><i data-feather="sidebar"></i>Slider</a>
         </li>
+        <li class="<?= $active == 'kategori' ? 'active-page' : ''; ?>">
+            <a href="/Admin/Kategori"><i data-feather="book"></i>Kategori</a>
+        </li>
         <li>
             <a href="/Admin/Struktur"><i data-feather="briefcase"></i>Struktur Organisasi</a>
         </li>

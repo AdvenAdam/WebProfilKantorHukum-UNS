@@ -39,7 +39,7 @@
                             <td><?= $list['kategori_dokumen']; ?></td>
                             <td><?= $list['created_at'] == '0000-00-00' ? '-' : format_indo($list['created_at']); ?></td>
                             <td>
-                                <a href="dokumen/detailDokumen/<?= $list['id']; ?>" class="btn btn-primary">Lihat</a>
+                                <a href="detailDokumen/<?= $list['id']; ?>" class="btn btn-primary">Lihat</a>
                             </td>
                             <td>
                                 <a href="Download/<?= $list['id']; ?>" class="btn btn-success">Download</a>

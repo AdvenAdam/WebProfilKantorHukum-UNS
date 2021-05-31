@@ -5,16 +5,16 @@ namespace App\Controllers;
 use App\Models\Dokumen;
 use CodeIgniter\Exceptions\AlertError;
 
-if (session()->logged_in == true) {
-	return redirect('/Admin');
-}
+
 class Home extends BaseController
 {
 	protected $kategori, $dokumen;
 	function __construct()
 	{
 		$this->dokumen = new Dokumen();
+		$this->cekBerlaku();
 	}
+
 	public function index()
 	{
 		$data = [
@@ -41,7 +41,7 @@ class Home extends BaseController
 			return $this->response->download($file, null);
 		} else {
 			session()->setFlashdata('danger', 'File Tidak Ditemukan Harap Melapor Ke Admin');
-			return redirect()->to('/dokumen/detailDokumen/' . $data['id']);
+			return redirect()->to('detailDokumen/' . $data['id']);
 		}
 	}
 

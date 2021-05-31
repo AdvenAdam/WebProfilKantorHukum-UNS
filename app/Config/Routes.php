@@ -35,25 +35,23 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+if (session()->logged_in != true) {
+	$routes->get('/', 'Home::index');
+	$routes->get('/login', 'Auth::index');
+	$routes->post('/login', 'Auth::login');
+	$routes->get('/detailDokumen/(:any)', 'Home::detail/$1');
+	$routes->get('/Download/(:any)', 'Home::download/$1');
+}
 
 $routes->get('/logout', 'Auth::logout');
-$routes->get('/login', 'Auth::index');
-$routes->get('/dokumen/detailDokumen/(:any)', 'Home::detail/$1');
-$routes->get('/Download/(:any)', 'Home::download/$1');
-$routes->post('/login', 'Auth::login');
-
 $routes->group('Admin', ["namespace" => "App\Controllers\Admin", 'filter' => 'ceklogin'], function ($routes) {
 	$routes->get('/', 'Dashboard::index');
-	//dokumen 
-	$routes->group('Dokumen',  function ($routes) {
-		$routes->get('/', 'DokumenController::index');
-		$routes->get('create', 'DokumenController::create');
-		$routes->post('save', 'DokumenController::save');
-		$routes->post('update/(:any)', 'DokumenController::update/$1');
-		$routes->post('delete/(:any)', 'DokumenController::delete/$1');
-		$routes->get('detail/(:any)', 'DokumenController::detail/$1');
-		$routes->get('edit/(:any)', 'DokumenController::edit/$1');
+
+	$routes->group('Kategori',  function ($routes) {
+		$routes->get('/', 'KategoriController::index');
+		$routes->post('save', 'KategoriController::save');
+		$routes->post('delete/(:num)', 'KategoriController::delete/$1');
+		$routes->post('update/(:num)', 'KategoriController::update/$1');
 	});
 	$routes->group('User',  function ($routes) {
 		$routes->get('/', 'UserManage::index');
@@ -63,6 +61,16 @@ $routes->group('Admin', ["namespace" => "App\Controllers\Admin", 'filter' => 'ce
 		$routes->post('delete/(:any)', 'UserManage::delete/$1');
 		$routes->get('edit/(:any)', 'UserManage::edit/$1');
 		$routes->post('editPass/(:any)', 'UserManage::ubahPassword/$1');
+	});
+	//dokumen 
+	$routes->group('Dokumen',  function ($routes) {
+		$routes->get('/', 'DokumenController::index');
+		$routes->get('create', 'DokumenController::create');
+		$routes->post('save', 'DokumenController::save');
+		$routes->post('update/(:any)', 'DokumenController::update/$1');
+		$routes->post('delete/(:any)', 'DokumenController::delete/$1');
+		$routes->get('detail/(:any)', 'DokumenController::detail/$1');
+		$routes->get('edit/(:any)', 'DokumenController::edit/$1');
 	});
 	$routes->group('Struktur',  function ($routes) {
 		$routes->get('/', 'StrukturOrganisasiController::index');

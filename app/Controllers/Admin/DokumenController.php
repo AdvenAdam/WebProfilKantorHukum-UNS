@@ -14,8 +14,8 @@ class DokumenController extends BaseController
 	{
 		$this->kategori = new Kategori();
 		$this->dokumen = new Dokumen();
-		$this->home = new Home();
-		$this->home->cekBerlaku();
+		// $this->home = new Home();
+		$this->cekBerlaku();
 	}
 	public function index()
 	{
@@ -92,7 +92,7 @@ class DokumenController extends BaseController
 		$fileDokumen = $this->request->getFile('dokumen');
 		$id_kategori = $this->request->getVar('kategori_dokumen');
 		// menentukan nama folder tempat file yg di upload berdasarkan kategori
-		$kategori    = $this->kategori->getKategoriById($id_kategori);
+		$kategori    = $this->kategori->getKategoriDokumen($id_kategori);
 		$namaDokumen = $this->setFilename() . '.' . $fileDokumen->getClientExtension();
 		$fileDokumen->move('dokumen/' . $kategori['kategori_dokumen'], $namaDokumen);
 		$data = [
@@ -146,14 +146,14 @@ class DokumenController extends BaseController
 		$fileDokumen = $this->request->getFile('dokumen');
 		// mendapatkan kategori berdasarkan id_kategori yang dinputka di field
 		$id_kategori = $this->request->getVar('kategori_dokumen');
-		$kategori    = $this->kategori->getKategoriById($id_kategori);
+		$kategori    = $this->kategori->getKategoriDokumen($id_kategori);
 
 		// jika tidak ada file diupload dan kategori tidak diubah
 		if ($fileDokumen->getError() == 4 && $dataLama['id_kategori_dokumen'] == $id_kategori) {
 			$namaDokumen = 'dokumen/' . $kategori['kategori_dokumen'] . '/' . $this->setFilename() . '.' . $extension;
 			rename($DokumenLama, $namaDokumen);
 			$namaDokumen = $this->setFilename() . '.' . $extension;
-			// jika tidak ada file di upload dan kategori masih sama
+			// jika tidak ada file di upload dan kategori Berubah
 		} else if ($fileDokumen->getError() == 4 && $dataLama['id_kategori_dokumen'] != $id_kategori) {
 			$namaDokumen = $this->setFilename() . '.' . $extension;
 			rename($DokumenLama, 'dokumen/' . $kategori['kategori_dokumen'] . '/' .  $namaDokumen);
@@ -191,5 +191,29 @@ class DokumenController extends BaseController
 		$this->dokumen->delete($dokumen['id']);
 		session()->setFlashdata('success', 'Data Berhasil Dihapus');
 		return redirect()->to('/Admin/Dokumen');
+	}
+	public function cekBerlaku()
+	{
+		$data = $this->dokumen->getDokumen();
+		foreach ($data as $value) {
+			if (($value['sampai']) != '0000-00-00') {
+				if (strtotime($value['sampai']) < strtotime(date('Y-m-d'))) {
+					$this->dokumen->save([
+						'id' => $value['id'],
+						'status' => 2
+					]);
+				} else if (strtotime($value['sampai']) > strtotime(date('Y-m-d'))) {
+					$this->dokumen->save([
+						'id' => $value['id'],
+						'status' => 1
+					]);
+				}
+			} else {
+				$this->dokumen->save([
+					'id' => $value['id'],
+					'status' => 3
+				]);
+			}
+		}
 	}
 }

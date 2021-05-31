@@ -13,13 +13,11 @@ class Kategori extends Model
 	protected $protectFields        = true;
 	protected $allowedFields        = ['kategori_dokumen'];
 
-	public function getKategoriDokumen()
+	public function getKategoriDokumen($id = false)
 	{
-		return $this->findAll();
-	}
-
-	public function getKategoriById($id)
-	{
+		if ($id == false) {
+			return $this->findAll();
+		}
 		return $this->find($id);
 	}
 }

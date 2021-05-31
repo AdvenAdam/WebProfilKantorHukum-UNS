@@ -35,6 +35,7 @@ class Dokumen extends Model
 	public function getDokumenByKategori($kategori)
 	{
 		return $this
+			->join('tbl_kategori_dokumen', 'tbl_dokumen.id_kategori_dokumen = tbl_kategori_dokumen.id_kategori_dokumen')
 			->where('tbl_dokumen.id_kategori_dokumen=', $kategori)
 			->findAll();
 	}
