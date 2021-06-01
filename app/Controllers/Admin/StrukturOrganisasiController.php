@@ -50,11 +50,6 @@ class StrukturOrganisasiController extends BaseController
 			session()->setFlashdata('danger', 'Data Gagal Diubah');
 			return redirect()->to('/Admin/Struktur')->withInput();
 		} else {
-			$password = $this->request->getVar('password');
-			$pass	  = $dataUser['password'];
-			$verify = password_verify($password, $pass);
-		}
-		if ($verify) {
 			$fileStruktur = $this->request->getFile('struktur');
 			if ($fileStruktur->getError() == 4) {
 				$namaStruktur = $dataLama['struktur_organisasi'];
@@ -72,9 +67,6 @@ class StrukturOrganisasiController extends BaseController
 			$this->struktur->save($data);
 			session()->setFlashdata('success', 'Data Berhasil Diubah');
 			return redirect()->to('/Admin/Struktur');
-		} else if (!$verify) {
-			session()->setFlashdata('danger', "Password Yang Anda Masukan Salah, Data Tidak Diubah ");
-			return redirect()->to('/Admin/Struktur')->withInput();
 		}
 	}
 }

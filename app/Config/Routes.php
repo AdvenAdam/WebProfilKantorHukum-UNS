@@ -39,6 +39,7 @@ if (session()->logged_in != true) {
 	$routes->get('/', 'Home::index');
 	$routes->get('/login', 'Auth::index');
 	$routes->post('/login', 'Auth::login');
+	$routes->post('/saveMasukan', 'Admin/KontakController::save');
 	$routes->get('/detailDokumen/(:any)', 'Home::detail/$1');
 	$routes->get('/Download/(:any)', 'Home::download/$1');
 }
@@ -79,6 +80,18 @@ $routes->group('Admin', ["namespace" => "App\Controllers\Admin", 'filter' => 'ce
 	$routes->group('Informasi',  function ($routes) {
 		$routes->get('/', 'InformasiController::index');
 		$routes->post('update/(:num)', 'InformasiController::update/$1');
+	});
+	$routes->group('Masukan',  function ($routes) {
+		$routes->get('/', 'KontakController::index');
+		$routes->post('delete/(:num)', 'KontakController::delete/$1');
+	});
+	$routes->group('Slider',  function ($routes) {
+		$routes->get('/', 'SliderController::index');
+		$routes->get('create', 'SliderController::create');
+		$routes->get('edit/(:any)', 'SliderController::edit/$1');
+		$routes->post('delete/(:num)', 'SliderController::delete/$1');
+		$routes->post('update/(:num)', 'SliderController::update/$1');
+		$routes->post('save', 'SliderController::save');
 	});
 });
 

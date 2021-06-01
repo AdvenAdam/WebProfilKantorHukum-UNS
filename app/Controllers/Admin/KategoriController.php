@@ -115,7 +115,6 @@ class KategoriController extends BaseController
 		session()->setFlashdata('success', 'Data Berhasil Dihapus');
 		return redirect()->to('/Admin/Kategori');
 	}
-
 	function dir_is_empty($dir)
 	{
 		$handle = opendir($dir);

@@ -4,8 +4,6 @@
 <?= $this->include('user/Home/Slider'); ?>
 <?= $this->include('user/Home/Tentang'); ?>
 <?= $this->include('user/Home/ProdukHukum'); ?>
-
-
 <?= $this->include('user/Home/Kontak'); ?>
 
 

@@ -19,14 +19,17 @@
         <li class="<?= $active == 'user' ? 'active-page' : ''; ?>">
             <a href="/Admin/User"><i data-feather="users"></i>Users</a>
         </li>
-        <li>
-            <a href="social.html"><i data-feather="sidebar"></i>Slider</a>
+        <li class="<?= $active == 'slider' ? 'active-page' : ''; ?>">
+            <a href="/Admin/Slider"><i data-feather="sidebar"></i>Slider</a>
         </li>
         <li class="<?= $active == 'kategori' ? 'active-page' : ''; ?>">
             <a href="/Admin/Kategori"><i data-feather="book"></i>Kategori</a>
         </li>
         <li class="<?= $active == 'informasi' ? 'active-page' : ''; ?>">
             <a href="/Admin/Informasi"><i data-feather="info"></i>Informasi</a>
+        </li>
+        <li class="<?= $active == 'masukan' ? 'active-page' : ''; ?>">
+            <a href="/Admin/Masukan"><i data-feather="inbox"></i>Masukan</a>
         </li>
         <li>
             <a href="/Admin/Struktur"><i data-feather="briefcase"></i>Struktur Organisasi</a>

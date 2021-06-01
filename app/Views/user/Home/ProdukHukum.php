@@ -1,6 +1,6 @@
 <!--====== LATEST NEWS PART START ======-->
 
-<div class="latest-news-area gray-bg pb-10" id="berita">
+<div class="latest-news-area gray-bg pb-10" id="produkHukum">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-6">

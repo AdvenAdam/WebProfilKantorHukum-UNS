@@ -21,38 +21,39 @@
                         </div>
                     </div>
                     <div class="contact-form-area">
-                        <form action="#">
+                        <form action="/saveMasukan" method="POST" enctype="multipart/form-data">
+                            <?= csrf_field() ?>
                             <div class="input-title">
                                 <h3 class="title">Kirimkan Kritik & Saran Anda</h3>
                             </div> <!-- input title -->
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="input-box mt-30">
-                                        <input type="text" placeholder="Full Name Here">
+                                        <input type="text" name="nama" placeholder="Full Name Here">
                                         <i class="fal fa-user"></i>
                                     </div> <!-- input box -->
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="input-box mt-30">
-                                        <input type="email" placeholder="Email Here">
+                                        <input type="email" name="email" placeholder="Email Here">
                                         <i class="fal fa-envelope-open"></i>
                                     </div> <!-- input box -->
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="input-box mt-30">
-                                        <input type="text" placeholder="Phone No">
+                                        <input type="text" name="phone" placeholder="Phone No">
                                         <i class="fal fa-phone"></i>
                                     </div> <!-- input box -->
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="input-box mt-30">
-                                        <input type="text" placeholder="Subject">
+                                        <input type="text" name="subject" placeholder="Subject">
                                         <i class="fal fa-edit"></i>
                                     </div> <!-- input box -->
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="input-box mt-30">
-                                        <textarea name="#" id="#" cols="30" rows="10" placeholder="Message Us"></textarea>
+                                        <textarea cols="30" name="pesan" rows="10" placeholder="Message Us"></textarea>
                                         <i class="fal fa-pencil"></i>
                                         <button class="main-btn wow slideInUp" data-wow-duration="1.5s" data-wow-delay="0s" type="submit">Send Message <i class="fal fa-long-arrow-right"></i></button>
                                     </div> <!-- input box -->

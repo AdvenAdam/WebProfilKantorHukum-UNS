@@ -3,15 +3,17 @@
 namespace App\Controllers;
 
 use App\Models\Dokumen;
+use App\Models\Slider;
 use CodeIgniter\Exceptions\AlertError;
 
 
 class Home extends BaseController
 {
-	protected $kategori, $dokumen;
+	protected $kategori, $dokumen, $slider;
 	function __construct()
 	{
 		$this->dokumen = new Dokumen();
+		$this->slider = new Slider();
 		$this->cekBerlaku();
 	}
 
@@ -19,9 +21,9 @@ class Home extends BaseController
 	{
 		$data = [
 			'title' 	=> 'Kantor Hukum UNS',
-			'dokumen' 	=> $this->dokumen->getDokumen()
+			'dokumen' 	=> $this->dokumen->getDokumen(),
+			'slider'	=> $this->slider->getSlider()
 		];
-
 
 		return view('/user/Home/Home', $data);
 	}
