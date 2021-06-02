@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-6">
                 <div class="section-title text-center">
-                    <span>Produk Hukum</span>
+                    <span>Kantor Hukum Universitas Sebelas Maret</span>
                     <h4 class="title">Produk Hukum</h4>
                 </div> <!-- sction title -->
             </div>

@@ -9,7 +9,6 @@
                         <h3 class="Card-title mb-4">Data Kategori Tersimpan</h3>
                         <div class="row mb-4">
                             <div class="col-6">
-                                <a href="" data-bs-toggle="modal" data-bs-target="#input" class="btn btn-primary">Tambah Data</a>
                                 <a href="Slider/create" class="btn btn-primary">Tambah Data</a>
                             </div>
                         </div>
@@ -71,56 +70,24 @@
             </div>
         </div>
     </div>
-    <!-- Modal Input Data -->
-    <div class="modal fade" id="input" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
+    <!-- modal confirm hapus -->
+    <div class="modal fade" id="confirm" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Form Edit Data</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">Pastikan Anda Yakin ??</h5>
                     <button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
                 </div>
-                <form action="/Admin/Slider/save" method="Post" id="formUser" style="color: #45493e;" enctype="multipart/form-data">
-                    <div class="modal-body">
-                        <?= csrf_field(); ?>
-                        <div class="form-floating mb-3">
-                            <input type="text" value="<?= old('judul'); ?>" name="judul" class="form-control <?= $validation->hasError('judul') ? 'is-invalid' : '' ?>" id="judul" placeholder="judul">
-                            <label for="judul">Judul</label>
-                            <div class="invalid-feedback">
-                                <?= $validation->getError('judul'); ?>
-                            </div>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" value="<?= old('subjudul'); ?>" name="subjudul" class="form-control" id="subjudul" placeholder="subjudul">
-                            <label for="subjudul">Sub Judul</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" value="<?= old('keterangan'); ?>" name="keterangan" class="form-control" id="keterangan" placeholder="keterangan">
-                            <label for="keterangan">Keterangan</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" value="<?= old('link'); ?>" name="link" class="form-control" id="link" placeholder="link">
-                            <label for="link">Link</label>
-                            <strong>**tombol akan otomatis tampil apabila link diisi</strong>
-                        </div>
-
-                        <div class="row mb-3">
-                            <div class="row">
-                                <div class="col-3" style="margin: 0px auto;">
-                                    <img class="img-thumbnail img-preview" src="/image/foto/default.jpg">
-                                </div>
-                            </div>
-                            <label for="foto" class="form-label">Silahkan Pilih Background Slider</label>
-                            <input type="file" id="foto" name="foto" onchange="previewImg()" class="custom-file-input form-control <?= $validation->hasError('foto') ? 'is-invalid' : '' ?>">
-                            <div class="invalid-feedback">
-                                <?= $validation->getError('foto'); ?>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" id="submit" class="btn btn-success d-inline">Tambah Data</button>
+                <div class="modal-body">
+                    Apakah Anda Yakin Untuk Menghapus Data ?
+                </div>
+                <div class="modal-footer">
+                    <form action="" id="id" method="POST">
+                        <?php csrf_field(); ?>
+                        <button class="btn btn-danger d-inline">Ya, Saya Mengerti</button>
                         <a class="btn btn-secondary" data-bs-dismiss="modal">Tutup</a>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

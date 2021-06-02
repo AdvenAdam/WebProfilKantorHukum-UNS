@@ -4,16 +4,20 @@ namespace App\Controllers;
 
 use App\Models\Dokumen;
 use App\Models\Slider;
+use App\Models\StrukturOrganisasi;
+use App\Models\Informasi;
 use CodeIgniter\Exceptions\AlertError;
 
 
 class Home extends BaseController
 {
-	protected $kategori, $dokumen, $slider;
+	protected $kategori, $dokumen, $slider, $struktur, $informasi;
 	function __construct()
 	{
 		$this->dokumen = new Dokumen();
 		$this->slider = new Slider();
+		$this->struktur = new StrukturOrganisasi();
+		$this->informasi = new Informasi();
 		$this->cekBerlaku();
 	}
 
@@ -22,7 +26,7 @@ class Home extends BaseController
 		$data = [
 			'title' 	=> 'Kantor Hukum UNS',
 			'dokumen' 	=> $this->dokumen->getDokumen(),
-			'slider'	=> $this->slider->getSlider()
+			'slider'	=> $this->slider->getSlider(),
 		];
 
 		return view('/user/Home/Home', $data);
@@ -45,6 +49,31 @@ class Home extends BaseController
 			session()->setFlashdata('danger', 'File Tidak Ditemukan Harap Melapor Ke Admin');
 			return redirect()->to('detailDokumen/' . $data['id']);
 		}
+	}
+
+	public function profil()
+	{
+		$data = [
+			'title' 	=> 'Profil Kantor Hukum UNS',
+			'info'	=> $this->informasi->getInfo(),
+		];
+		return view('/user/informasi/profil', $data);
+	}
+	public function tugasPokok()
+	{
+		$data = [
+			'title' 	=> 'Tugas Pokok Kantor Hukum UNS',
+			'info'	=> $this->informasi->getInfo(),
+		];
+		return view('/user/informasi/tugasPokok', $data);
+	}
+	public function struktur()
+	{
+		$data = [
+			'title' 	=> 'Struktur Organisasi Kantor Hukum UNS',
+			'struktur'	=> $this->struktur->getStruktur(),
+		];
+		return view('/user/informasi/struktur', $data);
 	}
 
 	public function cekBerlaku()

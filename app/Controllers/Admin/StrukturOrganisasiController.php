@@ -19,7 +19,7 @@ class StrukturOrganisasiController extends BaseController
 		$data = [
 			'title' => 'Struktur Organisasi',
 			'active' => 'struktur',
-			'submenu' => 'view',
+			'submenu' => '',
 			'struktur' => $this->struktur->getStruktur(),
 			'validation' =>  \Config\Services::validation()
 		];

@@ -100,7 +100,7 @@ h6 {
 ul, ol {
   margin: 0px;
   padding: 0px;
-  list-style-type: none; }
+}
 
 p {
   font-size: 16px;
@@ -501,7 +501,7 @@ PRELOADER
             @media (max-width: 767px) {
               .header-nav .navigation .navbar .navbar-nav .nav-item a span {
                 display: none; } }
-        .header-nav .navigation .navbar .navbar-nav .nav-item .sub-menu {
+        .header-nav .navigation .navbar .navbar-nav .nav-item .sub-menu  {
           position: absolute;
           left: 0;
           top: 110%;
@@ -509,6 +509,7 @@ PRELOADER
           background-color: #fff;
           opacity: 0;
           visibility: hidden;
+          list-style-type: none;
           -webkit-transition: all 0.3s ease-out 0s;
           -moz-transition: all 0.3s ease-out 0s;
           -ms-transition: all 0.3s ease-out 0s;
@@ -5090,7 +5091,8 @@ nav .pagination.pagination-2 li a {
   align-items: center;
   margin-top: 35px; }
   .shop-details-area .shop-details-content .overview .list-2 ul li {
-    display: inline-block; }
+    display: inline-block; 
+  }
     .shop-details-area .shop-details-content .overview .list-2 ul li a {
       height: 50px;
       width: 50px;
@@ -5157,7 +5159,9 @@ nav .pagination.pagination-2 li a {
     .shop-details-area .tab-content .shop-descriptions-area .shop-descriptions-list .shop-list-1 li {
       color: #002249;
       font-weight: 700;
-      line-height: 60px; }
+      line-height: 60px;
+      list-style-type: none;
+    }
   .shop-details-area .tab-content .shop-descriptions-area .shop-descriptions-list .shop-list-2 {
     width: 78%; }
     @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -5171,7 +5175,9 @@ nav .pagination.pagination-2 li a {
         width: 50%; } }
     .shop-details-area .tab-content .shop-descriptions-area .shop-descriptions-list .shop-list-2 li {
       color: #63688e;
-      line-height: 60px; }
+      line-height: 60px; 
+      list-style-type: none;
+    }
   .shop-details-area .tab-content .shop-descriptions-area .shop-descriptions-list:last-child {
     border-bottom: 0; }
 
@@ -5190,6 +5196,7 @@ nav .pagination.pagination-2 li a {
     margin: 0 10px;
     border: 2px solid #e7ecf0;
     color: #63688e;
+    
     font-weight: 700; }
     @media only screen and (min-width: 768px) and (max-width: 991px) {
       .shop-tab .nav li a {

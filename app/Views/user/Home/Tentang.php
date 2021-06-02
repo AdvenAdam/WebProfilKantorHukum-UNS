@@ -4,40 +4,42 @@
         <div class="row">
             <div class="col-lg-5 wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0s">
                 <div class="section-title">
-                    <span>Kantor Hukum UNS</span>
-                    <h2 class="title">Menjadi Insan Kreatif dan Inovatif</h2>
-                </div> <!-- section title -->
+                    <span>Universitas Sebelas Maret</span>
+                    <h2 class="title">Kantor Hukum UNS</h2>
+                </div>
             </div>
             <div class="col-lg-6 offset-lg-1 wow fadeInRight" data-wow-duration="1.5s" data-wow-delay="0s">
                 <div class="section-title">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aliquid perferendis repudiandae quis incidunt, cumque cupiditate commodi distinctio molestias neque?</p>
-                </div> <!-- section title -->
+                    <h3>
+                        <p>Kantor Hukum UNS merupakan unit pengelolaan legalitas produk hukum ditingkat universitas yang berfungsi mengkaji, menyusun, menganalisis, dan mengevaluasi produk hukum dilingkungan Universitas Sebelas Maret.</p>
+                    </h3>
+                </div>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-4 col-md-6 col-sm-6 wow slideInUp" data-wow-duration=".5s" data-wow-delay="0s">
                 <div class="what-we-do-item text-center mt-30">
-                    <i class="fal fa-trophy"></i>
+                    <i class="fal fa-building"></i>
                     <h5 class="title">Profil</h5>
-                    <p>Lihat Akredtasi dari Prodi Pendidikan Teknnik Informatika dan Komputer</p>
-                    <a href="/fasilitas/akreditasi"><i class="fal fa-long-arrow-right"></i></a>
-                </div> <!-- what we do item -->
+                    <p>Lihat Profil dari Kantor Hukum UNS </p>
+                    <a href="/Profil"><i class="fal fa-long-arrow-right"></i></a>
+                </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6 wow slideInUp" data-wow-duration="1s" data-wow-delay="0s">
                 <div class="what-we-do-item text-center mt-30">
-                    <i class="fal fa-building"></i>
+                    <i class="fal fa-users"></i>
                     <h5 class="title">Struktur Organisasi</h5>
-                    <p>Lihat Fasilitas dari Prodi Pendidikan Teknnik Informatika dan Komputer</p>
-                    <a href="/fasilitas"><i class="fal fa-long-arrow-right"></i></a>
-                </div> <!-- what we do item -->
+                    <p>Lihat Struktur Organisasi dari Kantor Hukum UNS</p>
+                    <a href="/StrukturOrganisasi"><i class="fal fa-long-arrow-right"></i></a>
+                </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6 wow slideInUp" data-wow-duration="1.5s" data-wow-delay="0s">
                 <div class="what-we-do-item text-center mt-30">
-                    <i class="fal fa-road"></i>
+                    <i class="fal fa-book-reader"></i>
                     <h5 class="title">Tugas Pokok</h5>
-                    <p>Lihat Fasilitas dari Prodi Pendidikan Teknnik Informatika dan Komputer</p>
-                    <a href="/fasilitas/spmb"><i class="fal fa-long-arrow-right"></i></a>
-                </div> <!-- what we do item -->
+                    <p>Lihat Tugas Pokok dari Kantor Hukum UNS </p>
+                    <a href="/TugasPokok"><i class="fal fa-long-arrow-right"></i></a>
+                </div>
             </div>
         </div> <!-- row -->
     </div> <!-- container -->

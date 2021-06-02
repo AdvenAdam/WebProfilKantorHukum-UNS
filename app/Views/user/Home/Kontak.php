@@ -29,31 +29,31 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="input-box mt-30">
-                                        <input type="text" name="nama" placeholder="Full Name Here">
+                                        <input type="text" name="nama" required placeholder="Full Name Here">
                                         <i class="fal fa-user"></i>
                                     </div> <!-- input box -->
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="input-box mt-30">
-                                        <input type="email" name="email" placeholder="Email Here">
+                                        <input type="email" name="email" required placeholder="Email Here">
                                         <i class="fal fa-envelope-open"></i>
                                     </div> <!-- input box -->
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="input-box mt-30">
-                                        <input type="text" name="phone" placeholder="Phone No">
+                                        <input type="text" name="phone" required placeholder="Phone No">
                                         <i class="fal fa-phone"></i>
                                     </div> <!-- input box -->
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="input-box mt-30">
-                                        <input type="text" name="subject" placeholder="Subject">
+                                        <input type="text" name="subject" required placeholder="Subject">
                                         <i class="fal fa-edit"></i>
                                     </div> <!-- input box -->
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="input-box mt-30">
-                                        <textarea cols="30" name="pesan" rows="10" placeholder="Message Us"></textarea>
+                                        <textarea cols="30" name="pesan" rows="10" required placeholder="Message Us"></textarea>
                                         <i class="fal fa-pencil"></i>
                                         <button class="main-btn wow slideInUp" data-wow-duration="1.5s" data-wow-delay="0s" type="submit">Send Message <i class="fal fa-long-arrow-right"></i></button>
                                     </div> <!-- input box -->

@@ -1,5 +1,8 @@
 <!--====== BANNER PART START ======-->
-
+<?php if ($slider == null) { ?>
+    <div class="banner-active mt-150" id="home">
+    </div>
+<?php } ?>
 <div class="banner-active" id="home">
     <?php foreach ($slider as $list) { ?>
         <div class="single-banner bg_cover" style="background-image: url(image/slider/<?= $list['foto']; ?>);">

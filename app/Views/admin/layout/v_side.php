@@ -31,7 +31,7 @@
         <li class="<?= $active == 'masukan' ? 'active-page' : ''; ?>">
             <a href="/Admin/Masukan"><i data-feather="inbox"></i>Masukan</a>
         </li>
-        <li>
+        <li class="<?= $active == 'struktur' ? 'active-page' : ''; ?>">
             <a href="/Admin/Struktur"><i data-feather="briefcase"></i>Struktur Organisasi</a>
         </li>
         <li class="sidebar-title">

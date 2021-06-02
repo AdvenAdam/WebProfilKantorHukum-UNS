@@ -42,6 +42,9 @@ if (session()->logged_in != true) {
 	$routes->post('/saveMasukan', 'Admin/KontakController::save');
 	$routes->get('/detailDokumen/(:any)', 'Home::detail/$1');
 	$routes->get('/Download/(:any)', 'Home::download/$1');
+	$routes->get('/Profil', 'Home::profil');
+	$routes->get('/StrukturOrganisasi', 'Home::struktur');
+	$routes->get('/TugasPokok', 'Home::tugasPokok');
 }
 
 $routes->get('/logout', 'Auth::logout');

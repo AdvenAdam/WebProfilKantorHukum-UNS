@@ -21,21 +21,15 @@
                <div class="col-md-6 col-sm-7">
                    <div class="header-left-side text-center text-sm-left">
                        <ul>
-                           <li><a href="#"><i class="fal fa-envelope"></i> ptik@fkip.uns.ac.id</a></li>
-                           <li><a href="#"><i class="fal fa-phone"></i> (0271)648939</a></li>
-                           <!-- <li><a href="#"><i class="fal fa-route"></i> Jl. Jend. Ahmad Yani 200A Pabelan, Kartasura</a></li> -->
+                           <li><a href="mailto:kantorhukumuns@gmail.com"><i class="fal fa-envelope"></i> kantorhukumuns@gmail.com</a></li>
+                           <!-- <li><a href="#"><i class="fal fa-phone"></i> (0271)648939</a></li> -->
+                           <li><a href="#"><i class="fal fa-route"></i> Jl. Ir. Sutami No.36, Kentingan, Jebres, Surakarta</a></li>
                        </ul>
                    </div>
                </div>
                <div class="col-md-6 col-sm-5">
                    <div class="header-right-social text-center text-sm-right">
-                       <ul>
-                           <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                           <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                           <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                           <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                           <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-                       </ul>
+
                    </div>
                </div>
            </div>
@@ -58,9 +52,9 @@
                            <li class="nav-item">
                                <a class="nav-link" href="/#profil">Profil</a>
                                <ul class="sub-menu">
-                                   <li><a href="/profil">Profil Prodi</a></li>
-                                   <li><a href="/profil/visi-misi">Visi, Misi Dan Tujuan</a></li>
-                                   <li><a href="/profil/struktur-organisasi">Struktur Organisasi</a></li>
+                                   <li><a href="/Profil">Profil</a></li>
+                                   <li><a href="/TugasPokok">Tugas Pokok</a></li>
+                                   <li><a href="/StrukturOrganisasi">Struktur</a></li>
                                </ul> <!-- sub menu -->
                            </li>
                            <li class="nav-item">
