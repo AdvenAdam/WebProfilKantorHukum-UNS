@@ -28,8 +28,6 @@ class InformasiController extends BaseController
 		$dataLama = $this->informasi->getInfo($id);
 		$profil = $this->request->getVar('profil');
 		$tugas = $this->request->getVar('tugas');
-		$profil = str_replace(array('<ul>', "<ul style:'list-style-type:disc;'>"), array('<ol>', "<ol style:'list-style-type:decimal;'>"), $profil);
-		$tugas = str_replace(array('<ul>', "<ul style:'list-style-type:disc;'>"), array('<ol>', "<ol style:'list-style-type:decimal;'>"), $tugas);
 		if ($profil != null) {
 			$data = [
 				'id' => $id,
