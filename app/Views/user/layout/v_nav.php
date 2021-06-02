@@ -61,7 +61,7 @@
                                <a class="nav-link" href="/#produkHukum">Produk Hukum</a>
                            </li>
                            <li class="nav-item">
-                               <a class="nav-link" href="">Pranala Luar</a>
+                               <a class="nav-link" href="">Peraturan Perundang-undangan</a>
                                <ul class="sub-menu">
                                    <li><a href="https://bphn.jdihn.go.id/" target="_blank">Undang Undang</a></li>
                                    <li><a href="https://jdih.setneg.go.id/">Peraturan Pemerintah</a></li>
