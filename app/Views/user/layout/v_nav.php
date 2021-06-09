@@ -58,7 +58,7 @@
                                </ul> <!-- sub menu -->
                            </li>
                            <li class="nav-item">
-                               <a class="nav-link" href="/#produkHukum">Produk Hukum</a>
+                               <a class="nav-link" href="/ProdukHukum">Produk Hukum</a>
                            </li>
                            <li class="nav-item">
                                <a class="nav-link" href="">Peraturan Perundang-undangan</a>

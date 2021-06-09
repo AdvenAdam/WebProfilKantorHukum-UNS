@@ -6,7 +6,7 @@
                   <div class="col">
                       <center>
                           <h2 class="title" style="color: white;">
-                              Bagian Kantor Hukum UNS
+                              Kantor Hukum
                           </h2>
                           <h4 class="title" style="color: white;">
                               Universitas Sebelas Maret
@@ -17,7 +17,9 @@
               <div class="row">
                   <div class="col-lg-12">
                       <div class="footer-copyright">
-                          @UNS2021
+                          <a href="https://www.instagram.com/khasbiallah/" style="text-decoration:none;">
+                              <h6 class="title" style="color: white;"> @ven</h6>
+                          </a>
                       </div> <!-- footer copyright -->
                   </div>
               </div> <!-- row -->

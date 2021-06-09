@@ -66,7 +66,7 @@
                     <div class="modal-body">
                         <div class="row mb-4">
                             <label for="profil" class="form-label">Profil Kantor Hukum UNS</label>
-                            <textarea name="profil" rows="100" class=" form-control ckeditor" id="editor"><?= $value['profil']; ?>
+                            <textarea name="profil" rows="30" class="form-control" id="editor"><?= $value['profil']; ?>
                                      </textarea>
                         </div>
 
@@ -92,7 +92,7 @@
                     <div class="modal-body">
                         <div class="row mb-4">
                             <label for="tugas" class="form-label">Tugas Pokok Kantor Hukum UNS</label>
-                            <textarea name="tugas" rows="100" class=" form-control" id="editor2"><?= $value['tugas_pokok']; ?>
+                            <textarea name="tugas" rows="100" class="ckeditor form-control" id="editor2"><?= $value['tugas_pokok']; ?>
                                      </textarea>
                         </div>
                     </div>
@@ -113,125 +113,33 @@
 <?= $this->section('source'); ?>
 
 
-<script src="/tema/admin/circl/theme/assets/plugins/ckeditor5/ckeditor.js"></script>
+<!-- <script src="/tema/admin/circl/theme/assets/plugins/ckeditor/ckeditor.js"></script> -->
+<script src="/tema/admin/circl/theme/assets/plugins/ckeditor5/build/ckeditor.js"></script>
 <script>
-    var myEditor;
-
     ClassicEditor
         .create(document.querySelector('#editor'), {
             toolbar: {
                 items: [
-                    'heading',
-                    'bold',
-                    'italic',
-                    'link',
-                    'bulletedList',
-                    'alignment',
-                    'numberedList',
-                    '|',
-                    'outdent',
-                    'indent',
-                    '|',
-                    'imageUpload',
-                    'blockQuote',
-                    'insertTable',
-                    'mediaEmbed',
-                    'undo',
-                    'redo',
-                    '-',
-                    '|',
-                    'fontColor',
-                    'fontSize',
-                    'fontFamily'
+                    'heading', '|',
+                    'alignment', '|',
+                    'bold', 'italic', 'strikethrough', 'underline', 'subscript', 'superscript', '|',
+                    'link', '|',
+                    'bulletedList', 'numberedList', 'todoList',
+                    'fontfamily', 'fontsize', 'fontColor', 'fontBackgroundColor', '|',
+                    'code', 'codeBlock', '|',
+                    'insertTable', '|',
+                    'outdent', 'indent', '|',
+                    'uploadImage', 'blockQuote', '|',
+                    'undo', 'redo'
                 ],
                 shouldNotGroupWhenFull: true
-            },
-            language: 'id',
-            image: {
-                toolbar: [
-                    'imageTextAlternative',
-                    'imageStyle:full',
-                    'imageStyle:side'
-                ]
-            },
-            table: {
-                contentToolbar: [
-                    'tableColumn',
-                    'tableRow',
-                    'mergeTableCells'
-                ]
-            },
-            licenseKey: '',
-
-
+            }
         })
-
-        .then(editor => {
-            console.log('Editor was initialized', editor);
-            myEditor = editor;
-        })
-        .catch(err => {
-            console.error(err.stack);
+        .catch(error => {
+            console.log(error);
         });
 </script>
 <script>
-    var myEditor2;
 
-    ClassicEditor
-        .create(document.querySelector('#editor2'), {
-            toolbar: {
-                items: [
-                    'heading',
-                    'bold',
-                    'italic',
-                    'link',
-                    'bulletedList',
-                    'alignment',
-                    'numberedList',
-                    '|',
-                    'outdent',
-                    'indent',
-                    '|',
-                    'imageUpload',
-                    'blockQuote',
-                    'insertTable',
-                    'mediaEmbed',
-                    'undo',
-                    'redo',
-                    '-',
-                    '|',
-                    'fontColor',
-                    'fontSize',
-                    'fontFamily'
-                ],
-                shouldNotGroupWhenFull: true
-            },
-            language: 'id',
-            image: {
-                toolbar: [
-                    'imageTextAlternative',
-                    'imageStyle:full',
-                    'imageStyle:side'
-                ]
-            },
-            table: {
-                contentToolbar: [
-                    'tableColumn',
-                    'tableRow',
-                    'mergeTableCells'
-                ]
-            },
-            licenseKey: '',
-
-
-        })
-
-        .then(editor => {
-            console.log('Editor was initialized', editor);
-            myEditor = editor;
-        })
-        .catch(err => {
-            console.error(err.stack);
-        });
 </script>
 <?= $this->endSection(); ?>

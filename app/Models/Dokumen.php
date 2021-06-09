@@ -23,7 +23,7 @@ class Dokumen extends Model
 		if ($id == false) {
 			return $this
 				->join('tbl_kategori_dokumen', 'tbl_dokumen.id_kategori_dokumen = tbl_kategori_dokumen.id_kategori_dokumen')
-				->orderBy('tbl_dokumen.id', 'DESC')
+				->orderBy('tbl_dokumen.tahun', 'DESC')
 				->get()->getResultArray();
 		} else {
 			return $this

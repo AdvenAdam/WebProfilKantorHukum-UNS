@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class StrukturOrganisasi extends Model
 {
-	protected $table                = 'tbl_strukturOrganisasi';
+	protected $table                = 'tbl_strukturorganisasi';
 	protected $primaryKey           = 'id';
 	protected $returnType           = 'array';
 	protected $protectFields        = true;

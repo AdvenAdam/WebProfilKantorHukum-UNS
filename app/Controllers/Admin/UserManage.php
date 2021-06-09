@@ -22,7 +22,7 @@ class UserManage extends BaseController
 			'user' 	 => $this->user->getUser(),
 			'validation' =>  \Config\Services::validation()
 		];
-		return view('/Admin/UserManage/index', $data);
+		return view('/admin/UserManage/index', $data);
 	}
 	public function edit($id)
 	{
@@ -34,7 +34,7 @@ class UserManage extends BaseController
 			'list' 	 => $this->user->getUser($id),
 			'validation' =>  \Config\Services::validation()
 		];
-		return view('/Admin/UserManage/edit', $data);
+		return view('/admin/UserManage/edit', $data);
 	}
 
 	public function save()

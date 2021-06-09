@@ -29,7 +29,7 @@
                             <!-- <h3 class="title"><?= $title; ?></h3> -->
                             <?php foreach ($struktur as $val) { ?>
                                 <center>
-                                    <img src="/image/struktur/<?= $val['struktur_organisasi']; ?>" class="img-fluid" alt="Struktur Organisasi" style=" object-fit: cover; object-position: center;">
+                                    <img src="/public/image/struktur/<?= $val['struktur_organisasi']; ?>" class="img-fluid" alt="Struktur Organisasi" style=" object-fit: cover; object-position: center;">
                                 </center>
                             <?php } ?>
                         </div>

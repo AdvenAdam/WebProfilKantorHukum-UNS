@@ -27,6 +27,7 @@
                                     <center>
                                         <img src="/image/struktur/<?= $list['struktur_organisasi']; ?>" alt="Struktur Organisasi" class="img-fluid" style="object-fit: cover; object-position: center;">
                                         <br><br>
+                                        <strong>**Pastikan File Yang Di Upload Berupa Foto</strong>
                                         <a href="" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#ubahStruktur">Ubah Struktur Organisasi</a>
                                     </center>
 

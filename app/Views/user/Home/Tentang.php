@@ -44,10 +44,10 @@
         </div> <!-- row -->
     </div> <!-- container -->
     <div class="what-we-are-shape-1">
-        <img src="/tema/user/template/assets/images/what-we-are-shape-1.png" alt="shape">
+        <img src="<?= base_url('/tema/user/template/assets/images/what-we-are-shape-1.png') ?>" alt="shape">
     </div>
     <div class="what-we-are-shape-2">
-        <img src="/tema/user/template/assets/images/what-we-are-shape-2.png" alt="shape">
+        <img src="<?= base_url('/tema/user/template/assets/images/what-we-are-shape-2.png') ?>" alt="shape">
     </div>
 </div>
 <!--====== Tentang ENDS ======-->

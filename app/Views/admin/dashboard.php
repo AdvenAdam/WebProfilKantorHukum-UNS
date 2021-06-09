@@ -24,19 +24,15 @@
             <div class="col-md-6 col-xl-3">
                 <div class="card stat-widget">
                     <div class="card-body">
-                        <h4 class="card-title">Pengunjung</h4>
-                        <h2>7.4K</h2>
-                        <i class="fas fa-eye fa-7x"></i>
+                        <h5 class="card-title">Kategori Dokumen</h5>
+                        <h2><?= $jumlahKategori; ?></h2>
+                        <i class="fas fa-tags fa-7x"></i>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 col-xl-3">
                 <div class="card stat-widget">
-                    <div class="card-body">
-                        <h5 class="card-title">Kategori Dokumen</h5>
-                        <h2><?= $jumlahKategori; ?></h2>
-                        <i class="fas fa-tags fa-7x"></i>
-                    </div>
+
                 </div>
             </div>
         </div>

@@ -4,7 +4,7 @@ namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
 use App\Models\Dokumen;
-use App\Models\Kategori;
+use App\Models\Kategoridokumen;
 use App\Controllers\Home;
 
 class DokumenController extends BaseController
@@ -12,7 +12,7 @@ class DokumenController extends BaseController
 	protected $kategori, $dokumen, $home;
 	function __construct()
 	{
-		$this->kategori = new Kategori();
+		$this->kategori = new Kategoridokumen();
 		$this->dokumen = new Dokumen();
 		// $this->home = new Home();
 		$this->cekBerlaku();
@@ -65,10 +65,9 @@ class DokumenController extends BaseController
 				]
 			],
 			'dokumen' => [
-				'rules' => 'mime_in[dokumen,application/pdf]|ext_in[dokumen,pdf]',
+				'rules' => 'max_size[dokumen,20480]',
 				'errors' => [
-					'mime_in' => 'File yang diupload bukan file PDF',
-					'ext_in'  => 'File yang diupload harus berformat PDF',
+					'max_size' => 'File yang diupload tidak boleh lebih dari 20MB',
 				]
 			]
 

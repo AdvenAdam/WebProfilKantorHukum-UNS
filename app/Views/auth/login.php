@@ -14,6 +14,7 @@
     <title><?= $title; ?></title>
 
     <!-- Styles -->
+    <link rel="shortcut icon" href="/tema/user/template/assets/images/logo/fav.jpg" type="image/png">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700,800&display=swap" rel="stylesheet">
     <link href="/tema/admin/circl/theme/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/tema/admin/circl/theme/assets/plugins/font-awesome/css/all.min.css" rel="stylesheet">

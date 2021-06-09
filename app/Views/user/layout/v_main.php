@@ -14,7 +14,7 @@
 
     <!--====== Favicon Icon ======-->
     <link rel="shortcut icon" href="/tema/user/template/assets/images/logo/fav.jpg" type="image/png">
-
+    <?= base_url(); ?>
     <!--====== Bootstrap css ======-->
     <link rel="stylesheet" href="/tema/user/template/assets/css/bootstrap.min.css">
 
@@ -37,8 +37,8 @@
     <link rel="stylesheet" href="/tema/user/template/assets/css/default.css">
 
     <!--====== Style css ======-->
+    <link rel="stylesheet" href="/tema/admin/circl/theme/assets/plugins/DataTables/datatables.min.css">
     <link rel="stylesheet" href="/tema/user/template/assets/css/style.css">
-    <link href="/tema/admin/circl/theme/assets/plugins/DataTables/datatables.min.css" rel="stylesheet">
 
 
 </head>
@@ -57,7 +57,7 @@
     <script src="/tema/user/template/assets/js/popper.min.js"></script>
     <!-- datatable -->
     <script src="/tema/admin/circl/theme/assets/plugins/DataTables/datatables.min.js"></script>
-
+    <script src="/tema/admin/circl/theme/assets/js/pages/datatables.js"></script>
     <!--====== Slick js ======-->
     <script src="/tema/user/template/assets/js/slick.min.js"></script>
     <!--====== Isotope js ======-->
@@ -82,7 +82,7 @@
     <script src="/tema/user/template/assets/js/main.js"></script>
     <script>
         $(document).ready(function() {
-            $('#example').DataTable({
+            $('.table').DataTable({
                 // "scrollX": true,
                 "oLanguage": {
                     "sSearch": "",

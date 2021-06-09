@@ -35,17 +35,18 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-if (session()->logged_in != true) {
-	$routes->get('/', 'Home::index');
-	$routes->get('/login', 'Auth::index');
-	$routes->post('/login', 'Auth::login');
-	$routes->post('/saveMasukan', 'Admin/KontakController::save');
-	$routes->get('/detailDokumen/(:any)', 'Home::detail/$1');
-	$routes->get('/Download/(:any)', 'Home::download/$1');
-	$routes->get('/Profil', 'Home::profil');
-	$routes->get('/StrukturOrganisasi', 'Home::struktur');
-	$routes->get('/TugasPokok', 'Home::tugasPokok');
-}
+
+$routes->get('/', 'Home::index');
+$routes->get('/login', 'Auth::index');
+$routes->post('/login', 'Auth::login');
+$routes->post('/saveMasukan', 'Admin/KontakController::save');
+$routes->get('/detailDokumen/(:any)', 'Home::detail/$1');
+$routes->get('/Download/(:any)', 'Home::download/$1');
+$routes->get('/Profil', 'Home::profil');
+$routes->get('/StrukturOrganisasi', 'Home::struktur');
+$routes->get('/ProdukHukum', 'Home::produkHukum');
+$routes->get('/TugasPokok', 'Home::tugasPokok');
+
 
 $routes->get('/logout', 'Auth::logout');
 $routes->group('Admin', ["namespace" => "App\Controllers\Admin", 'filter' => 'ceklogin'], function ($routes) {

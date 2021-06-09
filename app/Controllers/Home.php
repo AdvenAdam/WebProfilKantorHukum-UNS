@@ -4,11 +4,15 @@ namespace App\Controllers;
 
 use App\Models\Dokumen;
 use App\Models\Slider;
+use App\Models\Kategori;
 use App\Models\StrukturOrganisasi;
 use App\Models\Informasi;
 use CodeIgniter\Exceptions\AlertError;
 
 
+if (session()->logged_in == true) {
+	return redirect()->to('/Admin');
+}
 class Home extends BaseController
 {
 	protected $kategori, $dokumen, $slider, $struktur, $informasi;
@@ -18,14 +22,14 @@ class Home extends BaseController
 		$this->slider = new Slider();
 		$this->struktur = new StrukturOrganisasi();
 		$this->informasi = new Informasi();
-		$this->cekBerlaku();
+		$this->kategori = new Kategori();
 	}
 
 	public function index()
 	{
+		$this->cekBerlaku();
 		$data = [
 			'title' 	=> 'Kantor Hukum UNS',
-			'dokumen' 	=> $this->dokumen->getDokumen(),
 			'slider'	=> $this->slider->getSlider(),
 		];
 
@@ -74,6 +78,21 @@ class Home extends BaseController
 			'struktur'	=> $this->struktur->getStruktur(),
 		];
 		return view('/user/informasi/struktur', $data);
+	}
+	public function produkHukum()
+	{
+		$kategori = $this->kategori->getKategoriDokumen();
+		$data = [
+			'title' 	=> 'Produk Hukum UNS',
+			'dokumen' 	=> $this->dokumen->getDokumen(),
+			'kategori'	=> $kategori,
+			'jml_kategori' => count($kategori)
+		];
+		$i = 1;
+		foreach ($kategori as $value) {
+			$data['data' . $i++] = $this->dokumen->getDokumenByKategori($value['id_kategori_dokumen']);
+		}
+		return view('/user/produkHukum/ProdukHukum', $data);
 	}
 
 	public function cekBerlaku()

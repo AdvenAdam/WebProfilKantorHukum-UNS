@@ -31,8 +31,7 @@ class Dashboard extends BaseController
 			'submenu'		 => '',
 			'jumlahKategori' => count($this->kategori->findAll()),
 		];
-		// dd($this->status());
-		return view('/Admin/Dashboard', $data);
+		return view('/admin/dashboard', $data);
 	}
 
 	public function kategori()
