@@ -4,7 +4,7 @@ namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
 use App\Models\Dokumen;
-use App\Models\Kategoridokumen;
+use App\Models\Kategori;
 use App\Controllers\Home;
 
 class DokumenController extends BaseController
@@ -12,7 +12,7 @@ class DokumenController extends BaseController
 	protected $kategori, $dokumen, $home;
 	function __construct()
 	{
-		$this->kategori = new Kategoridokumen();
+		$this->kategori = new Kategori();
 		$this->dokumen = new Dokumen();
 		// $this->home = new Home();
 		$this->cekBerlaku();
