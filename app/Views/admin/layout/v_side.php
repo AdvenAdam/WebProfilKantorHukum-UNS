@@ -12,27 +12,22 @@
         <li class="<?= $active == 'dokumen' ? 'active-page' : ''; ?>">
             <a href="" class=""><i data-feather="inbox"></i>Dokumen</a>
             <ul class="">
+                <li><a href="/Admin/Kategori" class="<?= $submenu == 'kategori' ? 'active' : ''; ?>"><i class="far fa-bookmark"></i>Kategori</a></li>
                 <li><a href="/Admin/Dokumen/create" class="<?= $submenu == 'input' ? 'active' : ''; ?>"><i class="far fa-circle"></i>Tambah Dokumen</a></li>
                 <li><a href="/Admin/Dokumen" class="<?= $submenu == 'view' ? 'active' : ''; ?>"><i class="far fa-circle"></i>View Dokumen</a></li>
             </ul>
         </li>
+        <li class="<?= $active == 'info' ? 'active-page' : ''; ?>">
+            <a href="" class=""><i data-feather="info"></i>Informasi Umum</a>
+            <ul class="">
+                <li><a href="/Admin/Slider" class="<?= $submenu == 'slider' ? 'active' : ''; ?>"><i class="fas fa-sliders-h"></i>Slider</a></li>
+                <li><a href="/Admin/Informasi" class="<?= $submenu == 'informasi' ? 'active' : ''; ?>"><i class="fas fa-info"></i>Informasi Profil</a></li>
+                <li><a href="/Admin/Masukan" class="<?= $submenu == 'masukan' ? 'active' : ''; ?>"><i class="fas fa-inbox"></i>Masukan</a></li>
+                <li><a href="/Admin/Struktur" class="<?= $submenu == 'struktur' ? 'active' : ''; ?>"><i class="fas fa-briefcase"></i>Struktur Organisasi</a></li>
+            </ul>
+        </li>
         <li class="<?= $active == 'user' ? 'active-page' : ''; ?>">
             <a href="/Admin/User"><i data-feather="users"></i>Users</a>
-        </li>
-        <li class="<?= $active == 'slider' ? 'active-page' : ''; ?>">
-            <a href="/Admin/Slider"><i data-feather="sidebar"></i>Slider</a>
-        </li>
-        <li class="<?= $active == 'kategori' ? 'active-page' : ''; ?>">
-            <a href="/Admin/Kategori"><i data-feather="book"></i>Kategori</a>
-        </li>
-        <li class="<?= $active == 'informasi' ? 'active-page' : ''; ?>">
-            <a href="/Admin/Informasi"><i data-feather="info"></i>Informasi</a>
-        </li>
-        <li class="<?= $active == 'masukan' ? 'active-page' : ''; ?>">
-            <a href="/Admin/Masukan"><i data-feather="inbox"></i>Masukan</a>
-        </li>
-        <li class="<?= $active == 'struktur' ? 'active-page' : ''; ?>">
-            <a href="/Admin/Struktur"><i data-feather="briefcase"></i>Struktur Organisasi</a>
         </li>
         <li class="sidebar-title">
             User

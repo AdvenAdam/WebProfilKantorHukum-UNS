@@ -92,7 +92,7 @@
                     <div class="modal-body">
                         <div class="row mb-4">
                             <label for="tugas" class="form-label">Tugas Pokok Kantor Hukum UNS</label>
-                            <textarea name="tugas" rows="100" class="ckeditor form-control" id="editor2"><?= $value['tugas_pokok']; ?>
+                            <textarea name="tugas" rows="100" class="editor form-control"><?= $value['tugas_pokok']; ?>
                                      </textarea>
                         </div>
                     </div>
@@ -117,19 +117,18 @@
 <script src="/tema/admin/circl/theme/assets/plugins/ckeditor5/build/ckeditor.js"></script>
 <script>
     ClassicEditor
-        .create(document.querySelector('#editor'), {
+        .create(document.querySelector('.editor'), {
             toolbar: {
                 items: [
                     'heading', '|',
                     'alignment', '|',
-                    'bold', 'italic', 'strikethrough', 'underline', 'subscript', 'superscript', '|',
+                    'bold', 'italic', '|',
                     'link', '|',
-                    'bulletedList', 'numberedList', 'todoList',
+                    'bulletedList', 'numberedList',
                     'fontfamily', 'fontsize', 'fontColor', 'fontBackgroundColor', '|',
-                    'code', 'codeBlock', '|',
                     'insertTable', '|',
                     'outdent', 'indent', '|',
-                    'uploadImage', 'blockQuote', '|',
+                    'blockQuote', '|',
                     'undo', 'redo'
                 ],
                 shouldNotGroupWhenFull: true

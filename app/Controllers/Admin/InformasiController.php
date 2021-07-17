@@ -16,9 +16,9 @@ class InformasiController extends BaseController
 	{
 		$data = [
 			'title' => 'Manajemen Informasi',
-			'active' => 'informasi',
+			'active' => 'info',
 			'informasi' => $this->informasi->getInfo(),
-			'submenu' => '',
+			'submenu' => 'informasi',
 			'validation' =>  \Config\Services::validation()
 		];
 		return view('admin/informasi/index', $data);

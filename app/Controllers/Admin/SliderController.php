@@ -16,9 +16,9 @@ class SliderController extends BaseController
 	{
 		$data = [
 			'title' => 'Manajemen Slider',
-			'active' => 'slider',
+			'active' => 'info',
 			'slider' => $this->slider->getSlider(),
-			'submenu' => '',
+			'submenu' => 'slider',
 			'validation' =>  \Config\Services::validation()
 		];
 		return view('admin/slider/index', $data);
@@ -27,9 +27,9 @@ class SliderController extends BaseController
 	{
 		$data = [
 			'title' => 'Manajemen Slider',
-			'active' => 'slider',
+			'active' => 'info',
 			'slider' => $this->slider->getSlider($id),
-			'submenu' => '',
+			'submenu' => 'slider',
 			'validation' =>  \Config\Services::validation()
 		];
 		// dd($data);
@@ -40,8 +40,8 @@ class SliderController extends BaseController
 	{
 		$data = [
 			'title' => 'Manajemen Slider',
-			'active' => 'slider',
-			'submenu' => '',
+			'active' => 'info',
+			'submenu' => 'slider',
 			'validation' =>  \Config\Services::validation()
 		];
 		return view('admin/slider/input', $data);

@@ -1,0 +1,24 @@
+hr {
+  border: 2px solid black;
+}
+
+.table-bordered td, .table-bordered th {
+  border: 1px solid black;
+  font-family: 'Times New Roman';
+}
+tr.noBorder td {
+  border: 0;
+}
+.keterangan {
+  font-family: 'Times New Roman';
+  padding: 0px 240px;
+}
+
+p {
+  font-family: 'Times New Roman';
+}
+.text-center  {
+  font-family: 'Times New Roman';
+}
+
+

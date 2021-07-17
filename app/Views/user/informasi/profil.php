@@ -27,8 +27,8 @@
                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                         <div class="shop-descriptions-area khusus">
                             <?php foreach ($info as $val) { ?>
-                                <span style="list-style-type: number !important;">
-                                    <?= $val['profil']; ?>
+                                <span style="list-style-type: number !important; ">
+                                    <font color="black"> <?= $val['profil']; ?></font>
                                 </span>
                             <?php } ?>
                         </div>

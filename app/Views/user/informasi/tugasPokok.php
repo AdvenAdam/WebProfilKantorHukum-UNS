@@ -7,7 +7,9 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="page-title-item text-center">
-                    <h2 class="title"><?= $title; ?></h2>
+                    <h2 class="title">
+                        <?= $title; ?>
+                    </h2>
                 </div> <!-- page title -->
             </div>
         </div> <!-- row -->
@@ -27,7 +29,7 @@
                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                         <div class="shop-descriptions-area khusus">
                             <?php foreach ($info as $val) { ?>
-                                <?= $val['tugas_pokok']; ?>
+                                <font color="black"> <?= $val['tugas_pokok']; ?> </font>
                             <?php } ?>
                         </div>
 

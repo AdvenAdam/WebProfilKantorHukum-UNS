@@ -17,9 +17,9 @@ class KontakController extends BaseController
 	{
 		$data = [
 			'title' => 'Manajemen Masukan',
-			'active' => 'masukan',
+			'active' => 'info',
 			'kontak' => $this->kontak->getKontak(),
-			'submenu' => '',
+			'submenu' => 'masukan',
 			'validation' =>  \Config\Services::validation()
 		];
 		return view('admin/masukan/index', $data);

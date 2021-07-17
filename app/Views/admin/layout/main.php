@@ -25,6 +25,7 @@
     <!-- Theme Styles -->
     <link href="/tema/admin/circl/theme/assets/css/main.min.css" rel="stylesheet">
     <link href="/tema/admin/circl/theme/assets/css/custom.css" rel="stylesheet">
+    <link href="/tema/admin/circl/theme/assets/plugins/select2/dist/css/select2.min.css" rel="stylesheet" />
 
 </head>
 
@@ -45,6 +46,8 @@
     <!-- Javascripts -->
     <!-- jquery -->
     <script src="/tema/admin/circl/theme/assets/plugins/jquery/jquery-3.4.1.min.js"></script>
+    <!-- select2 -->
+    <script src="/tema/admin/circl/theme/assets/plugins/select2/dist/js/select2.min.js"></script>
     <!-- popper  -->
     <script src="/tema/admin/circl/theme/assets/js/popper.min.js"></script>
     <!-- bootstrap -->
@@ -64,6 +67,7 @@
     <script src="/tema/admin/circl/theme/assets/plugins/pdfjs/build/pdf.js"></script>
     <script src="/tema/admin/circl/theme/assets/plugins/pdfjs/build/pdf.worker.js"></script>
 
+
     <script src="/tema/admin/circl/theme/assets/js/main.min.js"></script>
     <!-- pages -->
     <script src="/tema/admin/circl/theme/assets/js/pages/datatables.js"></script>
@@ -81,7 +85,7 @@
     <!-- data table -->
     <script>
         $(document).ready(function() {
-            $('.table').DataTable({
+            $('.tablek').DataTable({
                 // "scrollX": true,
                 "oLanguage": {
                     "sSearch": "",

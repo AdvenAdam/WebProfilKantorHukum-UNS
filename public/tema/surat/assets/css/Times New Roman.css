@@ -1,0 +1,47 @@
+@font-face {
+	font-family: 'Times New Roman';
+	src: url(../../assets/fonts/TimesNewRomanPS-BoldMT.eot) format('embedded-opentype'),
+	url(../../assets/fonts/TimesNewRomanPS-BoldMT.eot) format('embedded-opentype'),
+	url(../../assets/fonts/TimesNewRomanPS-BoldMT.woff2) format('woff2'),
+	url(../../assets/fonts/TimesNewRomanPS-BoldMT.woff) format('woff'),
+	url(../../assets/fonts/TimesNewRomanPS-BoldMT.ttf) format('truetype'),
+	url(../../assets/fonts/TimesNewRomanPS-BoldMT.svg) format('svg');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Times New Roman';
+	src: url(../../assets/fonts/TimesNewRomanPS-BoldItalicMT.eot) format('embedded-opentype'),
+	url(../../assets/fonts/TimesNewRomanPS-BoldItalicMT.eot) format('embedded-opentype'),
+	url(../../assets/fonts/TimesNewRomanPS-BoldItalicMT.woff2) format('woff2'),
+	url(../../assets/fonts/TimesNewRomanPS-BoldItalicMT.woff) format('woff'),
+	url(../../assets/fonts/TimesNewRomanPS-BoldItalicMT.ttf) format('truetype'),
+	url(../../assets/fonts/TimesNewRomanPS-BoldItalicMT.svg) format('svg');
+	font-weight: bold;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Times New Roman';
+	src: url(../../assets/fonts/TimesNewRomanPSMT.eot) format('embedded-opentype'),
+	url(../../assets/fonts/TimesNewRomanPSMT.eot) format('embedded-opentype'),
+	url(../../assets/fonts/TimesNewRomanPSMT.woff2) format('woff2'),
+	url(../../assets/fonts/TimesNewRomanPSMT.woff) format('woff'),
+	url(../../assets/fonts/TimesNewRomanPSMT.ttf) format('truetype'),
+	url(../../assets/fonts/TimesNewRomanPSMT.svg) format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Times New Roman';
+	src: url(../../assets/fonts/TimesNewRomanPS-ItalicMT.eot) format('embedded-opentype'),
+	url(../../assets/fonts/TimesNewRomanPS-ItalicMT.eot) format('embedded-opentype'),
+	url(../../assets/fonts/TimesNewRomanPS-ItalicMT.woff2) format('woff2'),
+	url(../../assets/fonts/TimesNewRomanPS-ItalicMT.woff) format('woff'),
+	url(../../assets/fonts/TimesNewRomanPS-ItalicMT.ttf) format('truetype'),
+	url(../../assets/fonts/TimesNewRomanPS-ItalicMT.svg) format('svg');
+	font-weight: normal;
+	font-style: italic;
+}

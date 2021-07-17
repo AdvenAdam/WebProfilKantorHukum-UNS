@@ -8,7 +8,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <meta name="google-site-verification" content="8KlUerVzVhQ_kQe3Qe08KouB9WeQPfp1qW2PUh-ow3Y" />
     <!--====== Title ======-->
     <title><?= $title; ?></title>
 

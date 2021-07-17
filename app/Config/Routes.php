@@ -58,6 +58,13 @@ $routes->group('Admin', ["namespace" => "App\Controllers\Admin", 'filter' => 'ce
 		$routes->post('delete/(:num)', 'KategoriController::delete/$1');
 		$routes->post('update/(:num)', 'KategoriController::update/$1');
 	});
+
+	$routes->group('SK',  function ($routes) {
+		$routes->get('/', 'SkController::index');
+		$routes->get('data', 'SkController::data');
+		$routes->post('save', 'SkController::save');
+	});
+
 	$routes->group('User',  function ($routes) {
 		$routes->get('/', 'UserManage::index');
 		$routes->get('create', 'UserManage::create');
@@ -76,6 +83,22 @@ $routes->group('Admin', ["namespace" => "App\Controllers\Admin", 'filter' => 'ce
 		$routes->post('delete/(:any)', 'DokumenController::delete/$1');
 		$routes->get('detail/(:any)', 'DokumenController::detail/$1');
 		$routes->get('edit/(:any)', 'DokumenController::edit/$1');
+	});
+	//peraturan
+	$routes->group('Peraturan',  function ($routes) {
+		$routes->get('/', 'PeraturanController::index');
+		$routes->get('create', 'PeraturanController::create');
+		$routes->get('edit/(:any)', 'PeraturanController::edit/$1');
+		$routes->post('save', 'PeraturanController::save');
+		$routes->post('update/(:any)', 'PeraturanController::update/$1');
+		$routes->post('delete/(:any)', 'PeraturanController::delete/$1');
+	});
+	//herarki
+	$routes->group('Herarki',  function ($routes) {
+		$routes->get('/', 'HerarkiController::index');
+		$routes->post('save', 'HerarkiController::save');
+		$routes->post('update/(:any)', 'HerarkiController::update/$1');
+		$routes->post('delete/(:any)', 'HerarkiController::delete/$1');
 	});
 	$routes->group('Struktur',  function ($routes) {
 		$routes->get('/', 'StrukturOrganisasiController::index');

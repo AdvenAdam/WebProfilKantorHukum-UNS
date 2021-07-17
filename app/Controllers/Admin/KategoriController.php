@@ -19,9 +19,9 @@ class KategoriController extends BaseController
 	{
 		$data = [
 			'title' => 'Manajemen Kategori',
-			'active' => 'kategori',
+			'active' => 'dokumen',
 			'kategori' => $this->kategori->getKategoriDokumen(),
-			'submenu' => '',
+			'submenu' => 'kategori',
 			'validation' =>  \Config\Services::validation()
 		];
 		return view('admin/kategori/index', $data);
