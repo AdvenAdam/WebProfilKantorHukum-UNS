@@ -10,7 +10,7 @@
         var add_button = $(".add_menimbang");
         var select = $(".select");
         var text = $(".text");
-        let x = 1;
+        let x = <?= count(json_decode($sk['menimbang'])); ?>;
         $(add_button).click(function(e) {
             var my_html = '\
             <div class="content">\
@@ -20,7 +20,7 @@
             <div class="col-12 mb-4">\
             <select class="form-select select" id="select' + x + '">\
             <option value="">Pilih Nama Pegawai</option>\
-            <?php foreach ($herarki as $list) { ?><option value="<?= $list['herarki']; ?>"><?= $list['herarki']; ?></option><?php } ?>\
+            <?php foreach ($pegawai as $list) { ?><option value="<?= $list['nama']; ?>"><?= $list['nama']; ?></option><?php } ?>\
             </select></div>\
             <div class="col-12">\
             <textarea required name="menimbang[]" id="text' + x + '" rows="3" class="form-control text"></textarea>\
@@ -29,6 +29,7 @@
             <a href="#" class="delete btn btn-danger mt-5">Delete</a></div></div></div>\
                     ';
             e.preventDefault();
+            scrollDown();
             $(wrapper).append(my_html);
             $('.select').select2();
             autocomplete(x);
@@ -36,8 +37,12 @@
         });
         $(wrapper).on("click", '.delete', function(e) {
             e.preventDefault();
+            scrollUp();
             $(this).parents('.content').remove();
         })
+        <?php for ($i = 0; $i < count(json_decode($sk['menimbang'])); $i++) { ?>
+            autocomplete(<?= $i; ?>)
+        <?php } ?>
 
         function autocomplete(x) {
             $(wrapper).on("change", '#select' + x + '', function(e) {
@@ -58,7 +63,7 @@
         var add_button = $(".add_mengingat");
         var pilih = $(".pilih");
         var text = $(".text");
-        let y = 1;
+        let y = <?= count(json_decode($sk['mengingat'])); ?>;
         $(add_button).click(function(e) {
             var html_mengingat = '\
             <div class="konten">\
@@ -66,7 +71,7 @@
             <div class="col-10">\
             <label>Tambahkan Peraturan</label>\
             <div class="col-12 mb-4">\
-            <select class="form-select pilih" name="mengingat[]" id="pilih' + y + '">\
+            <select class="form-select select" name="mengingat[]" id="pilih' + y + '">\
             <option value="">Pilih Peraturan</option>\
             <?php foreach ($peraturan as $list) { ?><option value="<?= $list['id']; ?>" data-detail="<?= ($list['detail']); ?>"><?= $list['herarki'] . ' Nomor ' . $list['nomor'] . ' Tahun ' . $list['tahun']; ?></option><?php } ?>\
             </select></div>\
@@ -77,15 +82,19 @@
             <a href="#" class="delete btn btn-danger mt-5">Delete</a></div></div></div>\
                     ';
             e.preventDefault();
+            scrollDown();
             $(wrapper).append(html_mengingat);
-            $('.pilih').select2();
             autocomplete(y);
             ++y;
         });
         $(wrapper).on("click", '.delete', function(e) {
             e.preventDefault();
+            scrollUp();
             $(this).parents('.konten').remove();
         })
+        <?php for ($i = 0; $i < count(json_decode($sk['mengingat'])); $i++) { ?>
+            autocomplete(<?= $i; ?>)
+        <?php } ?>
 
         function autocomplete(y) {
             $(wrapper).on("change", '#pilih' + y + '', function(e) {
@@ -104,8 +113,7 @@
     $(document).ready(function() {
         var wrapper = $(".memutuskan");
         var add_button = $(".add_memutuskan");
-        var text = $(".text");
-        let z = 1;
+        let z = <?= count(json_decode($sk['memutuskan'])); ?>;
         $(add_button).click(function(e) {
             var my_html = '\
             <div class="content">\
@@ -113,12 +121,13 @@
             <div class="col-2"><p id="urutan' + z + '"> </p></div>\
             <div class="col-8">\
             <label>Tambahkan Putusan</label>\
-            <textarea required name="memutuskan[]" id="text' + z + '" rows="2" class="form-control text"></textarea>\
+            <textarea required name="memutuskan[]"  rows="2" class="form-control text"></textarea>\
             </div>\
             <div class="col-2" id="tempat' + z + '">\
             <a href="#" class="delete btn btn-danger mt-5" id="delete' + z + '">Delete</a></div></div>\
                     ';
             e.preventDefault();
+            scrollDown();
             $(wrapper).append(my_html);
             document.getElementById('urutan' + z + '').innerHTML = urutan(z);
             ++z;
@@ -128,6 +137,7 @@
         });
         $(wrapper).on("click", '.delete', function(e) {
             e.preventDefault();
+            scrollUp();
             $(this).parents('.content').remove();
             --z;
             if (z > 1) {
@@ -150,7 +160,7 @@
         }
 
         function urutan(z) {
-            var urutan = ["", "KESATU", "KEDUA", "KETIGA", "KEEMPAT", "KELIMA", "KEENAM", "KETUJUH", "KEDELAPAN", "KESEMBILAN", "KESEPULUH", "KESEBELAS", "KEDUA BELAS", "KETIGA BELAS", "KEEMPAT BELAS", "KELIMA BELAS"];
+            var urutan = ["MENETAPKAN", "KESATU", "KEDUA", "KETIGA", "KEEMPAT", "KELIMA", "KEENAM", "KETUJUH", "KEDELAPAN", "KESEMBILAN", "KESEPULUH", "KESEBELAS", "KEDUA BELAS", "KETIGA BELAS", "KEEMPAT BELAS", "KELIMA BELAS"];
             return urutan[z];
         }
     });
@@ -161,42 +171,47 @@
         var wrapper = $(".lampiranuns");
         var add_button = $(".add_lampiran_uns");
         var text = $(".text");
-        let counter = 1;
+        <?php if (json_decode($sk['lampiran_employ'])->data != null) { ?>
+            let counter = <?= count(json_decode($sk['lampiran_employ'])->data) + 1; ?>;
+        <?php } else { ?>
+            let counter = 1;
+        <?php } ?>
         $(add_button).click(function(e) {
             var my_html = '\
             <tr>\
             <td>' + counter + '</td>\
-            <td><select class="form-select select pilih" required name="lampiran_employ[]" id="pilih' + counter + '">\
+            <td><select class="form-select select pilihUns" required name="lampiran_employ[]" id="pilihUns' + counter + '">\
             <option value="">Pilih Nama Pegawai</option>\
             <?php foreach ($pegawai as $list) { ?><option value = "<?= $list['id']; ?>" data-pangkatgol ="<?= $list['pangkatgol']; ?>" data-nik="<?= $list['nik']; ?>"><?= $list['nama']; ?></option><?php } ?>\
             </select></td>\
             <td><input type="text" id="nik' + counter + '" name="nik[]" class="form-control"></td>\
             <td><input type="text" id="pangkatgol' + counter + '" name="pangkatgol[]" class="form-control"></td>\
-            <td id="marker' + counter + '"><input type="text" id="ketuns' + counter + '" name="ketuns[]" class="form-control"></td>\
-            <td id="delete' + counter + '"><a href="#" class="delete"><i class="fas fa-trash"></i> </a></td>\
+            <td id="markerUns' + counter + '"><input type="text" id="ketuns' + counter + '" name="ketuns[]" class="form-control"></td>\
+            <td id="deleteUns' + counter + '"><a href="#" class="deleteUns"><i class="fas fa-trash"></i> </a></td>\
             </tr>\
             ';
             e.preventDefault();
+            scrollDown();
             $(wrapper).append(my_html);
             $('.select').select2();
-            addData(counter);
+            addDataUns(counter);
             ++counter;
             if (counter > 2) {
-                hapus(counter);
+                hapusUns(counter);
             }
         });
         // delete button 
-        $(wrapper).on("click", '.delete', function(e) {
+        $(wrapper).on("click", '.deleteUns', function(e) {
             e.preventDefault();
             $(this).closest('tr').remove();
             --counter;
             if (counter > 1) {
-                addButton(counter);
+                addButtonUns(counter);
             }
         })
 
-        function addData(counter) {
-            $(wrapper).on("change", '#pilih' + counter + '', function(e) {
+        function addDataUns(counter) {
+            $(wrapper).on("change", '#pilihUns' + counter + '', function(e) {
                 e.preventDefault()
                 var nik = $(this).find(':selected').data('nik');
                 var pangkat = $(this).find(':selected').data('pangkatgol');
@@ -209,18 +224,18 @@
             });
         }
 
-        function addButton(counter) {
+        function addButtonUns(counter) {
             --counter;
             var deleteButton = '\
-            <td id="delete' + counter + '"><a href="#" class="delete"><i class="fas fa-trash"></i> </a></td>\
+            <td id="deleteUns' + counter + '"><a href="#" class="deleteUns"><i class="fas fa-trash"></i> </a></td>\
             ';
-            var div = document.getElementById('marker' + counter + '');
+            var div = document.getElementById('markerUns' + counter + '');
             div.insertAdjacentHTML('afterend', deleteButton);
         }
 
-        function hapus(counter) {
+        function hapusUns(counter) {
             counter = counter - 2;
-            document.getElementById('delete' + counter + '').remove();
+            document.getElementById('deleteUns' + counter + '').remove();
         }
     });
 </script>
@@ -229,7 +244,11 @@
     $(document).ready(function() {
         var wrapper = $(".lampiransiswa");
         var add_button = $(".add_lampiran_siswa");
-        let counter2 = 1;
+        <?php if (json_decode($sk['lampiran_student'])->nama != null) { ?>
+            let counter2 = <?= count(json_decode($sk['lampiran_student'])->nama) + 1; ?>;
+        <?php } else { ?>
+            let counter2 = 1;
+        <?php } ?>
         $(add_button).click(function(e) {
             var my_html = '\
             <tr>\
@@ -242,6 +261,7 @@
             </tr>\
             ';
             e.preventDefault();
+            scrollDown();
             $(wrapper).append(my_html);
             $('.select').select2();
             ++counter2;
@@ -303,4 +323,14 @@
 
         });
     });
+</script>
+<!-- fungsi scroll horizontall -->
+<script>
+    function scrollDown() {
+        window.scrollBy(0, 185);
+    }
+
+    function scrollUp() {
+        window.scrollBy(0, -185);
+    }
 </script>

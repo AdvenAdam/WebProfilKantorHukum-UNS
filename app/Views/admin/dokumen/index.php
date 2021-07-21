@@ -11,11 +11,12 @@
                             <div class="col-6">
                                 <a href="Dokumen/create" class="btn btn-primary">Tambah Data</a>
                             </div>
-                            <div class="col-6" align="right">
-
-                            </div>
                         </div>
-
+                        <?php if (session()->getFlashdata('success')) { ?>
+                            <div class="alert alert-success fade show" role="alert">
+                                <span><?= session()->getFlashdata('success'); ?></span>
+                            </div>
+                        <?php } ?>
                         <table id="table" class="display table-hover table invoice-table" style=" width:100%">
                             <thead>
                                 <tr>

@@ -105,6 +105,7 @@ class DokumenController extends BaseController
 		];
 		// dd($data);
 		$this->dokumen->save($data);
+		session()->setFlashdata('success', 'Data Berhasil Ditambahkan');
 		return redirect()->to('/Admin/Dokumen');
 	}
 	public function detail($id)
@@ -178,6 +179,7 @@ class DokumenController extends BaseController
 			'dokumen' => $namaDokumen
 		];
 		$this->dokumen->save($data);
+		session()->setFlashdata('success', 'Data Berhasil DiUbah');
 		return redirect()->to('/Admin/Dokumen');
 	}
 	public function delete($id)

@@ -61,7 +61,13 @@ $routes->group('Admin', ["namespace" => "App\Controllers\Admin", 'filter' => 'ce
 
 	$routes->group('SK',  function ($routes) {
 		$routes->get('/', 'SkController::index');
+		$routes->get('create', 'SkController::create');
 		$routes->get('data', 'SkController::data');
+		$routes->post('update/(:any)', 'SkController::update/$1');
+		$routes->post('delete/(:any)', 'SkController::delete/$1');
+		$routes->get('detail/(:any)', 'SkController::detail/$1');
+		$routes->get('cetak/(:any)', 'SkController::cetak/$1');
+		$routes->get('edit/(:any)', 'SkController::edit/$1');
 		$routes->post('save', 'SkController::save');
 	});
 
