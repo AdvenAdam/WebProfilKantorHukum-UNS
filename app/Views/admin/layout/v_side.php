@@ -26,6 +26,14 @@
                 <li><a href="/Admin/Struktur" class="<?= $submenu == 'struktur' ? 'active' : ''; ?>"><i class="fas fa-briefcase"></i>Struktur Organisasi</a></li>
             </ul>
         </li>
+        <li class="<?= $active == 'SK' ? 'active-page' : ''; ?>">
+            <a href="" class=""><i data-feather="file-text"></i>SK</a>
+            <ul class="">
+                <li><a href="/Admin/SK" class="<?= $submenu == 'sk' ? 'active' : ''; ?>"><i class="fas fa-file-alt"></i>SK</a></li>
+                <li><a href="/Admin/Herarki" class="<?= $submenu == 'herarki' ? 'active' : ''; ?>"><i class="fas fa-sitemap"></i>Herarki</a></li>
+                <li><a href="/Admin/Peraturan" class="<?= $submenu == 'peraturan' ? 'active' : ''; ?>"><i class="fas fa-book"></i>Peraturan</a></li>
+            </ul>
+        </li>
         <li class="<?= $active == 'user' ? 'active-page' : ''; ?>">
             <a href="/Admin/User"><i data-feather="users"></i>Users</a>
         </li>

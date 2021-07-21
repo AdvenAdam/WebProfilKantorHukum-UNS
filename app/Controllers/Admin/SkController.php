@@ -23,9 +23,9 @@ class SkController extends BaseController
 
 		$data = [
 			'title' 		=> 'SK',
-			'active' 		=> 'sk',
+			'active' 		=> 'SK',
 			'sk'			=> $this->sk->getSk(),
-			'submenu' 		=> '',
+			'submenu' 		=> 'sk',
 			'validation' 	=>  \Config\Services::validation()
 		];
 		// dd($data['sk']);
@@ -36,11 +36,11 @@ class SkController extends BaseController
 	{
 		$data = [
 			'title' => 'SK',
-			'active' => 'sk',
+			'active' => 'SK',
 			'herarki' => $this->herarki->getHerarki(),
 			'peraturan' => $this->peraturan->getPeraturan(),
 			'pegawai' => $this->pegawai->getPegawai(),
-			'submenu' => '',
+			'submenu' => 'sk',
 			'validation' =>  \Config\Services::validation()
 		];
 		// dd($data);
@@ -87,12 +87,12 @@ class SkController extends BaseController
 	{
 		$data = [
 			'title' 		=> 'SK',
-			'active' 		=> 'sk',
+			'active' 		=> 'SK',
 			'sk'			=> $this->sk->getSk($id),
 			'herarki' => $this->herarki->getHerarki(),
 			'peraturan' => $this->peraturan->getPeraturan(),
 			'pegawai' => $this->pegawai->getPegawai(),
-			'submenu' 		=> '',
+			'submenu' 		=> 'sk',
 			'validation' 	=>  \Config\Services::validation()
 		];
 		return view('admin/sk/edit', $data);
@@ -132,9 +132,9 @@ class SkController extends BaseController
 	{
 		$data = [
 			'title' 		=> 'Detail SK',
-			'active' 		=> 'sk',
+			'active' 		=> 'SK',
 			'sk'			=> $this->sk->getSk($id),
-			'submenu' 		=> '',
+			'submenu' 		=> 'sk',
 			'cetak'			=> false
 		];
 		return view('admin/sk/temp_sk', $data);
@@ -143,9 +143,9 @@ class SkController extends BaseController
 	{
 		$data = [
 			'title' 		=> 'Cetak SK',
-			'active' 		=> 'sk',
+			'active' 		=> 'SK',
 			'sk'			=> $this->sk->getSk($id),
-			'submenu' 		=> '',
+			'submenu' 		=> 'sk',
 			'cetak'			=> true
 		];
 		return view('admin/sk/temp_sk', $data);

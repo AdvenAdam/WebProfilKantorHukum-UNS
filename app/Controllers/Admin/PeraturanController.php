@@ -20,8 +20,8 @@ class PeraturanController extends BaseController
 		$data = [
 			'title' => 'Manage Peratuan',
 			'peraturan' => $this->peraturan->getPeraturan(),
-			'active' => '',
-			'submenu' => ''
+			'active' => 'SK',
+			'submenu' => 'peraturan'
 		];
 		return view('/admin/peraturan/index', $data);
 	}
@@ -30,8 +30,8 @@ class PeraturanController extends BaseController
 		$data = [
 			'title' => 'Input Peraturan',
 			'herarki' => $this->herarki->getHerarki(),
-			'active' => '',
-			'submenu' => '',
+			'active' => 'SK',
+			'submenu' => 'peraturan',
 			'validation' =>  \Config\Services::validation()
 		];
 		return view('/admin/peraturan/input', $data);
@@ -94,8 +94,8 @@ class PeraturanController extends BaseController
 			'herarki' => $this->herarki->getHerarki(),
 			'peraturan' => $this->peraturan->getPeraturan($id),
 			'validation' =>  \Config\Services::validation(),
-			'active' => '',
-			'submenu' => ''
+			'active' => 'SK',
+			'submenu' => 'peraturan'
 		];
 
 		return view('/admin/peraturan/edit', $data);

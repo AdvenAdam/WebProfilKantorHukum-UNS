@@ -20,9 +20,9 @@ class HerarkiController extends BaseController
 		$data = [
 			'title' => 'Manage Herarki',
 			'herarki' => $this->herarki->getHerarki(),
-			'active' => '',
+			'active' => 'SK',
 			'validation' =>  \Config\Services::validation(),
-			'submenu' => '',
+			'submenu' => 'herarki',
 		];
 		return view('/admin/herarki/index', $data);
 	}

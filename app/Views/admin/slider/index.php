@@ -6,7 +6,7 @@
             <div class="col">
                 <div class="card">
                     <div class="card-body">
-                        <h3 class="Card-title mb-4">Data Kategori Tersimpan</h3>
+                        <h3 class="Card-title mb-4">Data Slide Tersimpan</h3>
                         <div class="row mb-4">
                             <div class="col-6">
                                 <a href="Slider/create" class="btn btn-primary">Tambah Data</a>
