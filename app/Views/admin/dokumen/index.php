@@ -6,7 +6,7 @@
             <div class="col">
                 <div class="card">
                     <div class="card-body">
-                        <h3 class="Card-title mb-4">Data Dokumen Tersimpan</h3>
+                        <h3 class="Card-title mb-4">Data Dokumen Eksternal(Untuk Publik)</h3>
                         <div class="row mb-4">
                             <div class="col-6">
                                 <a href="Dokumen/create" class="btn btn-primary">Tambah Data</a>

@@ -90,6 +90,15 @@ $routes->group('Admin', ["namespace" => "App\Controllers\Admin", 'filter' => 'ce
 		$routes->get('detail/(:any)', 'DokumenController::detail/$1');
 		$routes->get('edit/(:any)', 'DokumenController::edit/$1');
 	});
+	//dokumen internal 
+	$routes->group('DokumenInternal',  function ($routes) {
+		$routes->get('/', 'DokumenInternController::index');
+		$routes->post('save', 'DokumenInternController::save');
+		$routes->post('update/(:any)', 'DokumenInternController::update/$1');
+		$routes->post('delete/(:any)', 'DokumenInternController::delete/$1');
+		$routes->get('detail/(:any)', 'DokumenInternController::detail/$1');
+		$routes->get('edit/(:any)', 'DokumenInternController::edit/$1');
+	});
 	//peraturan
 	$routes->group('Peraturan',  function ($routes) {
 		$routes->get('/', 'PeraturanController::index');

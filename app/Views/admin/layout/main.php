@@ -85,7 +85,7 @@
     <!-- data table -->
     <script>
         $(document).ready(function() {
-            $('.tablek').DataTable({
+            $('.table').DataTable({
                 // "scrollX": true,
                 "oLanguage": {
                     "sSearch": "",

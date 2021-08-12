@@ -31,9 +31,9 @@
                 <img src="/tema/surat/assets/img/logo-uns-biru.png" style="width: 120px;height: 120px; object-fit: cover; object-position: center;">
             </div>
             <div class="col-md-9 col-lg-8 col-xl-8" style="padding: 0px 0px;">
-                <h3 class="text-center" style="margin: 2px;padding: 10px 0px;">KEMENTERIAN PENDIDIKAN DAN KEBUDAYAAN<br></h3>
-                <h3 class="text-center"><strong>UNIVERSITAS SEBELAS MARET</strong><br></h3>
-                <p class="text-center" style="font-size: 16px;font-family: 'Times New Roman';">Jl.Ir.Sutami 36 A Kentingan Surakarta 57126<br>Telp. 646994, 636895, Fax. 636268&nbsp; Laman :<a href="http://www.uns.ac.id">http://www.uns.ac.id</a><br></p>
+                <p class="text-center" style="margin: 2px;padding: 10px 0px; text-transform: uppercase; font-size:16px;"><strong> Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi </strong><br></p>
+                <p class="text-center" style="font-size: 14px;text-transform: uppercase;"><strong>UNIVERSITAS SEBELAS MARET</strong><br></p>
+                <p class="text-center" style="font-size: 12px;font-family: 'Times New Roman';">Jl.Ir.Sutami 36 A Kentingan Surakarta 57126<br>Telp. 646994, 636895, Fax. 636268&nbsp; Laman :<a href="http://www.uns.ac.id">http://www.uns.ac.id</a><br></p>
             </div>
             <div class="col-md-1 col-lg-2 col-xl-2"></div>
         </div>
@@ -62,7 +62,7 @@
         <!-- Menimbang&Mengingat -->
         <div class="row">
             <div class="col">
-                <table class="table table-bordered">
+                <table class="table">
                     <tbody>
                         <?php if (!empty(json_decode($sk['menimbang']))) { ?>
                             <tr>
