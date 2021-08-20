@@ -24,6 +24,9 @@ class Home extends BaseController
 
 	public function index()
 	{
+		if (session()->logged_in ==  true) {
+			return redirect()->to('/Admin');
+		}
 		$data = [
 			'title' 	=> 'Kantor Hukum UNS',
 			'slider'	=> $this->slider->getSlider(),
