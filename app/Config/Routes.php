@@ -94,6 +94,7 @@ $routes->group('Admin', ["namespace" => "App\Controllers\Admin", 'filter' => 'ce
 	$routes->group('DokumenInternal',  function ($routes) {
 		$routes->get('/', 'DokumenInternController::index');
 		$routes->post('save', 'DokumenInternController::save');
+		$routes->get('download/(:any)', 'DokumenInternController::download/$1');
 		$routes->post('update/(:any)', 'DokumenInternController::update/$1');
 		$routes->post('delete/(:any)', 'DokumenInternController::delete/$1');
 		$routes->get('detail/(:any)', 'DokumenInternController::detail/$1');

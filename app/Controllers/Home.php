@@ -10,9 +10,6 @@ use App\Models\Informasi;
 use CodeIgniter\Exceptions\AlertError;
 
 
-if (session()->logged_in == true) {
-	return redirect()->to('/Admin');
-}
 class Home extends BaseController
 {
 	protected $kategori, $dokumen, $slider, $struktur, $informasi;
@@ -27,7 +24,6 @@ class Home extends BaseController
 
 	public function index()
 	{
-		$this->cekBerlaku();
 		$data = [
 			'title' 	=> 'Kantor Hukum UNS',
 			'slider'	=> $this->slider->getSlider(),
@@ -81,6 +77,7 @@ class Home extends BaseController
 	}
 	public function produkHukum()
 	{
+		$this->cekBerlaku();
 		$kategori = $this->kategori->getKategoriDokumen();
 		$data = [
 			'title' 	=> 'Produk Hukum UNS',

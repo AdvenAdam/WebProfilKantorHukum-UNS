@@ -33,6 +33,13 @@ class DokumenInternController extends BaseController
 					'required' => '{field} Harus Diisi'
 				]
 			],
+			'status' => [
+				'rules' => 'required',
+				'label' => 'Status',
+				'errors' => [
+					'required' => '{field} Harus Diisi'
+				]
+			],
 			'tahun' => [
 				'rules' => 'required',
 				'label' => 'Tahun',
@@ -57,12 +64,17 @@ class DokumenInternController extends BaseController
 		];
 		return $rule;
 	}
-	function setFilename($judul)
+	function setFilename($judul, $status)
 	{
+		if ($status == '1') {
+			$status = '[ASLI]';
+		} elseif ($status == '0') {
+			$status = '[SALINAN]';
+		}
 		$jdl = $judul;
 		$jdl = preg_replace('/[^A-Za-z0-9\-]/', '', $jdl);
-		$waktu = date("d-m-Y");
-		$filename = $waktu . '_' . $jdl;
+		$sk = $this->request->getVar('no_sk');
+		$filename = $status . '_' . $sk . '_' . $jdl;
 		return $filename;
 	}
 	public function save()
@@ -72,12 +84,14 @@ class DokumenInternController extends BaseController
 			return redirect()->to('/Admin/DokumenInternal/index')->withInput();
 		} else {
 			$judul = $this->request->getVar('judul');
+			$status = $this->request->getVar('status');
 			$fileDokumen = $this->request->getFile('file');
-			$namaDokumen = $this->setFilename($judul) . '.' . $fileDokumen->getClientExtension();
+			$namaDokumen = $this->setFilename($judul, $status) . '.' . $fileDokumen->getClientExtension();
 			$fileDokumen->move('dokumen_internal', $namaDokumen);
 			$data = [
 				'judul' => $judul,
 				'tahun' => $this->request->getVar('tahun'),
+				'status' => $status,
 				'no_sk' => $this->request->getVar('no_sk'),
 				'file' => $namaDokumen
 			];
@@ -115,24 +129,37 @@ class DokumenInternController extends BaseController
 		} else {
 			$data = $this->dok_internal->getDok_internal($id);
 			$judul = $this->request->getVar('judul');
+			$status = $this->request->getVar('status');
 			$dokumenLama = ('dokumen_internal/' . $data['file']);
 			$fileDokumen = $this->request->getFile('file');
 			if ($fileDokumen->getError() == 4) {
-				$namaDokumen = ($this->setFilename($judul) . '.' . 'pdf');
+				$namaDokumen = ($this->setFilename($judul, $status) . '.' . 'pdf');
 				rename($dokumenLama, 'dokumen_internal/' . $namaDokumen);
 			} else {
-				$namaDokumen = $this->setFilename($judul) . '.' . $fileDokumen->getClientExtension();
+				$namaDokumen = $this->setFilename($judul, $status) . '.' . $fileDokumen->getClientExtension();
 				$fileDokumen->move('dokumen_internal', $namaDokumen);
 			}
 			$data = [
 				'id'	=> $id,
 				'judul' => $judul,
+				'status' => $status,
 				'tahun' => $this->request->getVar('tahun'),
 				'no_sk' => $this->request->getVar('no_sk'),
 				'file' 	=> $namaDokumen
 			];
 			$this->dok_internal->save($data);
 			session()->setFlashdata('success', 'Data Berhasil Diubah');
+			return redirect()->to('/Admin/DokumenInternal');
+		}
+	}
+	public function download($id)
+	{
+		$data = $this->dok_internal->getDok_internal($id);
+		$file = ('dokumen_internal/' . $data['file']);
+		if (file_exists($file)) {
+			return $this->response->download($file, null);
+		} else {
+			session()->setFlashdata('danger', 'File Tidak Ditemukan');
 			return redirect()->to('/Admin/DokumenInternal');
 		}
 	}

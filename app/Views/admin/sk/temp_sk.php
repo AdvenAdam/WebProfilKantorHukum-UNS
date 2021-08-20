@@ -62,16 +62,16 @@
         <!-- Menimbang&Mengingat -->
         <div class="row">
             <div class="col">
-                <table class="table">
+                <table class="table" border="0">
                     <tbody>
                         <?php if (!empty(json_decode($sk['menimbang']))) { ?>
-                            <tr>
+                            <tr class="noBorder">
                                 <td style="width: 5%;" rowspan="<?= count(json_decode($sk['menimbang'])) + 1; ?>">Menimbang</td>
                                 <td style="width: 1%;" rowspan="<?= count(json_decode($sk['menimbang'])) + 1; ?>">:</td>
                             </tr>
                             <?php $a = 'a'; ?>
                             <?php foreach (json_decode($sk['menimbang']) as $list) { ?>
-                                <tr>
+                                <tr class="noBorder">
                                     <td style="width: 5%;">
                                         <?= $a++; ?><?= '.'; ?>
                                     </td>
@@ -83,13 +83,13 @@
                             <td></td>
                         </tr>
                         <?php if (!empty(json_decode($sk['mengingat']))) { ?>
-                            <tr>
+                            <tr class="noBorder">
                                 <td style="width: 5%;" rowspan="<?= count(json_decode($sk['mengingat'])) + 1; ?>">Mengingat </td>
                                 <td style="width: 1%;" rowspan="<?= count(json_decode($sk['mengingat'])) + 1; ?>">:</td>
                             </tr>
                             <?php $b = 1; ?>
                             <?php foreach (json_decode($sk['mengingat']) as $list) { ?>
-                                <tr>
+                                <tr class="noBorder">
                                     <td style="width: 5%;"><?= $b++; ?><?= '.'; ?></td>
                                     <td class="text-justify" style="padding: 12px 50px 12px 10px;"><?= ($list->detail); ?></td>
                                 </tr>
@@ -115,7 +115,7 @@
                 <table class="table">
                     <tbody>
                         <?php foreach (json_decode($sk['memutuskan']) as $list) { ?>
-                            <tr>
+                            <tr class="noBorder">
                                 <td style="width: 5%;">
                                     <p><?= numbering($c++); ?></p>
                                 </td>

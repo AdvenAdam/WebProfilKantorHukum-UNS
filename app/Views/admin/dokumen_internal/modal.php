@@ -24,6 +24,17 @@
                         </div>
                     </div>
                     <div class="form-floating mb-4">
+                        <select class="form-select <?= $validation->hasError('status') ? 'is-invalid' : '' ?>" name="status">
+                            <option value="">Buka Pilihan Jenis</option>
+                            <option value="1">Asli</option>
+                            <option value="0">Salinan</option>
+                        </select>
+                        <label>Pilih Jenis Dokumen</label>
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('status'); ?>
+                        </div>
+                    </div>
+                    <div class="form-floating mb-4">
                         <input type="text" autocomplete="off" name="tahun" class="form-control tahun <?= $validation->hasError('tahun') ? 'is-invalid' : '' ?>" placeholder="Tahun">
                         <label for="tahun">Tahun</label>
                         <div class="invalid-feedback">
@@ -94,6 +105,17 @@
                         </div>
                     </div>
                     <div class="form-floating mb-4">
+                        <select class="form-select <?= $validation->hasError('status') ? 'is-invalid' : '' ?>" id="status" name="status">
+                            <option value="" selected>Buka Pilihan Jenis</option>
+                            <option value="1">Asli</option>
+                            <option value="0">Salinan</option>
+                        </select>
+                        <label>Pilih Jenis Dokumen</label>
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('status'); ?>
+                        </div>
+                    </div>
+                    <div class="form-floating mb-4">
                         <input type="text" autocomplete="off" name="tahun" id="tahun" class="form-control tahun <?= $validation->hasError('tahun') ? 'is-invalid' : '' ?>" id="tahun" placeholder="Tahun">
                         <label for="tahun">Tahun</label>
                         <div class="invalid-feedback">
@@ -101,7 +123,7 @@
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <label for="dokumen" class="form-label">Silahkan Pilih Dokumen</label>
+                        <label for="dokumen" class="form-label">Silahkan Pilih Dokumen <b>**lewati jika tidak ada perubahan</b></label>
                         <input class="form-control form-control-sm <?= $validation->hasError('file') ? 'is-invalid' : '' ?>" name="file" id="dok" type="file">
                         <canvas id="pdfView" height="10%"></canvas>
                         <div class="invalid-feedback">

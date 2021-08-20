@@ -17,14 +17,19 @@
                                 <span><?= session()->getFlashdata('success'); ?></span>
                             </div>
                         <?php } ?>
+                        <?php if (session()->getFlashdata('danger')) { ?>
+                            <div class="alert alert-danger fade show" role="alert">
+                                <span><?= session()->getFlashdata('danger'); ?></span>
+                            </div>
+                        <?php } ?>
                         <table id="table" class="display table-hover table invoice-table" style=" width:100%">
                             <thead>
                                 <tr>
-                                    <th>No</th>
-                                    <th>No SK</th>
+                                    <th>Jenis</th>
+                                    <th>Status</th>
                                     <th>Tahun</th>
                                     <th>Judul</th>
-                                    <th>Ditambahkan</th>
+                                    <th>Unduh</th>
                                     <th>#</th>
                                 </tr>
                             </thead>
@@ -32,15 +37,15 @@
                             <tbody>
                                 <?php foreach ($dok_intern as $list) { ?>
                                     <tr>
-                                        <td><?= $i++; ?></td>
                                         <td><?= $list['no_sk']; ?></td>
+                                        <td><?= $list['status'] == '1' ? 'ASLI' : 'SALINAN'; ?></td>
                                         <td><?= $list['tahun']; ?></td>
                                         <td><?= $list['judul']; ?></td>
-                                        <td><?= $list['created_at']; ?></td>
+                                        <td><a href="DokumenInternal/download/<?= $list['id']; ?>" class="btn btn-default btn-sm"><i data-feather="download"></i> </a></td>
                                         <!-- action -->
                                         <td>
                                             <div class="d-inline">
-                                                <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#updateData" data-sk='<?= $list['no_sk']; ?>' data-judul='<?= $list['judul'] ?>' data-tahun='<?= $list['tahun']; ?>' data-idupdate='DokumenInternal/update/<?= $list['id']; ?>' title="Edit Data"><i data-feather="edit"></i> </a>
+                                                <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#updateData" data-sk='<?= $list['no_sk']; ?>' data-judul='<?= $list['judul'] ?>' data-tahun='<?= $list['tahun']; ?>' data-status='<?= $list['status']; ?>' data-idupdate='DokumenInternal/update/<?= $list['id']; ?>' title="Edit Data"><i data-feather="edit"></i> </a>
                                             </div>
                                             <div class="d-inline">
                                                 <a href="DokumenInternal/detail/<?= $list['id']; ?>" title="Lihat"><i data-feather="eye"></i> </a>
@@ -75,6 +80,7 @@
             modal.find('#judul').attr("value", div.data('judul'));
             modal.find('#tahun').attr("value", div.data('tahun'));
             modal.find('#no_sk').attr("value", div.data('sk'));
+            modal.find('#status').val(div.data('status'));
 
         });
     });

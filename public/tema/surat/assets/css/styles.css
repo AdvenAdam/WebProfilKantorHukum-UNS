@@ -8,16 +8,16 @@ hr {
 }
 tr.noBorder td {
   border: 0;
+  font-family: 'Times New Roman';
 }
 .keterangan {
   font-family: 'Times New Roman';
   padding: 0px 240px;
 }
-
 p {
   font-family: 'Times New Roman';
 }
-.text-center  {
+.text  {
   font-family: 'Times New Roman';
 }
 

@@ -15,6 +15,9 @@ class Auth extends BaseController
 	}
 	public function index()
 	{
+		if (session()->logged_in ==  true) {
+			return redirect()->to('/Admin');
+		}
 		$data = [
 			'title' => 'login page',
 			'validation' =>  \Config\Services::validation()

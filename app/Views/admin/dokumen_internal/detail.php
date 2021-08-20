@@ -29,9 +29,16 @@
                                     <p><?= $dokumen['tahun']; ?></p>
                                 </div>
                             </div>
-                            <div class="col">
-                                <p class="info">Diupload pada:</p>
-                                <p><?= $dokumen['created_at']; ?></p>
+                            <div class="row">
+                                <div class="col">
+                                    <p class="info">Jenis Dokumen:</p>
+                                    <p><?= $dokumen['status'] == '1' ? 'ASLI' : 'SALINAN'; ?></p>
+                                </div>
+                                <div class="col">
+                                    <p class="info">Diupload pada:</p>
+                                    <p><?= $dokumen['created_at']; ?></p>
+                                </div>
+                                <div class="col"></div>
                             </div>
                         </div>
                         <div class="row invoice-details">
