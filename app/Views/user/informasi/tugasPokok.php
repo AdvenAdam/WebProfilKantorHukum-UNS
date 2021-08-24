@@ -29,7 +29,7 @@
                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                         <div class="shop-descriptions-area khusus">
                             <?php foreach ($info as $val) { ?>
-                                <font color="black"> <?= $val['tugas_pokok']; ?> </font>
+                                <?= $val['tugas_pokok']; ?>
                             <?php } ?>
                         </div>
 
@@ -41,6 +41,11 @@
     </div>
 </div>
 
+<style>
+    div font p {
+        color: black
+    }
+</style>
 
 <!--====== Dokumen Detail ENDS ======-->
 <?= $this->endSection(); ?>

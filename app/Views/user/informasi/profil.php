@@ -28,7 +28,7 @@
                         <div class="shop-descriptions-area khusus">
                             <?php foreach ($info as $val) { ?>
                                 <span style="list-style-type: number !important; ">
-                                    <font color="black"> <?= $val['profil']; ?></font>
+                                    <?= $val['profil']; ?>
                                 </span>
                             <?php } ?>
                         </div>
@@ -40,6 +40,10 @@
         </div>
     </div>
 </div>
-
+<style>
+    div span p {
+        color: black
+    }
+</style>
 <!--====== Dokumen Detail ENDS ======-->
 <?= $this->endSection(); ?>

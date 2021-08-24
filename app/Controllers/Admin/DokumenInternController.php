@@ -81,7 +81,7 @@ class DokumenInternController extends BaseController
 	{
 		$valid = $this->validate($this->rule());
 		if (!$valid) {
-			return redirect()->to('/Admin/DokumenInternal/index')->withInput();
+			return redirect()->to('/Admin/DokumenInternal')->withInput();
 		} else {
 			$judul = $this->request->getVar('judul');
 			$status = $this->request->getVar('status');
@@ -125,7 +125,7 @@ class DokumenInternController extends BaseController
 	{
 		$valid = $this->validate($this->rule());
 		if (!$valid) {
-			return redirect()->to('/Admin/DokumenInternal/index')->withInput();
+			return redirect()->to('/Admin/DokumenInternal')->withInput();
 		} else {
 			$data = $this->dok_internal->getDok_internal($id);
 			$judul = $this->request->getVar('judul');

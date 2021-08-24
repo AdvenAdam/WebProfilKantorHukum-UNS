@@ -87,6 +87,11 @@
         $(document).ready(function() {
             $('.table').DataTable({
                 // "scrollX": true,
+                "order": [],
+                "columnDefs": [{
+                    "type": "num",
+                    "targets": 0
+                }],
                 "oLanguage": {
                     "sSearch": "",
                     "sSearchPlaceholder": "Cari",

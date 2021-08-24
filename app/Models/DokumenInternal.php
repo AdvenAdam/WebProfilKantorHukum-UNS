@@ -11,7 +11,7 @@ class DokumenInternal extends Model
 	protected $primaryKey           = 'id';
 	protected $returnType           = 'array';
 	protected $protectFields        = true;
-	protected $allowedFields        = ['tahun', 'judul', 'file', 'no_sk','status'];
+	protected $allowedFields        = ['tahun', 'judul', 'file', 'no_sk', 'status'];
 
 	// Dates
 	protected $useTimestamps        = true;
@@ -24,7 +24,7 @@ class DokumenInternal extends Model
 		if ($id == false) {
 			return $this
 				->orderBy('tahun DESC')
-				->orderBy('no_sk ASC')
+				->orderBy('CAST(no_sk AS SIGNED) DESC')
 				->findAll();
 		} else {
 			return $this

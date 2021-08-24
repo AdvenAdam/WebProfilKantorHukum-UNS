@@ -25,7 +25,7 @@
                         <table id="table" class="display table-hover table invoice-table" style=" width:100%">
                             <thead>
                                 <tr>
-                                    <th>Jenis</th>
+                                    <th>No SK</th>
                                     <th>Status</th>
                                     <th>Tahun</th>
                                     <th>Judul</th>
