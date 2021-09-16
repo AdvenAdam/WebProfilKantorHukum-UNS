@@ -35,7 +35,7 @@
                                     <tr>
                                         <td><?= $i++; ?></td>
                                         <td><?= $list['tahun']; ?></td>
-                                        <td><?= $list['judul']; ?></td>
+                                        <td><?= strtoupper($list['judul']); ?></td>
                                         <td><?= $list['kategori_dokumen']; ?></td>
                                         <td>
                                             <?php if ($list['status'] == 1) { ?>

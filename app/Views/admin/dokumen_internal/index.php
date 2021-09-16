@@ -40,7 +40,7 @@
                                         <td><?= $list['no_sk']; ?></td>
                                         <td><?= $list['status'] == '1' ? 'ASLI' : 'SALINAN'; ?></td>
                                         <td><?= $list['tahun']; ?></td>
-                                        <td><?= $list['judul']; ?></td>
+                                        <td><?= strtoupper($list['judul']); ?></td>
                                         <td><a href="DokumenInternal/download/<?= $list['id']; ?>" class="btn btn-default btn-sm"><i data-feather="download"></i> </a></td>
                                         <!-- action -->
                                         <td>

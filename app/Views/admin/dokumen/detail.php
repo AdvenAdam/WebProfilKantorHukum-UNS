@@ -26,7 +26,7 @@
                             <div class="row">
                                 <div class="col">
                                     <p class="info">Judul:</p>
-                                    <p><?= $dokumen['judul']; ?></p>
+                                    <p><?= strtoupper($dokumen['judul']); ?></p>
                                 </div>
                                 <div class="col">
                                     <p class="info">Kategori:</p>

@@ -20,6 +20,29 @@
                                         </div>
                                     </div>
                                     <div class="form-floating mb-4">
+                                        <select class="form-select <?= $validation->hasError('kategori_dokumen') ? 'is-invalid' : '' ?>" id="kategori_dokumen" name="kategori_dokumen" value="">
+                                            <option value="<?= $dokumen['id_kategori_dokumen']; ?>"><?= $dokumen['kategori_dokumen']; ?></option>
+                                            <?php foreach ($kategori as $list) { ?>
+                                                <?php if ($list['id_kategori_dokumen'] == old('kategori_dokumen')) { ?>
+                                                    <option value="<?= $list['id_kategori_dokumen'] ?>" selected><?= $list['kategori_dokumen']; ?></option>
+                                                <?php continue;
+                                                } ?>
+                                                <option value="<?= $list['id_kategori_dokumen']; ?>"><?= $list['kategori_dokumen']; ?></option>
+                                            <?php } ?>
+                                        </select>
+                                        <label>Pilih Kategori Dokumen</label>
+                                        <div class="invalid-feedback">
+                                            <?= $validation->getError('kategori_dokumen'); ?>
+                                        </div>
+                                    </div>
+                                    <div class="form-floating mb-4">
+                                        <input type="text" value="<?= old('no') ? old('no') : $dokumen['no']; ?>" name="no" class="form-control <?= $validation->hasError('no') ? 'is-invalid' : '' ?>" id="no" placeholder="no">
+                                        <label for="no">No</label>
+                                        <div class="invalid-feedback">
+                                            <?= $validation->getError('no'); ?>
+                                        </div>
+                                    </div>
+                                    <div class="form-floating mb-4">
                                         <input type="text" autocomplete="off" value="<?= old('tahun') ? old('tahun') : $dokumen['tahun']; ?>" name="tahun" class="form-control <?= $validation->hasError('tahun') ? 'is-invalid' : '' ?>" id="tahun" placeholder="Tahun">
                                         <label for="tahun">Tahun</label>
                                         <div class="invalid-feedback">
@@ -44,22 +67,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-floating mb-4">
-                                        <select class="form-select <?= $validation->hasError('kategori_dokumen') ? 'is-invalid' : '' ?>" id="kategori_dokumen" name="kategori_dokumen" value="">
-                                            <option value="<?= $dokumen['id_kategori_dokumen']; ?>"><?= $dokumen['kategori_dokumen']; ?></option>
-                                            <?php foreach ($kategori as $list) { ?>
-                                                <?php if ($list['id_kategori_dokumen'] == old('kategori_dokumen')) { ?>
-                                                    <option value="<?= $list['id_kategori_dokumen'] ?>" selected><?= $list['kategori_dokumen']; ?></option>
-                                                <?php continue;
-                                                } ?>
-                                                <option value="<?= $list['id_kategori_dokumen']; ?>"><?= $list['kategori_dokumen']; ?></option>
-                                            <?php } ?>
-                                        </select>
-                                        <label>Pilih Kategori Dokumen</label>
-                                        <div class="invalid-feedback">
-                                            <?= $validation->getError('kategori_dokumen'); ?>
-                                        </div>
-                                    </div>
+
                                     <div class="row mb-4">
                                         <label for="dokumen" class="form-label d-inline"><?= $dokumen['dokumen']; ?>
                                             <a href="#" data-bs-toggle="modal" data-bs-target="#view">> <i data-feather="eye"></i></a>

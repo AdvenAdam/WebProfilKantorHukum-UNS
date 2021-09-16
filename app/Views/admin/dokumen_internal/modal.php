@@ -17,7 +17,7 @@
                         </div>
                     </div>
                     <div class="form-floating mb-4">
-                        <input type="text" value="<?= old('no_sk'); ?>" name="no_sk" class="form-control <?= $validation->hasError('no_sk') ? 'is-invalid' : '' ?>" placeholder="no_sk">
+                        <input type="text" value="<?= old('no_sk') ? old('no_sk') : ' /UNS27/HK/' . date('Y'); ?>" name="no_sk" class="form-control <?= $validation->hasError('no_sk') ? 'is-invalid' : '' ?>" placeholder="no_sk">
                         <label for="no_sk">NO SK</label>
                         <div class="invalid-feedback">
                             <?= $validation->getError('no_sk'); ?>

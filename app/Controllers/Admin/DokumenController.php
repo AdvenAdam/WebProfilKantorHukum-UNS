@@ -50,6 +50,13 @@ class DokumenController extends BaseController
 					'required' => '{field} Harus Diisi'
 				]
 			],
+			'no' => [
+				'rules' => 'required',
+				'label' => 'No',
+				'errors' => [
+					'required' => '{field} Harus Diisi'
+				]
+			],
 			'tahun' => [
 				'rules' => 'required',
 				'label' => 'Tahun',
@@ -96,6 +103,7 @@ class DokumenController extends BaseController
 		$fileDokumen->move('dokumen/' . $kategori['kategori_dokumen'], $namaDokumen);
 		$data = [
 			'judul' => $this->request->getVar('judul'),
+			'no' => $this->request->getVar('no'),
 			'tahun' => $this->request->getVar('tahun'),
 			'id_kategori_dokumen' => $id_kategori,
 			'status' => null,
@@ -171,6 +179,7 @@ class DokumenController extends BaseController
 		$data = [
 			'id'	=> $id,
 			'judul' => $this->request->getVar('judul'),
+			'no' => $this->request->getVar('no'),
 			'tahun' => $this->request->getVar('tahun'),
 			'id_kategori_dokumen' => $id_kategori,
 			'status' => null,

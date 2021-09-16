@@ -10,7 +10,7 @@ class Dokumen extends Model
 	protected $primaryKey           = 'id';
 	protected $returnType           = 'array';
 	protected $protectFields        = true;
-	protected $allowedFields        = ['tahun', 'judul', 'status', 'dokumen', 'id_kategori_dokumen', 'berlaku', 'sampai'];
+	protected $allowedFields        = ['tahun', 'judul', 'status', 'dokumen', 'no', 'id_kategori_dokumen', 'berlaku', 'sampai'];
 
 	// Dates
 	protected $useTimestamps        = true;
@@ -37,6 +37,8 @@ class Dokumen extends Model
 		return $this
 			->join('tbl_kategori_dokumen', 'tbl_dokumen.id_kategori_dokumen = tbl_kategori_dokumen.id_kategori_dokumen')
 			->where('tbl_dokumen.id_kategori_dokumen=', $kategori)
+			->orderBy('tbl_dokumen.tahun', 'DESC')
+			->orderBy('tbl_dokumen.no', 'ASC')
 			->findAll();
 	}
 }

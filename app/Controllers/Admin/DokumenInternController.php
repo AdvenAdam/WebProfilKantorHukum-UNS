@@ -73,8 +73,7 @@ class DokumenInternController extends BaseController
 		}
 		$jdl = $judul;
 		$jdl = preg_replace('/[^A-Za-z0-9\-]/', '', $jdl);
-		$sk = $this->request->getVar('no_sk');
-		$filename = $status . '_' . $sk . '_' . $jdl;
+		$filename = $status . '_' . $jdl;
 		return $filename;
 	}
 	public function save()

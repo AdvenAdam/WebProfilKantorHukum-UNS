@@ -41,8 +41,8 @@
                                                 <th>No</th>
                                                 <th>Judul</th>
                                                 <th>Tahun</th>
+                                                <th>No</th>
                                                 <th>Kategori </th>
-                                                <th>Diunggah</th>
                                                 <th>Lihat</th>
                                                 <th>Download</th>
                                             </tr>
@@ -58,8 +58,8 @@
                                                     </td>
                                                     <td><?= $value['judul']; ?></td>
                                                     <td><?= $value['tahun']; ?></td>
+                                                    <td><?= $value['no']; ?></td>
                                                     <td><?= $value['kategori_dokumen']; ?></td>
-                                                    <td><?= $value['created_at'] == '0000-00-00' ? '-' : format_indo($value['created_at']); ?></td>
                                                     <td>
                                                         <a href="detailDokumen/<?= $value['id']; ?>" class="btn btn-primary">Lihat</a>
                                                     </td>
