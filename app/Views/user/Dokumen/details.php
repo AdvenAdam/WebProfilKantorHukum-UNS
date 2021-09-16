@@ -33,13 +33,13 @@
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                         <div class="shop-descriptions-area">
-                            <h3 class="title">Detail "<?= $dokumen['judul']; ?>"</h3>
+                            <h3 class="title">Detail "<?= strtoupper($dokumen['judul']); ?>"</h3>
                             <div class="shop-descriptions-list d-flex">
                                 <ul class="shop-list-1">
                                     <li>Judul</li>
                                 </ul>
                                 <ul class="shop-list-2">
-                                    <li><?= $dokumen['judul']; ?></li>
+                                    <li><?= strtoupper($dokumen['judul']); ?></li>
                                 </ul>
                             </div>
                             <div class="shop-descriptions-list d-flex">

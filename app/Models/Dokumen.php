@@ -24,6 +24,7 @@ class Dokumen extends Model
 			return $this
 				->join('tbl_kategori_dokumen', 'tbl_dokumen.id_kategori_dokumen = tbl_kategori_dokumen.id_kategori_dokumen')
 				->orderBy('tbl_dokumen.tahun', 'DESC')
+				->orderBy('tbl_dokumen.no', 'ASC')
 				->get()->getResultArray();
 		} else {
 			return $this

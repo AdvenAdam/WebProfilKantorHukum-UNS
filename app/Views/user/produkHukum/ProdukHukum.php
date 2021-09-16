@@ -57,7 +57,7 @@
                                                         <?= $i++; ?>
                                                     </td>
                                                     <td><?= $value['judul']; ?></td>
-                                                    <td><?= $value['tahun']; ?></td>
+                                                    <td><?= strtoupper($value['tahun']); ?></td>
                                                     <td><?= $value['no']; ?></td>
                                                     <td><?= $value['kategori_dokumen']; ?></td>
                                                     <td>
