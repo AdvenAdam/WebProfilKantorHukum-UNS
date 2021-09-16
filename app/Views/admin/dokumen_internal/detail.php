@@ -10,8 +10,17 @@
                             <div class="col-8">
                                 <h2>Detail Dokumen Internal</h2>
                             </div>
-                            <div class="col-4" align="right">
-                                <a href="/Admin/DokumenInternal"><i data-feather="arrow-left"></i></a>
+                            <div class="col-4">
+                                <h4 class="float-end">#
+                                    <?php if ($dokumen['status_berlaku'] == 1) { ?>
+                                        <span class="badge rounded-pill bg-success">Berlaku</span>
+                                    <?php } else if ($dokumen['status_berlaku'] == 2) { ?>
+                                        <span class="badge rounded-pill bg-danger">Tidak Berlaku</span>
+                                    <?php } else { ?>
+                                        <span class="badge rounded-pill bg-primary">Peraturan Tetap</span>
+                                    <?php } ?>
+                                    <a href="/Admin/DokumenInternal"><i data-feather="arrow-left"></i></a>
+                                </h4>
                             </div>
                         </div>
                         <div class="invoice-details">

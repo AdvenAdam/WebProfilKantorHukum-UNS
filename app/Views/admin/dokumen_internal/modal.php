@@ -41,6 +41,24 @@
                             <?= $validation->getError('tahun'); ?>
                         </div>
                     </div>
+                    <div class="form-floating mb-4">
+                        <div class="row">
+                            <div class="col-4">
+                                <label for="berlaku">Berlaku Mulai</label>
+                                <input type="date" value="<?= old('berlaku'); ?>" name="berlaku" class="form-control <?= $validation->hasError('berlaku') ? 'is-invalid' : '' ?>" id="berlaku" placeholder="berlaku">
+                                <div class="invalid-feedback">
+                                    <?= $validation->getError('berlaku'); ?>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <label for="sampai">Berlaku Sampai</label>
+                                <input type="date" value="<?= old('sampai'); ?>" name="sampai" class="form-control <?= $validation->hasError('sampai') ? 'is-invalid' : '' ?>" id="sampai" placeholder="sampai">
+                                <div class="invalid-feedback">
+                                    <?= $validation->getError('sampai'); ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row mb-4">
                         <label for="dokumen" class="form-label">Silahkan Pilih Dokumen</label>
                         <input class="form-control dok form-control-sm <?= $validation->hasError('file') ? 'is-invalid' : '' ?>" name="file" type="file" id="dokumen" required>
@@ -105,6 +123,13 @@
                         </div>
                     </div>
                     <div class="form-floating mb-4">
+                        <input type="text" autocomplete="off" name="tahun" id="tahun" class="form-control tahun <?= $validation->hasError('tahun') ? 'is-invalid' : '' ?>" id="tahun" placeholder="Tahun">
+                        <label for="tahun">Tahun</label>
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('tahun'); ?>
+                        </div>
+                    </div>
+                    <div class="form-floating mb-4">
                         <select class="form-select <?= $validation->hasError('status') ? 'is-invalid' : '' ?>" id="status" name="status">
                             <option value="" selected>Buka Pilihan Jenis</option>
                             <option value="1">Asli</option>
@@ -116,10 +141,21 @@
                         </div>
                     </div>
                     <div class="form-floating mb-4">
-                        <input type="text" autocomplete="off" name="tahun" id="tahun" class="form-control tahun <?= $validation->hasError('tahun') ? 'is-invalid' : '' ?>" id="tahun" placeholder="Tahun">
-                        <label for="tahun">Tahun</label>
-                        <div class="invalid-feedback">
-                            <?= $validation->getError('tahun'); ?>
+                        <div class="row">
+                            <div class="col-4">
+                                <label for="mulai">Berlaku Mulai</label>
+                                <input type="date" value="" name="mulai" class="form-control <?= $validation->hasError('mulai') ? 'is-invalid' : '' ?>" id="mulai" placeholder="mulai">
+                                <div class="invalid-feedback">
+                                    <?= $validation->getError('mulai'); ?>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <label for="sampai">Berlaku Sampai</label>
+                                <input type="date" value="" name="sampai" class="form-control <?= $validation->hasError('sampai') ? 'is-invalid' : '' ?>" id="sampai" placeholder="sampai">
+                                <div class="invalid-feedback">
+                                    <?= $validation->getError('sampai'); ?>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="row mb-4">

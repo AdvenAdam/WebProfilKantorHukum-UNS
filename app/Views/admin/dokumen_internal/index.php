@@ -26,9 +26,9 @@
                             <thead>
                                 <tr>
                                     <th>No SK</th>
-                                    <th>Status</th>
                                     <th>Tahun</th>
                                     <th>Judul</th>
+                                    <th>Status Berlaku</th>
                                     <th>Unduh</th>
                                     <th>#</th>
                                 </tr>
@@ -37,15 +37,23 @@
                             <tbody>
                                 <?php foreach ($dok_intern as $list) { ?>
                                     <tr>
-                                        <td><?= $list['no_sk']; ?></td>
-                                        <td><?= $list['status'] == '1' ? 'ASLI' : 'SALINAN'; ?></td>
+                                        <td width="5%"><?= $list['no_sk']; ?></td>
                                         <td><?= $list['tahun']; ?></td>
-                                        <td><?= strtoupper($list['judul']); ?></td>
+                                        <td><?= $list['status_berlaku'] == '1' ? '[ASLI]' : '[SALINAN]'; ?><?= strtoupper($list['judul']); ?></td>
+                                        <td>
+                                            <?php if ($list['status_berlaku'] == 1) { ?>
+                                                <span class="badge rounded-pill bg-success">Berlaku</span>
+                                            <?php } else if ($list['status_berlaku'] == 2) { ?>
+                                                <span class="badge rounded-pill bg-danger">Tidak Berlaku</span>
+                                            <?php } else { ?>
+                                                <span class="badge rounded-pill bg-primary">Peraturan Tetap</span>
+                                            <?php } ?>
+                                        </td>
                                         <td><a href="DokumenInternal/download/<?= $list['id']; ?>" class="btn btn-default btn-sm"><i data-feather="download"></i> </a></td>
                                         <!-- action -->
                                         <td>
                                             <div class="d-inline">
-                                                <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#updateData" data-sk='<?= $list['no_sk']; ?>' data-judul='<?= $list['judul'] ?>' data-tahun='<?= $list['tahun']; ?>' data-status='<?= $list['status']; ?>' data-idupdate='DokumenInternal/update/<?= $list['id']; ?>' title="Edit Data"><i data-feather="edit"></i> </a>
+                                                <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#updateData" data-sk='<?= $list['no_sk']; ?>' data-judul='<?= $list['judul'] ?>' data-tahun='<?= $list['tahun']; ?>' data-status='<?= $list['status']; ?>' data-idupdate='DokumenInternal/update/<?= $list['id']; ?>' data-mulai=<?= $list['mulai']; ?> data-sampai=<?= $list['sampai']; ?> title="Edit Data"><i data-feather="edit"></i> </a>
                                             </div>
                                             <div class="d-inline">
                                                 <a href="DokumenInternal/detail/<?= $list['id']; ?>" title="Lihat"><i data-feather="eye"></i> </a>
@@ -80,6 +88,8 @@
             modal.find('#judul').attr("value", div.data('judul'));
             modal.find('#tahun').attr("value", div.data('tahun'));
             modal.find('#no_sk').attr("value", div.data('sk'));
+            modal.find('#mulai').attr("value", div.data('mulai'));
+            modal.find('#sampai').attr("value", div.data('sampai'));
             modal.find('#status').val(div.data('status'));
 
         });

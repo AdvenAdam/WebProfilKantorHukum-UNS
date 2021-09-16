@@ -39,7 +39,6 @@ class DokumenController extends BaseController
 		];
 		return view('/admin/dokumen/input', $data);
 	}
-
 	public function validationRule()
 	{
 		$data = [
@@ -81,7 +80,6 @@ class DokumenController extends BaseController
 		];
 		return $data;
 	}
-
 	public function setFilename()
 	{
 		$judul = $this->request->getVar('judul');

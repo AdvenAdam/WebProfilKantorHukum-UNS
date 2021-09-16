@@ -11,7 +11,7 @@ class DokumenInternal extends Model
 	protected $primaryKey           = 'id';
 	protected $returnType           = 'array';
 	protected $protectFields        = true;
-	protected $allowedFields        = ['tahun', 'judul', 'file', 'no_sk', 'status'];
+	protected $allowedFields        = ['tahun', 'judul', 'file', 'no_sk', 'mulai', 'sampai', 'status_berlaku', 'status'];
 
 	// Dates
 	protected $useTimestamps        = true;

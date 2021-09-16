@@ -14,6 +14,7 @@ class DokumenInternController extends BaseController
 	}
 	public function index()
 	{
+		$this->cekBerlakuDokInt();
 		$data = [
 			'title' 		=> 'DokumenInternal',
 			'active' 		=> 'internal',
@@ -91,6 +92,9 @@ class DokumenInternController extends BaseController
 				'judul' => $judul,
 				'tahun' => $this->request->getVar('tahun'),
 				'status' => $status,
+				'status_berlaku' => null,
+				'mulai' => $this->request->getVar('mulai'),
+				'sampai' => $this->request->getVar('sampai'),
 				'no_sk' => $this->request->getVar('no_sk'),
 				'file' => $namaDokumen
 			];
@@ -142,6 +146,9 @@ class DokumenInternController extends BaseController
 				'id'	=> $id,
 				'judul' => $judul,
 				'status' => $status,
+				'status_berlaku' => null,
+				'mulai' => $this->request->getVar('mulai'),
+				'sampai' => $this->request->getVar('sampai'),
 				'tahun' => $this->request->getVar('tahun'),
 				'no_sk' => $this->request->getVar('no_sk'),
 				'file' 	=> $namaDokumen
@@ -160,6 +167,30 @@ class DokumenInternController extends BaseController
 		} else {
 			session()->setFlashdata('danger', 'File Tidak Ditemukan');
 			return redirect()->to('/Admin/DokumenInternal');
+		}
+	}
+	public function cekBerlakuDokInt()
+	{
+		$data = $this->dok_internal->getDok_internal();
+		foreach ($data as $value) {
+			if (($value['sampai']) != '0000-00-00') {
+				if (strtotime($value['sampai']) < strtotime(date('Y-m-d'))) {
+					$this->dok_internal->save([
+						'id' => $value['id'],
+						'status_berlaku' => 2
+					]);
+				} else if (strtotime($value['sampai']) > strtotime(date('Y-m-d'))) {
+					$this->dok_internal->save([
+						'id' => $value['id'],
+						'status_berlaku' => 1
+					]);
+				}
+			} else {
+				$this->dok_internal->save([
+					'id' => $value['id'],
+					'status_berlaku' => 3
+				]);
+			}
 		}
 	}
 }
