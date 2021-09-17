@@ -41,7 +41,15 @@
                             <div class="row">
                                 <div class="col">
                                     <p class="info">Jenis Dokumen:</p>
-                                    <p><?= $dokumen['status'] == '1' ? 'ASLI' : 'SALINAN'; ?></p>
+                                    <p><b><?= $dokumen['status'] == '1' ? '[ASLI]' : '[SALINAN]'; ?></b></p>
+                                </div>
+                                <div class="col">
+                                    <p class="info">Berlaku Mulai:</p>
+                                    <?= $dokumen['mulai'] == '0000-00-00' || $dokumen['mulai'] == null  ? '-' : $dokumen['mulai']; ?>
+                                </div>
+                                <div class="col">
+                                    <p class="info">Berlaku Sampai:</p>
+                                    <?= $dokumen['sampai'] == '0000-00-00' || $dokumen['mulai'] == null     ? '-' : $dokumen['sampai']; ?>
                                 </div>
                                 <div class="col">
                                     <p class="info">Diupload pada:</p>
