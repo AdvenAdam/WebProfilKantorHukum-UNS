@@ -24,7 +24,7 @@ class Dokumen extends Model
 			return $this
 				->join('tbl_kategori_dokumen', 'tbl_dokumen.id_kategori_dokumen = tbl_kategori_dokumen.id_kategori_dokumen')
 				->orderBy('tbl_dokumen.tahun', 'DESC')
-				->orderBy('tbl_dokumen.no', 'ASC')
+				->orderBy('CAST(no AS DECIMAL) ASC')
 				->get()->getResultArray();
 		} else {
 			return $this
@@ -39,7 +39,7 @@ class Dokumen extends Model
 			->join('tbl_kategori_dokumen', 'tbl_dokumen.id_kategori_dokumen = tbl_kategori_dokumen.id_kategori_dokumen')
 			->where('tbl_dokumen.id_kategori_dokumen=', $kategori)
 			->orderBy('tbl_dokumen.tahun', 'DESC')
-			->orderBy('tbl_dokumen.no', 'ASC')
+			->orderBy('CAST(no AS DECIMAL) ASC')
 			->findAll();
 	}
 }

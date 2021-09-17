@@ -92,6 +92,7 @@ class Home extends BaseController
 		foreach ($kategori as $value) {
 			$data['data' . $i++] = $this->dokumen->getDokumenByKategori($value['id_kategori_dokumen']);
 		}
+		// dd($data);
 		return view('/user/produkHukum/ProdukHukum', $data);
 	}
 

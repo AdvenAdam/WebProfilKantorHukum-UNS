@@ -96,6 +96,16 @@
         $jumlahTahun = array_column($tahun, 'jumlah_data');
 
         $jumlahStatus  = array_column($status, 'jumlah_data');
+        $labelStatus = [];
+        foreach ($status as $value) {
+            if ($value['status'] == 2) {
+                array_push($labelStatus, "Tidak Berlaku");
+            } else if ($value['status'] == 3) {
+                array_push($labelStatus, "Peraturan Tetap");
+            } else if ($value['status'] == 1) {
+                array_push($labelStatus, "Berlaku");
+            }
+        }
         ?>
         <script>
             $(document).ready(function() {
@@ -116,7 +126,7 @@
                 new Chart(document.getElementById("status"), {
                     "type": "doughnut",
                     "data": {
-                        "labels": ['Berlaku', 'Tidak Berlaku', 'Peraturan Tetap'],
+                        "labels": <?= json_encode($labelStatus); ?>,
                         "datasets": [{
                             "label": "My First Dataset",
                             "data": <?= json_encode($jumlahStatus); ?>,

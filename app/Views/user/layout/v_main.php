@@ -83,7 +83,7 @@
     <script>
         $(document).ready(function() {
             $('.table').DataTable({
-                // "scrollX": true,
+                "aaSorting": [],
                 "oLanguage": {
                     "sSearch": "",
                     "sSearchPlaceholder": "Cari",
