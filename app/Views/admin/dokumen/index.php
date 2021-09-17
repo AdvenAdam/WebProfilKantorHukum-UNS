@@ -11,6 +11,9 @@
                             <div class="col-6">
                                 <a href="Dokumen/create" class="btn btn-primary">Tambah Data</a>
                             </div>
+                            <div class="col-6 " align="right">
+                                <a href="Kategori" class="btn btn-success">Tambah Kategori</a>
+                            </div>
                         </div>
                         <?php if (session()->getFlashdata('success')) { ?>
                             <div class="alert alert-success fade show" role="alert">

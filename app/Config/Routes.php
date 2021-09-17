@@ -52,13 +52,14 @@ $routes->get('/logout', 'Auth::logout');
 $routes->group('Admin', ["namespace" => "App\Controllers\Admin", 'filter' => 'ceklogin'], function ($routes) {
 	$routes->get('/', 'Dashboard::index');
 
+	// kategori di dokumen Eksternal
 	$routes->group('Kategori',  function ($routes) {
 		$routes->get('/', 'KategoriController::index');
 		$routes->post('save', 'KategoriController::save');
 		$routes->post('delete/(:num)', 'KategoriController::delete/$1');
 		$routes->post('update/(:num)', 'KategoriController::update/$1');
 	});
-
+	// Untuk Pengajuan SK      
 	$routes->group('SK',  function ($routes) {
 		$routes->get('/', 'SkController::index');
 		$routes->get('create', 'SkController::create');
@@ -100,7 +101,7 @@ $routes->group('Admin', ["namespace" => "App\Controllers\Admin", 'filter' => 'ce
 		$routes->get('detail/(:any)', 'DokumenInternController::detail/$1');
 		$routes->get('edit/(:any)', 'DokumenInternController::edit/$1');
 	});
-	//peraturan
+	//peraturan yang digunakan pada bagian menimbang di pengajuan SK
 	$routes->group('Peraturan',  function ($routes) {
 		$routes->get('/', 'PeraturanController::index');
 		$routes->get('create', 'PeraturanController::create');

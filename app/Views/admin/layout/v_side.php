@@ -10,12 +10,7 @@
             Manajemen
         </li>
         <li class="<?= $active == 'dokumen' ? 'active-page' : ''; ?>">
-            <a href="" class=""><i data-feather="inbox"></i>Dokumen Eksternal</a>
-            <ul class="">
-                <li><a href="/Admin/Kategori" class="<?= $submenu == 'kategori' ? 'active' : ''; ?>"><i class="far fa-bookmark"></i>Kategori</a></li>
-                <li><a href="/Admin/Dokumen/create" class="<?= $submenu == 'input' ? 'active' : ''; ?>"><i class="far fa-circle"></i>Tambah Dokumen</a></li>
-                <li><a href="/Admin/Dokumen" class="<?= $submenu == 'view' ? 'active' : ''; ?>"><i class="far fa-circle"></i>View Dokumen</a></li>
-            </ul>
+            <a href="/Admin/Dokumen" class=""><i data-feather="inbox"></i>Dokumen Eksternal</a>
         </li>
         <li class="<?= $active == 'internal' ? 'active-page' : ''; ?>">
             <a href="/Admin/DokumenInternal"><i data-feather="inbox"></i>Dokumen Internal</a>

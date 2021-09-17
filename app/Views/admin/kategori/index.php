@@ -11,6 +11,9 @@
                             <div class="col-6">
                                 <a href="" data-bs-toggle="modal" data-bs-target="#input" class="btn btn-primary">Tambah Data</a>
                             </div>
+                            <div class="col-6 " align="right">
+                                <a href="Dokumen" class="btn btn-secondary">Kembali</a>
+                            </div>
                         </div>
                         <?php if (session()->getFlashdata('danger')) { ?>
                             <div class="alert alert-danger fade show" role="alert">
