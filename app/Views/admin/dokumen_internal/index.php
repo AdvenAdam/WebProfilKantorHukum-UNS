@@ -9,7 +9,10 @@
                         <h3 class="Card-title mb-4">Data Dokumen Internal (Khusus Untuk Kantor Hukum)</h3>
                         <div class="row mb-4">
                             <div class="col-6">
-                                <a href="javascript;" data-bs-toggle="modal" data-bs-target="#inputData" class="btn btn-primary">Tambah Data</a>
+                                <div class="btn-group">
+                                    <a href="javascript;" data-bs-toggle="modal" data-bs-target="#inputData" class="btn btn-primary">Tambah Data</a>
+                                    <a href="DokumenInternal/excel" class="btn btn-success"> <i class="fas fa-file-excel"> </i> Download Rekap Data</a>
+                                </div>
                             </div>
                         </div>
                         <?php if (session()->getFlashdata('success')) { ?>
@@ -39,7 +42,7 @@
                                     <tr>
                                         <td width="5%"><?= $list['no_sk']; ?></td>
                                         <td><?= $list['tahun']; ?></td>
-                                        <td><?= $list['status_berlaku'] == '1' ? '[ASLI]' : '[SALINAN]'; ?><?= strtoupper($list['judul']); ?></td>
+                                        <td><?= $list['status'] == '1' ? '[ASLI]' : '[SALINAN]'; ?><?= strtoupper($list['judul']); ?></td>
                                         <td>
                                             <?php if ($list['status_berlaku'] == 1) { ?>
                                                 <span class="badge rounded-pill bg-success">Berlaku</span>

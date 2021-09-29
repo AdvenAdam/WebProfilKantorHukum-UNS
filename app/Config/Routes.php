@@ -100,6 +100,7 @@ $routes->group('Admin', ["namespace" => "App\Controllers\Admin", 'filter' => 'ce
 		$routes->post('delete/(:any)', 'DokumenInternController::delete/$1');
 		$routes->get('detail/(:any)', 'DokumenInternController::detail/$1');
 		$routes->get('edit/(:any)', 'DokumenInternController::edit/$1');
+		$routes->get('excel', 'DokumenInternController::excel');
 	});
 	//peraturan yang digunakan pada bagian menimbang di pengajuan SK
 	$routes->group('Peraturan',  function ($routes) {

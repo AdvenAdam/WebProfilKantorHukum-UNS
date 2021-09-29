@@ -46,7 +46,7 @@ class SliderController extends BaseController
 		];
 		return view('admin/slider/input', $data);
 	}
-	public function save()
+	public function validationRule()
 	{
 		$validation = [
 			'judul' => [
@@ -65,9 +65,12 @@ class SliderController extends BaseController
 				]
 			],
 		];
-		if (!$this->validate($validation)) {
-			session()->setFlashdata('danger', 'Slider Gagal Ditambahkan');
-			return redirect()->to('/Admin/Slider');
+		return $validation;
+	}
+	public function save()
+	{
+		if (!$this->validate($this->validationRule())) {
+			return redirect()->to('/Admin/Slider/create')->withInput();
 		}
 		$fileFoto = $this->request->getFile('foto');
 		if ($fileFoto->getError() == 4) {
@@ -90,6 +93,9 @@ class SliderController extends BaseController
 
 	public function update($id)
 	{
+		if (!$this->validate($this->validationRule())) {
+			return redirect()->to('/Admin/Slider/edit/' . $id)->withInput();
+		}
 		$dataLama = $this->slider->getSlider($id);
 		$fileFoto = $this->request->getFile('foto');
 		if ($fileFoto->getError() == 4) {

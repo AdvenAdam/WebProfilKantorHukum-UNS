@@ -1151,7 +1151,7 @@ PRELOADER
       content: '';
       top: 50%;
       left: 50%;
-      height: 400px;
+      height: 300px;
       width: 400px;
       border-radius: 50%;
       background: #fff;
@@ -1348,17 +1348,17 @@ PRELOADER
   margin-top: 178px; }
   @media only screen and (min-width: 768px) and (max-width: 991px) {
     .single-banner {
-      margin-top: 127px; } }
+      margin-top: 70px; } }
   @media (max-width: 767px) {
     .single-banner {
       margin-top: 70px; } }
   @media only screen and (min-width: 576px) and (max-width: 767px) {
     .single-banner {
-      margin-top: 127px; } }
+      margin-top: 70px; } }
   .single-banner .banner-overlay {
     display: flex;
     align-items: center;
-    height: 900px;
+    height: 400px;
     background: linear-gradient(90deg, #0c5adb 0%, rgba(12, 90, 219, 0.6) 50%, rgba(255, 255, 255, 0) 100%); }
     @media (max-width: 767px) {
       .single-banner .banner-overlay {
@@ -1402,8 +1402,8 @@ PRELOADER
         font-weight: 700;
         font-size: 19px;
         color: #fff;
-        padding-right: 30px;
-        padding-top: 40px;
+        padding-right: 10px;
+        padding-top: 10px;
         padding-bottom: 45px; }
         @media only screen and (min-width: 768px) and (max-width: 991px) {
           .single-banner .banner-overlay .banner-content p {
@@ -1428,11 +1428,11 @@ PRELOADER
 
 .banner-active .slick-arrow {
   position: absolute;
-  top: 50%;
-  height: 60px;
-  width: 60px;
+  top: 65%;
+  height: 40px;
+  width: 40px;
   text-align: center;
-  line-height: 60px;
+  line-height: 40px;
   border-radius: 50%;
   background: #fff;
   color: #0c59db;

@@ -2,8 +2,13 @@
 
 namespace App\Controllers\Admin;
 
+
+
 use App\Controllers\BaseController;
 use App\Models\DokumenInternal;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+
 
 class DokumenInternController extends BaseController
 {
@@ -192,5 +197,81 @@ class DokumenInternController extends BaseController
 				]);
 			}
 		}
+	}
+	public function excel()
+	{
+		$spreadsheet =	new Spreadsheet();
+		$spreadsheet->setActiveSheetIndex(0)
+			->setCellValue('A1', 'No')
+			->setCellValue('B1', 'Nomor Dokumen')
+			->setCellValue('C1', 'Tahun')
+			->setCellValue('D1', 'Judul')
+			->setCellValue('E1', 'Status Dokumen')
+			->setCellValue('F1', 'Status Berlaku')
+			->setCellValue('G1', 'Berlaku Mulai')
+			->setCellValue('H1', 'Berlaku Sampai')
+			->setCellValue('I1', 'Created At')
+			->setCellValue('J1', 'Updated At')
+			->setTitle('SK');
+		$spreadsheet->createSheet();
+		$spreadsheet->setActiveSheetIndex(1)
+			->setCellValue('A1', 'No')
+			->setCellValue('B1', 'Nomor Dokumen')
+			->setCellValue('C1', 'Tahun')
+			->setCellValue('D1', 'Judul')
+			->setCellValue('E1', 'Status Dokumen')
+			->setCellValue('F1', 'Status Berlaku')
+			->setCellValue('G1', 'Berlaku Mulai')
+			->setCellValue('H1', 'Berlaku Sampai')
+			->setCellValue('I1', 'Created At')
+			->setCellValue('J1', 'Updated At')
+			->setTitle('Peraturan');
+		$dok = $this->dok_internal->getDok_internal();
+		$x = 2;
+		$y = 2;
+		foreach ($dok as $val) :
+			if ($val['status_berlaku'] == 1) {
+				$status_berlaku = "Berlaku";
+			} else if ($val['status_berlaku'] == 2) {
+				$status_berlaku = "Tidak Berlaku";
+			} else {
+				$status_berlaku = "Peraturan Tetap";
+			}
+			if (strlen($val['no_sk']) >= 4) {
+				# code...
+				$spreadsheet->setActiveSheetIndex(0)
+					->setCellValue('A' . $x, $x - 1)
+					->setCellValue('B' . $x, $val['no_sk'])
+					->setCellValue('C' . $x, $val['tahun'])
+					->setCellValue('D' . $x, $val['judul'])
+					->setCellValue('E' . $x, $val['status'] == '1' ? '[ASLI]' : '[SALINAN]')
+					->setCellValue('F' . $x, $status_berlaku)
+					->setCellValue('G' . $x, $val['mulai'])
+					->setCellValue('H' . $x, $val['sampai'])
+					->setCellValue('I' . $x, $val['created_at'])
+					->setCellValue('J' . $x, $val['updated_at']);
+				$x++;
+			} else {
+				$spreadsheet->setActiveSheetIndex(1)
+					->setCellValue('A' . $y, $y - 1)
+					->setCellValue('B' . $y, $val['no_sk'])
+					->setCellValue('C' . $y, $val['tahun'])
+					->setCellValue('D' . $y, $val['judul'])
+					->setCellValue('E' . $y, $val['status'] == '1' ? '[ASLI]' : '[SALINAN]')
+					->setCellValue('F' . $y, $status_berlaku)
+					->setCellValue('G' . $y, $val['mulai'])
+					->setCellValue('H' . $y, $val['sampai'])
+					->setCellValue('I' . $y, $val['created_at'])
+					->setCellValue('J' . $y, $val['updated_at']);
+				$y++;
+			}
+		endforeach;
+		$spreadsheet->setActiveSheetIndex(0);
+		$writer = new xlsx($spreadsheet);
+		$filename = 'data-internal-tanggal ' . format_indo(date('Y-m-d'));
+		header('Content-Type: application/vnd.ms-excel');
+		header('Content-Disposition: attachment;filename="' . $filename . '.xlsx"');
+		header('Cache-Control: max-age=0');
+		$writer->save('php://output');
 	}
 }

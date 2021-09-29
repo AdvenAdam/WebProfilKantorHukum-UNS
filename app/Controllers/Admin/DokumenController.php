@@ -6,6 +6,8 @@ use App\Controllers\BaseController;
 use App\Models\Dokumen;
 use App\Models\Kategori;
 use App\Controllers\Home;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class DokumenController extends BaseController
 {
