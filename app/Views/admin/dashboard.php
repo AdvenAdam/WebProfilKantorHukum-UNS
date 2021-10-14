@@ -15,7 +15,7 @@
             <div class="col-md-6 col-xl-3">
                 <div class="card stat-widget">
                     <div class="card-body">
-                        <h5 class="card-title">Dokumen</h5>
+                        <h5 class="card-title">Dokumen Eksternal</h5>
                         <h2><?= $jml_dokumen; ?></h2>
                         <i class="fas fa-file-alt fa-7x"></i>
                     </div>
@@ -24,9 +24,18 @@
             <div class="col-md-6 col-xl-3">
                 <div class="card stat-widget">
                     <div class="card-body">
-                        <h5 class="card-title">Kategori Dokumen</h5>
+                        <h5 class="card-title">Kategori Dokumen Eksternal</h5>
                         <h2><?= $jumlahKategori; ?></h2>
                         <i class="fas fa-tags fa-7x"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-3">
+                <div class="card stat-widget">
+                    <div class="card-body">
+                        <h5 class="card-title">Dokumen Internal</h5>
+                        <h2><?= $jml_dokumen_intern; ?></h2>
+                        <i class="fas fa-file-alt fa-7x"></i>
                     </div>
                 </div>
             </div>
@@ -62,7 +71,7 @@
             <div class="col-md-6 col-lg-4">
                 <div class="card table-widget pb-5">
                     <div class="card-body">
-                        <h5 class="card-title">Kategori Dokumen</h5>
+                        <h5 class="card-title">Kategori Dokumen Eksternal</h5>
                         <canvas id="kategori">Your browser does not support the canvas element.</canvas>
                     </div>
                 </div>
@@ -70,42 +79,44 @@
             <div class="col-md-6 col-lg-4">
                 <div class="card table-widget pb-5">
                     <div class="card-body">
-                        <h5 class="card-title">Status Dokumen</h5>
+                        <h5 class="card-title">Kategori Dokumen Internal</h5>
                         <canvas id="status">Your browser does not support the canvas element.</canvas>
                     </div>
                 </div>
             </div>
-
-            <div class="col-md-6 col-lg-8" style="margin: 0px auto;">
-                <div class="card table-widget pb-5">
+            <div class="col-sm-12 col-md-6">
+                <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Tahun Dokumen</h5>
-                        <canvas id="chartTahun">Your browser does not support the canvas element.</canvas>
+                        <h5 class="card-title">Data Dokumen Internal</h5>
+                        <div id="dokumenInternal"></div>
                     </div>
                 </div>
             </div>
-
+            <div class="col-sm-12 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Data Dokumen Eksternal</h5>
+                        <div id="dokumenEksternal"></div>
+                    </div>
+                </div>
+            </div>
         </div>
         <?= $this->endSection(); ?>
         <?= $this->section('source'); ?>
         <?php
+        //dokumen eksternal
         $dataKategori = array_column($kategori, 'kategori');
         $jumlahKategori = array_column($kategori, 'jumlah');
-
         $dataTahun = array_column($tahun, 'tahun');
         $jumlahTahun = array_column($tahun, 'jumlah_data');
 
-        $jumlahStatus  = array_column($status, 'jumlah_data');
-        $labelStatus = [];
-        foreach ($status as $value) {
-            if ($value['status'] == 2) {
-                array_push($labelStatus, "Tidak Berlaku");
-            } else if ($value['status'] == 3) {
-                array_push($labelStatus, "Peraturan Tetap");
-            } else if ($value['status'] == 1) {
-                array_push($labelStatus, "Berlaku");
-            }
-        }
+        //dokumen internal
+        $JumlahDokumenInternal = array_column($kategori_internal, 'jumlah');
+        $KategoriDokumenInternal = array_column($kategori_internal, 'kategori');
+        $dataTahunIntern = array_column($tahunDokInternal, 'tahun');
+        $jumlahTahunIntern = array_column($tahunDokInternal, 'jumlah_data');
+
+
         ?>
         <script>
             $(document).ready(function() {
@@ -126,37 +137,108 @@
                 new Chart(document.getElementById("status"), {
                     "type": "doughnut",
                     "data": {
-                        "labels": <?= json_encode($labelStatus); ?>,
+                        "labels": <?= json_encode($KategoriDokumenInternal); ?>,
                         "datasets": [{
                             "label": "My First Dataset",
-                            "data": <?= json_encode($jumlahStatus); ?>,
+                            "data": <?= json_encode($JumlahDokumenInternal); ?>,
                             "backgroundColor": ["#8a75d5", "#00f7ff", "#00ff81", "#e7ff00", "#f4670b", "#8100ff", "#39b5c6"]
                         }]
                     }
                 });
-                new Chart(document.getElementById("chartTahun"), {
-                    "type": "bar",
-                    "data": {
-                        "labels": <?= json_encode($dataTahun); ?>,
-                        "datasets": [{
-                            "label": "jumlaah Dokumen",
-                            "data": <?= json_encode($jumlahTahun); ?>,
-                            "fill": false,
-                            "backgroundColor": ["rgba(255, 99, 132, 0.2)", "rgba(255, 159, 64, 0.2)", "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(153, 102, 255, 0.2)", "rgba(201, 203, 207, 0.2)"],
-                            "borderColor": ["rgb(255, 99, 132)", "rgb(255, 159, 64)", "rgb(255, 205, 86)", "rgb(75, 192, 192)", "rgb(54, 162, 235)", "rgb(153, 102, 255)", "rgb(201, 203, 207)"],
-                            "borderWidth": 1
-                        }]
+
+                var Eksternal = {
+                    chart: {
+                        height: 350,
+                        type: 'line',
+                        zoom: {
+                            enabled: false
+                        }
                     },
-                    "options": {
-                        "scales": {
-                            "yAxes": [{
-                                "ticks": {
-                                    "beginAtZero": true
-                                }
-                            }]
+                    series: [{
+                        name: "Dokumen Internal",
+                        data: <?= json_encode($jumlahTahun); ?>
+                    }],
+                    dataLabels: {
+                        enabled: false
+                    },
+                    stroke: {
+                        curve: 'straight'
+                    },
+                    title: {
+                        text: 'Jumlah Dokumen per Tahun',
+                        align: 'left'
+                    },
+                    grid: {
+                        row: {
+                            colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                            opacity: 0.5
+                        },
+                        borderColor: 'rgba(94, 96, 110, .5)',
+                        strokeDashArray: 4
+                    },
+                    xaxis: {
+                        categories: <?= json_encode($dataTahun); ?>,
+                        labels: {
+                            style: {
+                                colors: 'rgba(94, 96, 110, .5)'
+                            }
                         }
                     }
-                });
+                }
+
+                var chart = new ApexCharts(
+                    document.querySelector("#dokumenEksternal"),
+                    Eksternal
+                );
+
+                chart.render();
+                var Internal = {
+                    chart: {
+                        height: 350,
+                        type: 'line',
+                        zoom: {
+                            enabled: false
+                        }
+                    },
+                    series: [{
+                        name: "Dokumen Internal",
+                        data: <?= json_encode($jumlahTahunIntern); ?>
+                    }],
+                    dataLabels: {
+                        enabled: false
+                    },
+                    stroke: {
+                        curve: 'straight'
+                    },
+                    title: {
+                        text: 'Jumlah Dokumen per Tahun',
+                        align: 'left'
+                    },
+                    grid: {
+                        row: {
+                            colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                            opacity: 0.5
+                        },
+                        borderColor: 'rgba(94, 96, 110, .5)',
+                        strokeDashArray: 4
+                    },
+                    xaxis: {
+                        categories: <?= json_encode($dataTahunIntern); ?>,
+                        labels: {
+                            style: {
+                                colors: 'rgba(94, 96, 110, .5)'
+                            }
+                        }
+                    }
+                }
+
+                var chart = new ApexCharts(
+                    document.querySelector("#dokumenInternal"),
+                    Internal
+                );
+
+                chart.render();
+
 
             });
         </script>

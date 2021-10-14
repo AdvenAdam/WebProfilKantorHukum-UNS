@@ -32,4 +32,18 @@ class DokumenInternal extends Model
 				->first();
 		}
 	}
+	public function jumlahData($jenis)
+	{
+		if ($jenis == 'sk') {
+			return $this
+				->where('LENGTH(no_sk) > 4')
+				->get()
+				->getResultArray();
+		} elseif ($jenis == 'perek') {
+			return $this
+				->where('LENGTH(no_sk) < 4')
+				->get()
+				->getResultArray();
+		}
+	}
 }

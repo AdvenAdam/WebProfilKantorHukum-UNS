@@ -41,7 +41,6 @@
                                                 <th>No</th>
                                                 <th style="width: 539px;">Judul</th>
                                                 <th>Tahun</th>
-                                                <th>Kategori </th>
                                                 <th>Berlaku Mulai</th>
                                                 <!-- <th>Lihat</th> -->
                                                 <th>Download</th>
@@ -56,9 +55,8 @@
                                                     <td>
                                                         <?= $value['no']; ?>
                                                     </td>
-                                                    <td><?= $value['judul']; ?></td>
-                                                    <td><?= strtoupper($value['tahun']); ?></td>
-                                                    <td><?= $value['kategori_dokumen']; ?></td>
+                                                    <td><?= strtoupper($value['judul']); ?></td>
+                                                    <td><?= ($value['tahun']); ?></td>
                                                     <td><?= $value['berlaku'] == "0000-00-00" ? '-' : format_indo($value['berlaku']); ?></td>
                                                     <td>
                                                         <div class="btn-group" role="group">
