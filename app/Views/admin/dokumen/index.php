@@ -52,13 +52,9 @@
                                         <td><?= $list['sampai'] == '0000-00-00' ? '-' : $list['sampai']; ?></td>
                                         <!-- action -->
                                         <td>
-                                            <div class="d-inline">
+                                            <div class="btn-group" role="group">
                                                 <a href="Dokumen/edit/<?= $list['id']; ?>" title="Edit"><i data-feather="edit"></i> </a>
-                                            </div>
-                                            <div class="d-inline">
                                                 <a href="Dokumen/detail/<?= $list['id']; ?>" title="Lihat"><i data-feather="eye"></i> </a>
-                                            </div>
-                                            <div class="d-inline">
                                                 <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#confirm" data-id='Dokumen/delete/<?= $list['id']; ?>' title="Hapus Data"><i data-feather="delete"></i> </a>
                                             </div>
                                         </td>

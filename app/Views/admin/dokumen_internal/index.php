@@ -32,7 +32,6 @@
                                     <th>Tahun</th>
                                     <th>Judul</th>
                                     <th>Status Berlaku</th>
-                                    <th>Unduh</th>
                                     <th>#</th>
                                 </tr>
                             </thead>
@@ -52,18 +51,19 @@
                                                 <span class="badge rounded-pill bg-primary">Peraturan Tetap</span>
                                             <?php } ?>
                                         </td>
-                                        <td><a href="DokumenInternal/download/<?= $list['id']; ?>" class="btn btn-default btn-sm"><i data-feather="download"></i> </a></td>
                                         <!-- action -->
                                         <td>
-                                            <div class="d-inline">
+                                            <div class="btn-group">
+
+                                                <a href="DokumenInternal/download/<?= $list['id']; ?>"><i data-feather="download"></i> </a>
                                                 <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#updateData" data-sk='<?= $list['no_sk']; ?>' data-judul='<?= $list['judul'] ?>' data-tahun='<?= $list['tahun']; ?>' data-status='<?= $list['status']; ?>' data-idupdate='DokumenInternal/update/<?= $list['id']; ?>' data-mulai=<?= $list['mulai']; ?> data-sampai=<?= $list['sampai']; ?> title="Edit Data"><i data-feather="edit"></i> </a>
-                                            </div>
-                                            <div class="d-inline">
+
                                                 <a href="DokumenInternal/detail/<?= $list['id']; ?>" title="Lihat"><i data-feather="eye"></i> </a>
-                                            </div>
-                                            <div class="d-inline">
+
                                                 <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#confirm" data-id='DokumenInternal/delete/<?= $list['id']; ?>' title="Hapus Data"><i data-feather="delete"></i> </a>
                                             </div>
+
+
                                         </td>
                                     </tr>
                                 <?php } ?>

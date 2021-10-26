@@ -45,9 +45,9 @@
                         <div class="row">
                             <div class="col-4">
                                 <label for="berlaku">Berlaku Mulai</label>
-                                <input type="date" value="<?= old('berlaku'); ?>" name="berlaku" class="form-control <?= $validation->hasError('berlaku') ? 'is-invalid' : '' ?>" id="berlaku" placeholder="berlaku">
+                                <input type="date" value="<?= old('mulai'); ?>" name="mulai" class="form-control <?= $validation->hasError('mulai') ? 'is-invalid' : '' ?>" id="mulai" placeholder="mulai">
                                 <div class="invalid-feedback">
-                                    <?= $validation->getError('berlaku'); ?>
+                                    <?= $validation->getError('mulai'); ?>
                                 </div>
                             </div>
                             <div class="col-4">
