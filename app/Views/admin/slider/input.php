@@ -19,10 +19,6 @@
                                         </div>
                                     </div>
                                     <div class="form-floating mb-4">
-                                        <input type="text" value="<?= old('subjudul'); ?>" name="subjudul" class="form-control" id="subjudul" placeholder="subjudul">
-                                        <label for="subjudul">Sub Judul</label>
-                                    </div>
-                                    <div class="form-floating mb-4">
                                         <input type="text" value="<?= old('keterangan'); ?>" name="keterangan" class="form-control" id="keterangan" placeholder="keterangan">
                                         <label for="keterangan">Keterangan</label>
                                     </div>

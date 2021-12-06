@@ -20,15 +20,14 @@
                                     <div class="banner-content">
                                         <div class="row">
                                             <div class="col-md-6 <?= empty($list['subjudul'])  || empty($list['keterangan'])  || empty($list['link'])  ? 'pt-100' : ''; ?>">
-                                                <span data-animation="fadeInLeft" data-delay="0.5s" style="padding-right: 70px;"><?= $list['judul']; ?></span>
-                                                <h1 data-animation="fadeInLeft" data-delay="0.9s" style="color:white;"><?= $list['subjudul']; ?></h1>
+                                                <span data-animation="fadeInLeft" data-delay="0.5s" style="padding-right: 70px;"><?= $list['judul']; ?></span>S
                                                 <p data-animation="fadeInLeft" data-delay="1.3s"><?= $list['keterangan']; ?> </p>
                                                 <?php if ($list['link'] != null) { ?>
                                                     <a data-animation="fadeInUp" data-delay="1.6s" class="main-btn" href="<?= $list['link']; ?>">lihat Selengkapnya <i class="fal fa-long-arrow-right"></i></a>
                                                 <?php } ?>
                                             </div>
                                             <div class="col-md-6">
-                                                <img src="/image/slider/<?= $list['foto']; ?>" style="width: 450px; height: 350px; object-fit: cover; object-position: center;" alt="">
+                                                <img src="/image/slider/<?= $list['foto']; ?>" style="width: 450px; height: 400px; object-fit: cover; object-position: center;" alt="">
                                             </div>
                                         </div>
 

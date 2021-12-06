@@ -1,5 +1,5 @@
-<?= $this->extend('/admin/layout/main'); ?>
-<?= $this->section('content'); ?>
+<?= $this->extend("/admin/layout/main") ?>
+<?= $this->section("content") ?>
 <div class="page-content">
     <div class="main-wrapper">
         <div class="row">
@@ -15,9 +15,11 @@
                                 <a href="Kategori" class="btn btn-success">Tambah Kategori</a>
                             </div>
                         </div>
-                        <?php if (session()->getFlashdata('success')) { ?>
+                        <?php if (session()->getFlashdata("success")) { ?>
                             <div class="alert alert-success fade show" role="alert">
-                                <span><?= session()->getFlashdata('success'); ?></span>
+                                <span><?= session()->getFlashdata(
+                                            "success"
+                                        ) ?></span>
                             </div>
                         <?php } ?>
                         <table id="table" class="display table-hover table invoice-table" style=" width:100%">
@@ -36,26 +38,32 @@
                             <tbody>
                                 <?php foreach ($dokumen as $list) { ?>
                                     <tr>
-                                        <td><?= $i++; ?></td>
-                                        <td><?= $list['tahun']; ?></td>
-                                        <td><?= strtoupper($list['judul']); ?></td>
-                                        <td><?= $list['kategori_dokumen']; ?></td>
+                                        <td><?= $i++ ?></td>
+                                        <td><?= $list["tahun"] ?></td>
+                                        <td><?= strtoupper(
+                                                $list["judul"]
+                                            ) ?></td>
+                                        <td><?= $list["kategori_dokumen"] ?></td>
                                         <td>
-                                            <?php if ($list['status'] == 1) { ?>
+                                            <?php if ($list["status"] == 1) { ?>
                                                 <span class="badge rounded-pill bg-success">Berlaku</span>
-                                            <?php } else if ($list['status'] == 2) { ?>
+                                            <?php } elseif (
+                                                $list["status"] == 2
+                                            ) { ?>
                                                 <span class="badge rounded-pill bg-danger">Tidak Berlaku</span>
                                             <?php } else { ?>
                                                 <span class="badge rounded-pill bg-primary">Peraturan Tetap</span>
                                             <?php } ?>
                                         </td>
-                                        <td><?= $list['sampai'] == '0000-00-00' ? '-' : $list['sampai']; ?></td>
+                                        <td><?= $list["sampai"] == "0000-00-00"
+                                                ? "-"
+                                                : $list["sampai"] ?></td>
                                         <!-- action -->
                                         <td>
                                             <div class="btn-group" role="group">
-                                                <a href="Dokumen/edit/<?= $list['id']; ?>" title="Edit"><i data-feather="edit"></i> </a>
-                                                <a href="Dokumen/detail/<?= $list['id']; ?>" title="Lihat"><i data-feather="eye"></i> </a>
-                                                <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#confirm" data-id='Dokumen/delete/<?= $list['id']; ?>' title="Hapus Data"><i data-feather="delete"></i> </a>
+                                                <a href="Dokumen/edit/<?= $list["id"] ?>" title="Edit"><i data-feather="edit"></i> </a>
+                                                <a href="Dokumen/detail/<?= $list["id"] ?>" title="Lihat"><i data-feather="eye"></i> </a>
+                                                <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#confirm" data-id='Dokumen/delete/<?= $list["id"] ?>' title="Hapus Data"><i data-feather="delete"></i> </a>
                                             </div>
                                         </td>
                                     </tr>
@@ -91,9 +99,9 @@
     </div>
 </div>
 
-<?= $this->renderSection('input'); ?>
-<?= $this->endSection(); ?>
-<?= $this->section('source'); ?>
+<?= $this->renderSection("input") ?>
+<?= $this->endSection() ?>
+<?= $this->section("source") ?>
 <script>
     $(document).ready(function() {
         // Untuk sunting
@@ -106,4 +114,4 @@
         });
     });
 </script>
-<?= $this->endSection(); ?>
+<?= $this->endSection() ?>

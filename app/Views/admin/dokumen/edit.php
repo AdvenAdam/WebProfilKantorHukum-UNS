@@ -49,7 +49,7 @@
                                             <?= $validation->getError('tahun'); ?>
                                         </div>
                                     </div>
-                                    <div class="form-floating mb-4">
+                                     <div class="form-floating mb-4">
                                         <div class="row">
                                             <div class="col-4">
                                                 <label for="berlaku">Berlaku Mulai</label>

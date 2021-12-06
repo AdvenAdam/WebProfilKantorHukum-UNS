@@ -45,10 +45,11 @@ class DokumenController extends BaseController
 	{
 		$data = [
 			'judul' => [
-				'rules' => 'required',
+				'rules' => 'required|is_unique[tbl_dokumen.judul,ignore_judul,ignore_value]',
 				'label' => 'Judul',
 				'errors' => [
-					'required' => '{field} Harus Diisi'
+					'required' => '{field} Harus Diisi',
+					'is_unique' => '{field} Sudah Ada'
 				]
 			],
 			'no' => [
