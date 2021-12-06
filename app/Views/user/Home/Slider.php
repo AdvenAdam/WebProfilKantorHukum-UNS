@@ -20,7 +20,7 @@
                                     <div class="banner-content">
                                         <div class="row">
                                             <div class="col-md-6 <?= empty($list['subjudul'])  || empty($list['keterangan'])  || empty($list['link'])  ? 'pt-100' : ''; ?>">
-                                                <span data-animation="fadeInLeft" data-delay="0.5s" style="padding-right: 70px;"><?= $list['judul']; ?></span>S
+                                                <span data-animation="fadeInLeft" data-delay="0.5s" style="padding-right: 70px;"><?= $list['judul']; ?></span>
                                                 <p data-animation="fadeInLeft" data-delay="1.3s"><?= $list['keterangan']; ?> </p>
                                                 <?php if ($list['link'] != null) { ?>
                                                     <a data-animation="fadeInUp" data-delay="1.6s" class="main-btn" href="<?= $list['link']; ?>">lihat Selengkapnya <i class="fal fa-long-arrow-right"></i></a>
