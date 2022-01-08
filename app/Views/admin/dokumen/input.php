@@ -12,7 +12,7 @@
                                 <form action="/Admin/Dokumen/save" method="Post" enctype="multipart/form-data">
                                     <?= csrf_field(); ?>
                                     <div class="form-floating mb-4">
-                                        <input type="text" value="<?= old('judul'); ?>" name="judul" class="form-control <?= $validation->hasError('judul') ? 'is-invalid' : '' ?>" id="judul" placeholder="judul">
+                                        <input type="text" value="<?= old('judul'); ?>" name="judul" class="form-control    " id="judul" placeholder="judul">
                                         <label for="judul">Judul</label>
                                         <div class="invalid-feedback">
                                             <?= $validation->getError('judul'); ?>
@@ -66,7 +66,6 @@
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="row mb-4">
                                         <label for="dokumen" class="form-label">Silahkan Pilih Dokumen</label>
                                         <input class="form-control form-control-sm <?= $validation->hasError('dokumen') ? 'is-invalid' : '' ?>" id="dokumen" name="dokumen" type="file" required>

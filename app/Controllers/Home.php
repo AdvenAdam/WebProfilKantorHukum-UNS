@@ -7,12 +7,13 @@ use App\Models\Slider;
 use App\Models\Kategori;
 use App\Models\StrukturOrganisasi;
 use App\Models\Informasi;
+use App\Models\Template;
 use CodeIgniter\Exceptions\AlertError;
 
 
 class Home extends BaseController
 {
-	protected $kategori, $dokumen, $slider, $struktur, $informasi;
+	protected $kategori, $dokumen, $slider, $struktur, $informasi, $template;
 	function __construct()
 	{
 		$this->dokumen = new Dokumen();
@@ -20,6 +21,7 @@ class Home extends BaseController
 		$this->struktur = new StrukturOrganisasi();
 		$this->informasi = new Informasi();
 		$this->kategori = new Kategori();
+		$this->template = new Template();
 	}
 
 	public function index()
@@ -51,6 +53,17 @@ class Home extends BaseController
 		} else {
 			session()->setFlashdata('danger', 'File Tidak Ditemukan Harap Melapor Ke Admin');
 			return redirect()->to('detailDokumen/' . $data['id']);
+		}
+	}
+	public function downloadTemplate($id)
+	{
+		$data = $this->template->find($id);
+		$file = ('dokumen/template/' . $data['file']);
+		if (file_exists($file)) {
+			return $this->response->download($file, null);
+		} else {
+			session()->setFlashdata('danger', 'File Tidak Ditemukan Harap Melapor Ke Admin');
+			return redirect()->to('/Template');
 		}
 	}
 
@@ -95,7 +108,14 @@ class Home extends BaseController
 		// dd($data);
 		return view('/user/produkHukum/ProdukHukum', $data);
 	}
-
+	public function template()
+	{
+		$data = [
+			'title' 	=> 'Produk Hukum UNS',
+			'template' 	=> $this->template->findAll(),
+		];
+		return view('/user/produkHukum/Template', $data);
+	}
 	public function cekBerlaku()
 	{
 		$data = $this->dokumen->getDokumen();

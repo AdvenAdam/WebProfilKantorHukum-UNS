@@ -41,8 +41,10 @@ $routes->get('/login', 'Auth::index');
 $routes->post('/login', 'Auth::login');
 $routes->post('/saveMasukan', 'Admin/KontakController::save');
 $routes->get('/detailDokumen/(:any)', 'Home::detail/$1');
+$routes->get('/Download/Template/(:any)', 'Home::downloadTemplate/$1');
 $routes->get('/Download/(:any)', 'Home::download/$1');
 $routes->get('/Profil', 'Home::profil');
+$routes->get('/Template', 'Home::template');
 $routes->get('/StrukturOrganisasi', 'Home::struktur');
 $routes->get('/ProdukHukum', 'Home::produkHukum');
 $routes->get('/TugasPokok', 'Home::tugasPokok');
@@ -137,6 +139,13 @@ $routes->group('Admin', ["namespace" => "App\Controllers\Admin", 'filter' => 'ce
 		$routes->post('delete/(:num)', 'SliderController::delete/$1');
 		$routes->post('update/(:num)', 'SliderController::update/$1');
 		$routes->post('save', 'SliderController::save');
+	});
+	$routes->group('Template',  function ($routes) {
+		$routes->get('/', 'TemplateController::index');
+		$routes->post('delete/(:num)', 'TemplateController::delete/$1');
+		$routes->post('update/(:num)', 'TemplateController::update/$1');
+		$routes->post('save', 'TemplateController::save');
+		$routes->get('download/(:any)', 'TemplateController::download/$1');
 	});
 });
 

@@ -22,6 +22,7 @@
                 <li><a href="/Admin/Informasi" class="<?= $submenu == 'informasi' ? 'active' : ''; ?>"><i class="fas fa-info"></i>Informasi Profil</a></li>
                 <li><a href="/Admin/Masukan" class="<?= $submenu == 'masukan' ? 'active' : ''; ?>"><i class="fas fa-inbox"></i>Masukan</a></li>
                 <li><a href="/Admin/Struktur" class="<?= $submenu == 'struktur' ? 'active' : ''; ?>"><i class="fas fa-briefcase"></i>Struktur Organisasi</a></li>
+                <li><a href="/Admin/Template" class="<?= $submenu == 'template' ? 'active' : ''; ?>"><i class="fab fa-tumblr"></i>Template</a></li>
             </ul>
         </li>
         <li class="<?= $active == 'SK' ? 'active-page' : ''; ?>">

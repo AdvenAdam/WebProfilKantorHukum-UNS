@@ -21,7 +21,7 @@
     <link href="/tema/admin/circl/theme/assets/plugins/apexcharts/apexcharts.css" rel="stylesheet">
     <link href="/tema/admin/circl/theme/assets/css/datepicker.css" rel="stylesheet" />
     <link href="/tema/admin/circl/theme/assets/plugins/DataTables/datatables.min.css" rel="stylesheet">
-
+    <?= $this->renderSection('Style'); ?>
     <!-- Theme Styles -->
     <link href="/tema/admin/circl/theme/assets/css/main.min.css" rel="stylesheet">
     <link href="/tema/admin/circl/theme/assets/css/custom.css" rel="stylesheet">
