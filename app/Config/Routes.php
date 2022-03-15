@@ -48,6 +48,8 @@ $routes->get('/Template', 'Home::template');
 $routes->get('/StrukturOrganisasi', 'Home::struktur');
 $routes->get('/ProdukHukum', 'Home::produkHukum');
 $routes->get('/TugasPokok', 'Home::tugasPokok');
+$routes->get('/Pengumuman', 'Home::pengumuman');
+$routes->get('/Pengumuman/(:any)', 'Home::detailPengumuman/$1');
 
 
 $routes->get('/logout', 'Auth::logout');
@@ -146,6 +148,14 @@ $routes->group('Admin', ["namespace" => "App\Controllers\Admin", 'filter' => 'ce
 		$routes->post('update/(:num)', 'TemplateController::update/$1');
 		$routes->post('save', 'TemplateController::save');
 		$routes->get('download/(:any)', 'TemplateController::download/$1');
+	});
+	$routes->group('Pengumuman',  function ($routes) {
+		$routes->get('/', 'PengumumanController::index');
+		$routes->post('delete/(:num)', 'PengumumanController::delete/$1');
+		$routes->get('edit/(:any)', 'PengumumanController::edit/$1');
+		$routes->post('update/(:num)', 'PengumumanController::update/$1');
+		$routes->post('save', 'PengumumanController::save');
+		$routes->get('download/(:any)', 'PengumumanController::download/$1');
 	});
 });
 

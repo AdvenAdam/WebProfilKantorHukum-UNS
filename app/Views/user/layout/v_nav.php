@@ -37,18 +37,15 @@
        <div class="header-nav">
            <div class="navigation">
                <nav class="navbar navbar-expand-lg navbar-light ">
-                   <a class="navbar-brand" href="/"><img src="/tema/user/template/assets/images/logo/logo.png" alt=""></a> <!-- logo -->
+                   <a class="navbar-brand" href="/#home"><img src="/tema/user/template/assets/images/logo/logo.png" alt=""></a> <!-- logo -->
                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                        <span class="toggler-icon"></span>
                        <span class="toggler-icon"></span>
                        <span class="toggler-icon"></span>
                    </button> <!-- navbar toggler -->
-
                    <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
                        <ul class="navbar-nav ml-auto">
-                           <li class="nav-item">
-                               <a class="nav-link" href="/#home">Home</a>
-                           </li>
+
                            <li class="nav-item">
                                <a class="nav-link" href="/#profil">Profil</a>
                                <ul class="sub-menu">
@@ -58,11 +55,7 @@
                                </ul> <!-- sub menu -->
                            </li>
                            <li class="nav-item">
-                               <a class="nav-link" href="">Produk Hukum</a>
-                               <ul class="sub-menu">
-                                   <li><a href="/ProdukHukum">Produk Hukum</a></li>
-                                   <li><a href="/Template">Template Produk Hukum</a></li>
-                               </ul>
+                               <a class="nav-link" href="/ProdukHukum">Produk Hukum</a>
                            </li>
                            <li class="nav-item">
                                <a class="nav-link" href="">Peraturan Perundang-undangan</a>
@@ -74,6 +67,9 @@
                            </li>
                            <li class="nav-item">
                                <a class="nav-link" href="/#kontak">Kontak</a>
+                           </li>
+                           <li class="nav-item">
+                               <a class="nav-link" href="/Template">Unduh</a>
                            </li>
                        </ul>
                    </div>

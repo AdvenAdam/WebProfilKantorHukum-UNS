@@ -20,4 +20,11 @@ class Slider extends Model
 			return $this->find($id);
 		}
 	}
+	public function triggerDelete($judul, $date)
+	{
+		return $this
+			->where('keterangan', $judul)
+			->where('subjudul', $date)
+			->get()->getRow();
+	}
 }

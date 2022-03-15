@@ -33,7 +33,7 @@
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="flush-headingOne">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-<?= $i; ?>" aria-expanded="false" aria-controls="flush-<?= $i; ?>">
-                                            <?= $list['judul'] . ' #' . $i ?>
+                                            <?= $list['subjudul'] . ' #' . $i ?>
                                         </button>
                                     </h2>
                                     <div id="flush-<?= $i++; ?>" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
@@ -48,7 +48,7 @@
                                                                     <a href="" data-bs-toggle="modal" data-bs-target="#confirm" data-id="Slider/delete/<?= $list['id']; ?>" class="btn btn-secondary">Hapus</a>
                                                                     <div class="banner-content">
                                                                         <span data-animation="fadeInLeft" data-delay="0.5s"><?= $list['judul']; ?></span>
-                                                                        <h1 data-animation="fadeInLeft" data-delay="0.9s" class="title"><?= $list['subjudul']; ?></h1>
+                                                                        <h2 data-animation="fadeInLeft" data-delay="0.9s" style="color:#fff;"><?= $list['subjudul']; ?></h2>
                                                                         <p data-animation="fadeInLeft" data-delay="1.3s"><?= $list['keterangan']; ?> </p>
                                                                         <?php if ($list['link'] != null) { ?>
                                                                             <a data-animation="fadeInUp" data-delay="1.6s" class="main-btn" href="<?= $list['link']; ?>">lihat Selengkapnya <i class="fal fa-long-arrow-right"></i></a>

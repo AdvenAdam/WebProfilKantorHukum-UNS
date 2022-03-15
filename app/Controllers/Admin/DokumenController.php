@@ -45,7 +45,7 @@ class DokumenController extends BaseController
 	{
 		$data = [
 			'judul' => [
-				'rules' => 'required|is_unique[tbl_dokumen.judul]',
+				'rules' => 'required',
 				'label' => 'Judul',
 				'errors' => [
 					'required' => '{field} Harus Diisi',
@@ -101,7 +101,6 @@ class DokumenController extends BaseController
 		// menentukan nama folder tempat file yg di upload berdasarkan kategori
 		$kategori    = $this->kategori->getKategoriDokumen($id_kategori);
 		$namaDokumen = $this->setFilename() . '.' . $fileDokumen->getClientExtension();
-		dd($fileDokumen);
 		$fileDokumen->move('dokumen/' . $kategori['kategori_dokumen'], $namaDokumen);
 		$data = [
 			'judul' => $this->request->getVar('judul'),
@@ -113,7 +112,6 @@ class DokumenController extends BaseController
 			'sampai' => $this->request->getVar('sampai'),
 			'dokumen' => $namaDokumen
 		];
-		// dd($data);
 		$this->dokumen->save($data);
 		session()->setFlashdata('success', 'Data Berhasil Ditambahkan');
 		return redirect()->to('/Admin/Dokumen');

@@ -66,7 +66,7 @@
                     <div class="modal-body">
                         <div class="row mb-4">
                             <label for="profil" class="form-label">Profil Kantor Hukum UNS</label>
-                            <textarea name="profil" rows="30" class="form-control" id="editor"><?= $value['profil']; ?>
+                            <textarea name="profil" rows="30" class="form-control profil"><?= $value['profil']; ?>
                                      </textarea>
                         </div>
 
@@ -92,7 +92,7 @@
                     <div class="modal-body">
                         <div class="row mb-4">
                             <label for="tugas" class="form-label">Tugas Pokok Kantor Hukum UNS</label>
-                            <textarea name="tugas" rows="100" class="editor form-control"><?= $value['tugas_pokok']; ?>
+                            <textarea name="tugas" rows="100" class="form-control tugas"><?= $value['tugas_pokok']; ?>
                                      </textarea>
                         </div>
                     </div>
@@ -117,7 +117,7 @@
 <script src="/tema/admin/circl/theme/assets/plugins/ckeditor5/build/ckeditor.js"></script>
 <script>
     ClassicEditor
-        .create(document.querySelector('.editor'), {
+        .create(document.querySelector('.profil'), {
             toolbar: {
                 items: [
                     'heading', '|',
@@ -139,6 +139,26 @@
         });
 </script>
 <script>
-
+    ClassicEditor
+        .create(document.querySelector('.tugas'), {
+            toolbar: {
+                items: [
+                    'heading', '|',
+                    'alignment', '|',
+                    'bold', 'italic', '|',
+                    'link', '|',
+                    'bulletedList', 'numberedList',
+                    'fontfamily', 'fontsize', 'fontColor', 'fontBackgroundColor', '|',
+                    'insertTable', '|',
+                    'outdent', 'indent', '|',
+                    'blockQuote', '|',
+                    'undo', 'redo'
+                ],
+                shouldNotGroupWhenFull: true
+            }
+        })
+        .catch(error => {
+            console.log(error);
+        });
 </script>
 <?= $this->endSection(); ?>

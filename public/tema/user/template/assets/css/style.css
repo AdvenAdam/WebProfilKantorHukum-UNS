@@ -161,7 +161,7 @@ p {
 }
 .main-btn:hover {
     background-color: transparent;
-    color: #fff;
+    color: #0c59db;
     border-color: rgba(255, 255, 255, 0.2);
 }
 .main-btn.main-btn-2 {
@@ -1087,7 +1087,7 @@ PRELOADER
     margin: 0 18px;
     padding: 0 0;
     color: #555;
-    font-size: 18px;
+    font-size: 15px;
 }
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
     .header-area-2.header-area-4 .header-nav .navigation .navbar .navbar-nav .nav-item a {
@@ -1782,7 +1782,7 @@ PRELOADER
 .single-banner .banner-overlay {
     display: flex;
     align-items: center;
-    height: 350px;
+    height: 400px;
     background: linear-gradient(90deg, #0c5adb 0%, rgba(12, 90, 219, 0.6) 50%, rgba(255, 255, 255, 0) 100%);
 }
 @media (max-width: 767px) {
@@ -1800,6 +1800,7 @@ PRELOADER
     text-transform: capitalize;
     letter-spacing: 2px;
     padding-bottom: 10px;
+    padding-top: 10px;
 }
 @media (max-width: 767px) {
     .single-banner .banner-overlay .banner-content span {
