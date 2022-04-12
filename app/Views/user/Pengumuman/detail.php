@@ -15,7 +15,7 @@
                         <ol class="breadcrumb">
                             <p>
                                 <li class="breadcrumb-item"><a href="/#home">Home </a></li>
-                                <li class="breadcrumb-item"><a href="/Pengumuman">Feeds </a></li>
+                                <li class="breadcrumb-item"><a href="/Pengumuman">Berita </a></li>
 
                         </ol>
                         </p>
@@ -71,7 +71,7 @@
         <div class="row no-gutters justify-content-center case-studies-active">
             <?php foreach ($pengumuman as $list) { ?>
                 <div class="single-case-studies mt-30">
-                    <img src="/image/pengumuman/<?= $list['gambar']; ?>" height="450" alt="case-studies">
+                    <img src="/image/pengumuman/<?= $list['gambar']; ?>" style="aspect-ratio: 1/1; alt=" case-studies">
                     <div class="case-overlay">
                         <div class="item">
                             <span><?= format_indo($list['created_at']); ?></span>

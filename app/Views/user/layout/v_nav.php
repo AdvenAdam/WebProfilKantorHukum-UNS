@@ -66,6 +66,9 @@
                                </ul> <!-- sub menu -->
                            </li>
                            <li class="nav-item">
+                               <a class="nav-link" href="/#berita">Berita</a>
+                           </li>
+                           <li class="nav-item">
                                <a class="nav-link" href="/#kontak">Kontak</a>
                            </li>
                            <li class="nav-item">
