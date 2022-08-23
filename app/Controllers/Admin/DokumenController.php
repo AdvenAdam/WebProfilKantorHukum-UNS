@@ -16,8 +16,6 @@ class DokumenController extends BaseController
 	{
 		$this->kategori = new Kategori();
 		$this->dokumen = new Dokumen();
-		// $this->home = new Home();
-		$this->cekBerlaku();
 	}
 	public function index()
 	{
@@ -202,28 +200,62 @@ class DokumenController extends BaseController
 		session()->setFlashdata('success', 'Data Berhasil Dihapus');
 		return redirect()->to('/Admin/Dokumen');
 	}
-	public function cekBerlaku()
+	public function excel()
 	{
-		$data = $this->dokumen->getDokumen();
-		foreach ($data as $value) {
-			if (($value['sampai']) != '0000-00-00') {
-				if (strtotime($value['sampai']) < strtotime(date('Y-m-d'))) {
-					$this->dokumen->save([
-						'id' => $value['id'],
-						'status' => 2
-					]);
-				} else if (strtotime($value['sampai']) > strtotime(date('Y-m-d'))) {
-					$this->dokumen->save([
-						'id' => $value['id'],
-						'status' => 1
-					]);
-				}
-			} else {
-				$this->dokumen->save([
-					'id' => $value['id'],
-					'status' => 3
-				]);
-			}
+		$spreadsheet =	new Spreadsheet();
+		$kategori = $this->kategori->getKategoriDokumen();
+		foreach ($kategori as $key => $value) {
+			$spreadsheet->setActiveSheetIndex($key)
+				->setCellValue('A1', 'No')
+				->setCellValue('B1', 'Nomor Dokumen')
+				->setCellValue('C1', 'Tahun')
+				->setCellValue('D1', 'Judul')
+				->setCellValue('E1', 'Kategori Dokumen')
+				->setCellValue('F1', 'Status Berlaku')
+				->setCellValue('G1', 'Berlaku Mulai')
+				->setCellValue('H1', 'Berlaku Sampai')
+				->setCellValue('I1', 'Created At')
+				->setCellValue('J1', 'Updated At')
+				->setTitle($value['kategori_dokumen']);
+			$spreadsheet->createSheet();
 		}
+		$dok = $this->dokumen->getDokumen();
+		$x = 2;
+		foreach ($kategori as $key => $value) {
+			foreach ($dok as $data) {
+				if ($data['status'] == 1) {
+					$status_berlaku = "Berlaku";
+				} else if ($data['status'] == 2) {
+					$status_berlaku = "Tidak Berlaku";
+				} else {
+					$status_berlaku = "Peraturan Tetap";
+				}
+				if ($data['id_kategori_dokumen'] === $value['id_kategori_dokumen']) {
+					$spreadsheet->setActiveSheetIndex($key)
+						->setCellValue('A' . $x, $x - 1)
+						->setCellValue('B' . $x, $data['no'])
+						->setCellValue('C' . $x, $data['tahun'])
+						->setCellValue('D' . $x, strtoupper($data['judul']))
+						->setCellValue('E' . $x, $value['kategori_dokumen'])
+						->setCellValue('F' . $x, $status_berlaku)
+						->setCellValue('G' . $x, $data['berlaku'])
+						->setCellValue('H' . $x, $data['sampai'])
+						->setCellValue('I' . $x, $data['created_at'])
+						->setCellValue('J' . $x, $data['updated_at']);
+					$x++;
+				} else {
+					continue;
+				}
+			}
+			$x = 2;
+		}
+
+		$spreadsheet->setActiveSheetIndex(0);
+		$writer = new xlsx($spreadsheet);
+		$filename = 'data list dokumen kantor hukum tanggal ' . format_indo(date('Y-m-d'));
+		header('Content-Type: application/vnd.ms-excel');
+		header('Content-Disposition: attachment;filename="' . $filename . '.xlsx"');
+		header('Cache-Control: max-age=0');
+		$writer->save('php://output');
 	}
 }

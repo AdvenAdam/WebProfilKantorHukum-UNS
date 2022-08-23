@@ -60,7 +60,7 @@
                                                     <td><?= $value['berlaku'] == "0000-00-00" ? '-' : format_indo($value['berlaku']); ?></td>
                                                     <td>
                                                         <div class="btn-group" role="group">
-                                                            <a href="detailDokumen/<?= $value['id']; ?>" class="btn btn-primary">Lihat</a>
+                                                            <a href="detailDokumen/<?= $value['id']; ?>" class="btn btn-primary" target="_blank">Lihat</a>
                                                             <a href="Download/<?= $value['id']; ?>" class="btn btn-success">Unduh</a>
                                                         </div>
                                                     </td>

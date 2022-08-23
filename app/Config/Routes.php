@@ -94,6 +94,7 @@ $routes->group('Admin', ["namespace" => "App\Controllers\Admin", 'filter' => 'ce
 		$routes->post('delete/(:any)', 'DokumenController::delete/$1');
 		$routes->get('detail/(:any)', 'DokumenController::detail/$1');
 		$routes->get('edit/(:any)', 'DokumenController::edit/$1');
+		$routes->get('excel', 'DokumenController::excel');
 	});
 	//dokumen internal 
 	$routes->group('DokumenInternal',  function ($routes) {

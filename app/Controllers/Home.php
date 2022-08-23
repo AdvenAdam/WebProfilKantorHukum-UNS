@@ -39,34 +39,11 @@ class Home extends BaseController
 
 		return view('/user/Home/Home', $data);
 	}
-	public function cekBerlaku()
-	{
-		$data = $this->dokumen->getDokumen();
-		foreach ($data as $value) {
-			if (($value['sampai']) != '0000-00-00') {
-				if (strtotime($value['sampai']) < strtotime(date('Y-m-d'))) {
-					$this->dokumen->save([
-						'id' => $value['id'],
-						'status' => 2
-					]);
-				} else if (strtotime($value['sampai']) > strtotime(date('Y-m-d'))) {
-					$this->dokumen->save([
-						'id' => $value['id'],
-						'status' => 1
-					]);
-				}
-			} else {
-				$this->dokumen->save([
-					'id' => $value['id'],
-					'status' => 3
-				]);
-			}
-		}
-	}
+
 	// View Daftar Tampilan Produk Hukum Organisasi
 	public function produkHukum()
 	{
-		$this->cekBerlaku();
+		// $this->cekBerlaku();
 		$kategori = $this->kategori->getKategoriDokumen();
 		$data = [
 			'title' 	=> 'Produk Hukum UNS',

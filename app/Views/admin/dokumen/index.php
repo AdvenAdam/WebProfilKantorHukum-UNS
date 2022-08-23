@@ -9,7 +9,10 @@
                         <h3 class="Card-title mb-4">Data Dokumen Eksternal(Untuk Publik)</h3>
                         <div class="row mb-4">
                             <div class="col-6">
-                                <a href="Dokumen/create" class="btn btn-primary">Tambah Data</a>
+                                <div class="btn-group">
+                                    <a href="Dokumen/create" class="btn btn-primary">Tambah Data</a>
+                                    <a href="Dokumen/excel" class="btn btn-success"> <i class="fas fa-file-excel"> </i> Download Rekap Data</a>
+                                </div>
                             </div>
                             <div class="col-6 " align="right">
                                 <a href="Kategori" class="btn btn-success">Tambah Kategori</a>
