@@ -24,7 +24,7 @@ class PengajuanNomorController extends BaseController
 
 		];
 
-		return view('/admin/pengajuan_nomor/peraturan/index', $data);
+		return view('/admin/pengajuan_nomor/index', $data);
 	}
 	public function nomorChecker($tahun, $no_dokumen)
 	{
