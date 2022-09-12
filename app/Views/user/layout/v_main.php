@@ -82,7 +82,7 @@
     <script src="/tema/user/template/assets/js/main.js"></script>
     <script>
         $(document).ready(function() {
-            $('.table').DataTable({
+            $('.datatable').DataTable({
                 "aaSorting": [],
                 "oLanguage": {
                     "sSearch": "",

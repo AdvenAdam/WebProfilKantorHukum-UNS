@@ -45,6 +45,7 @@
 
     <!-- Javascripts -->
     <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.1.slim.js" integrity="sha256-tXm+sa1uzsbFnbXt8GJqsgi2Tw+m4BLGDof6eUPjbtk=" crossorigin="anonymous"></script>
     <script src="/tema/admin/circl/theme/assets/plugins/jquery/jquery-3.4.1.min.js"></script>
     <!-- select2 -->
     <script src="/tema/admin/circl/theme/assets/plugins/select2/dist/js/select2.min.js"></script>

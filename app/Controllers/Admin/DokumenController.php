@@ -19,6 +19,7 @@ class DokumenController extends BaseController
 	}
 	public function index()
 	{
+		$docs = $this->dokumen->getDokumen();
 		$data = [
 			'title' => 'Manage Dokumen',
 			'kategori' => $this->kategori->getKategoriDokumen(),
@@ -26,6 +27,15 @@ class DokumenController extends BaseController
 			'active' => 'dokumen',
 			'submenu' => 'view'
 		];
+
+		foreach ($docs as $key => $value) {
+			$this->dokumen->save(
+				[
+					'id' => $value['id'],
+					'judul' => strtoupper($value['judul'])
+				]
+			);
+		}
 		return view('/admin/dokumen/index', $data);
 	}
 	public function create()

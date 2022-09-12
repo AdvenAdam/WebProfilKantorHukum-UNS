@@ -34,7 +34,9 @@ html {
 @font-face {
     font-family: 'GilroyBold';
     src: url('../fonts/GilroyBold.eot');
-    src: url('../fonts/GilroyBold.eot') format('embedded-opentype'), url('../fonts/GilroyBold.woff2') format('woff2'), url('../fonts/GilroyBold.woff') format('woff'), url('../fonts/GilroyBold.ttf') format('truetype'), url('../fonts/GilroyBold.svg#GilroyBold') format('svg');
+    src: url('../fonts/GilroyBold.eot') format('embedded-opentype'), url('../fonts/GilroyBold.woff2') format('woff2'),
+        url('../fonts/GilroyBold.woff') format('woff'), url('../fonts/GilroyBold.ttf') format('truetype'),
+        url('../fonts/GilroyBold.svg#GilroyBold') format('svg');
 }
 body {
     font-family: 'Karla', sans-serif;
@@ -1716,10 +1718,10 @@ PRELOADER
     background-position: center;
 }
 .page-title-area .page-title-item {
-    padding-top: 280px;
+    padding-top: 200px;
 }
 .page-title-area .page-title-item .title {
-    font-size: 80px;
+    font-size: 42px;
 }
 @media (max-width: 767px) {
     .page-title-area .page-title-item .title {
@@ -1728,7 +1730,7 @@ PRELOADER
 }
 @media only screen and (min-width: 576px) and (max-width: 767px) {
     .page-title-area .page-title-item .title {
-        font-size: 80px;
+        font-size: 42px;
     }
 }
 .page-title-area .page-title-item nav {

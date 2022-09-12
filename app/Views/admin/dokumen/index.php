@@ -14,9 +14,6 @@
                                     <a href="Dokumen/excel" class="btn btn-success"> <i class="fas fa-file-excel"> </i> Download Rekap Data</a>
                                 </div>
                             </div>
-                            <div class="col-6 " align="right">
-                                <a href="Kategori" class="btn btn-success">Tambah Kategori</a>
-                            </div>
                         </div>
                         <?php if (session()->getFlashdata("success")) { ?>
                             <div class="alert alert-success fade show" role="alert">

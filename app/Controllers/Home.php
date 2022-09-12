@@ -55,7 +55,7 @@ class Home extends BaseController
 		foreach ($kategori as $value) {
 			$data['data' . $i++] = $this->dokumen->getDokumenByKategori($value['id_kategori_dokumen']);
 		}
-		// dd($data);
+
 		return view('/user/produkHukum/ProdukHukum', $data);
 	}
 	// Detail Produk Hukum
@@ -150,5 +150,57 @@ class Home extends BaseController
 		];
 		// dd($data);
 		return view('/user/Pengumuman/detail', $data);
+	}
+
+	// view sop legal draft 
+	public function sopLegalDraft()
+	{
+		$aktivitas = [
+			[
+				'aktivitas' => 'Aktivitas 1',
+				'isi'		=> 'Pimpinan unit kerja mengajukan permohonan Legal Drafting kepada Kepala Kantor Hukum'
+			],
+			[
+				'aktivitas' => 'Aktivitas 2',
+				'isi'		=> 'Staf agendaris SIKD mendisposisi surat ajuan permohonan Legal Drafting keputusan dan/atau peraturan ke Kepala Kantor Hukum'
+			],
+			[
+				'aktivitas' => 'Aktivitas 3',
+				'isi'		=> 'Kepala Kantor Hukum setuju/tidak setuju/meminta pertimbangan kepada pimpinan/unit terkait yang kompeten tentang ajuan permohonan Legal Drafting keputusan dan/atau peraturan'
+			],
+			[
+				'aktivitas' => 'Aktivitas 4',
+				'isi'		=> 'Kepala Kantor Hukum mendisposisi surat ajuan permohonan Legal Drafting keputusan dan/atau peraturan ke Subkoordinator Subbagian Kantor Hukum untuk menyiapkan Legal Drafting'
+			],
+			[
+				'aktivitas' => 'Aktivitas 5',
+				'isi'		=> 'Subkoordinator Subbagian Kantor Hukum mendesposisi kepada staf Kantor Hukum untuk menyiapkan Legal Drafting'
+			],
+			[
+				'aktivitas' => 'Aktivitas 6',
+				'isi'		=> 'Staf Kantor Hukum mengirimkan soft file Draft Legal Drafting kepada Subkoordinator Subbagian Kantor Hukum untuk dikoreksi/review kembali. Setelah itu dimintakan review kembali kepada Kepala Kantor Hukum'
+			],
+			[
+				'aktivitas' => 'Aktivitas 7',
+				'isi'		=> 'Kepala Kantor Hukum memberi paraf Legal Drafting dan melalui staf agendaris SIKD mendisposisi surat ajuan permohonan Legal Drafting keputusan dan/atau peraturan ke Rektor melalui WR1/WR2/WR3/WR4/Sekretaris Rektor untuk dimintakan tanda tangan'
+			],
+			[
+				'aktivitas' => 'Aktivitas 8',
+				'isi'		=> 'Staf Kantor Hukum memberi nomor dan membuatkan Salinan Keputusan/Peraturan yang telah ditandatangani Rektor, kemudian menggandakan keputusan dan/ peraturan yang sudah ditanda tangani rektor untuk selanjutnya didistribusikan ke unit pengusul (Fakultas dan/ Unit Kerja lainnya) melalui SIKD'
+			],
+			[
+				'aktivitas' => 'Aktivitas 9',
+				'isi'		=> 'Staf mengarsipkan Keputusan dan Peraturan Rektor yang sudah selesai'
+			],
+
+		];
+		$data = [
+			'title' 	 => 'SOP LEGAL DRAFT KANTOR HUKUM UNS',
+			'aktivitas'  => $aktivitas,
+
+		];
+		// dd($aktivitas);
+		// dd($data);
+		return view('/user/Legaldraft/LegalDraft', $data);
 	}
 }

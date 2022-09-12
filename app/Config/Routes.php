@@ -50,7 +50,7 @@ $routes->get('/ProdukHukum', 'Home::produkHukum');
 $routes->get('/TugasPokok', 'Home::tugasPokok');
 $routes->get('/Pengumuman', 'Home::pengumuman');
 $routes->get('/Pengumuman/(:any)', 'Home::detailPengumuman/$1');
-
+$routes->get('/LegalDraft', 'Home::sopLegalDraft');
 
 $routes->get('/logout', 'Auth::logout');
 $routes->group('Admin', ["namespace" => "App\Controllers\Admin", 'filter' => 'ceklogin'], function ($routes) {
@@ -157,6 +157,15 @@ $routes->group('Admin', ["namespace" => "App\Controllers\Admin", 'filter' => 'ce
 		$routes->post('update/(:num)', 'PengumumanController::update/$1');
 		$routes->post('save', 'PengumumanController::save');
 		$routes->get('download/(:any)', 'PengumumanController::download/$1');
+	});
+
+	// pengajuan 
+	$routes->group('PengajuanNomor', function ($routes) {
+		$routes->get('/', 'PengajuanNomorController');
+		$routes->post('save', 'PengajuanNomorController::save');
+		$routes->post('delete/(:num)', 'PengajuanNomorController::delete/$1');
+		$routes->post('update/(:num)', 'PengajuanNomorController::update/$1');
+		$routes->post('excel', 'PengajuanNomorController::excel');
 	});
 });
 

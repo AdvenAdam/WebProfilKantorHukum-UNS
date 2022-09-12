@@ -35,7 +35,7 @@
                         <section class="cart-area pt-50 pb-140">
                             <div class="container">
                                 <div class="cart-table table-responsive">
-                                    <table class="table" id="example" width="100%">
+                                    <table class="table datatable" id="example" width="100%">
                                         <thead>
                                             <tr>
                                                 <th>No</th>

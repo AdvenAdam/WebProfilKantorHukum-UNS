@@ -29,6 +29,17 @@ class DokumenInternController extends BaseController
 		];
 		return view('admin/dokumen_internal/index', $data);
 	}
+	function document_check()
+	{
+		$docs = $this->dok_internal;
+		$noDok =  $this->request->getVar('no_sk');
+		$tahun = $this->request->getVar('tahun');
+		if (in_array($noDok, $docs->findColumn('no_sk'))) {
+			return false;
+		} else {
+			return true;
+		}
+	}
 	function rule()
 	{
 		$rule = [
@@ -77,18 +88,21 @@ class DokumenInternController extends BaseController
 		} elseif ($status == '0') {
 			$status = '[SALINAN]';
 		}
-		$jdl = $judul;
-		$jdl = preg_replace('/[^A-Za-z0-9\-]/', '', $jdl);
+		$jdl = str_replace('/', '-', $judul);
 		$filename = $status . '_' . $jdl;
 		return $filename;
 	}
 	public function save()
 	{
 		$valid = $this->validate($this->rule());
-		if (!$valid) {
+		if (!$valid || !$this->document_check()) {
+			if (!$this->document_check()) {
+				session()->setFlashdata('danger', 'Data Sudah Ada');
+			}
 			return redirect()->to('/Admin/DokumenInternal')->withInput();
 		} else {
-			$judul = $this->request->getVar('judul');
+			dd('u dumb');
+			$judul = strtoupper($this->request->getVar('judul'));
 			$status = $this->request->getVar('status');
 			$fileDokumen = $this->request->getFile('file');
 			$namaDokumen = $this->setFilename($judul, $status) . '.' . $fileDokumen->getClientExtension();
@@ -238,7 +252,6 @@ class DokumenInternController extends BaseController
 				$status_berlaku = "Peraturan Tetap";
 			}
 			if (strlen($val['no_sk']) >= 4) {
-				# code...
 				$spreadsheet->setActiveSheetIndex(0)
 					->setCellValue('A' . $x, $x - 1)
 					->setCellValue('B' . $x, $val['no_sk'])

@@ -69,7 +69,7 @@
                                <a class="nav-link" href="/#berita">Berita</a>
                            </li>
                            <li class="nav-item">
-                               <a class="nav-link" href="/#kontak">Kontak</a>
+                               <a class="nav-link" href="/LegalDraft">Legal Draft</a>
                            </li>
                            <li class="nav-item">
                                <a class="nav-link" href="/Template">Unduh</a>
