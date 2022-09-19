@@ -165,7 +165,7 @@ $routes->group('Admin', ["namespace" => "App\Controllers\Admin", 'filter' => 'ce
 		$routes->post('save', 'PengajuanNomorController::save');
 		$routes->post('delete/(:num)', 'PengajuanNomorController::delete/$1');
 		$routes->post('update/(:num)', 'PengajuanNomorController::update/$1');
-		$routes->post('excel', 'PengajuanNomorController::excel');
+		$routes->get('excel/(:any)/(:num)', 'PengajuanNomorController::excel/$1/$2');
 	});
 });
 

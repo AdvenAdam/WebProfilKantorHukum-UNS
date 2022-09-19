@@ -15,6 +15,9 @@
         <li class="<?= $active == 'internal' ? 'active-page' : ''; ?>">
             <a href="/Admin/DokumenInternal"><i data-feather="inbox"></i>Dokumen Internal</a>
         </li>
+        <li class="<?= $active == 'nomor' ? 'active-page' : ''; ?>">
+            <a href="/Admin/PengajuanNomor"><i data-feather="archive"></i>Pengajuan Nomor</a>
+        </li>
         <li class="<?= $active == 'SK' ? 'active-page' : ''; ?>">
             <a href="" class=""><i data-feather="file-text"></i>SK<i class="fas fa-chevron-right dropdown-icon"></i></a>
             <ul class="">

@@ -17,18 +17,22 @@ class PengajuanNomorController extends BaseController
 	public function index()
 	{
 		$data = [
-			'data' => $this->pengajuan->getPengajuan(),
+			'data' => $this->pengajuan->getData(),
+			'perYear' => $this->pengajuan->getYear(),
+			'recent' => $this->pengajuan->getData('recent'),
 			'title' => 'Pengajuan Nomor',
-			'active' => 'zz',
+			'active' => 'nomor',
 			'submenu' => 'zz',
 
 		];
-
 		return view('/admin/pengajuan_nomor/index', $data);
 	}
 	public function nomorChecker($tahun, $no_dokumen)
 	{
 		$tahuns = $this->pengajuan->findColumn('tahun');
+		if ($tahuns == null) {
+			$tahuns = [];
+		}
 		$no_dokumens = $this->pengajuan->findColumn('no_dokumen');
 		if (in_array($tahun, $tahuns) && in_array($no_dokumen, $no_dokumens)) {
 			return true;
@@ -39,11 +43,12 @@ class PengajuanNomorController extends BaseController
 
 	public function save()
 	{
-		$tanggal = $this->request->getVar('tanggal_dokumen');
+		$tanggal = $this->request->getVar('tanggal_ditetapkan');
 		$data = [
 			'no_dokumen' 		=> $this->request->getVar('no_dokumen'),
 			'kategori' 			=> $this->request->getVar('kategori'),
-			'tanggal_dokumen'	=> $tanggal,
+			'pengusul' 			=> $this->request->getVar('pengusul'),
+			'tanggal_ditetapkan'	=> $tanggal,
 			'tahun'				=> date('Y', strtotime($tanggal)),
 			'perihal'			=> $this->request->getVar('perihal')
 		];
@@ -70,20 +75,21 @@ class PengajuanNomorController extends BaseController
 		$kategori  =  $this->request->getVar('kategori');
 		$no_dokumen  =  $this->request->getVar('no_dokumen');
 		$perihal  =  $this->request->getVar('perihal');
-		$tanggal_dokumen  =  $this->request->getVar('tanggal_dokumen');
+		$pengusul  =  $this->request->getVar('pengusul');
+		$tanggal_ditetapkan  =  $this->request->getVar('tanggal_ditetapkan');
 
 		$data = [
 			'id'				=> $id,
 			'kategori' 			=> $kategori,
 			'no_dokumen' 		=> $no_dokumen,
+			'pengusul' 			=> $pengusul,
 			'perihal' 			=> $perihal,
-			'tahun'				=> date('Y', strtotime($tanggal_dokumen)),
-			'tanggal_dokumen' 	=> $tanggal_dokumen,
+			'tahun'				=> date('Y', strtotime($tanggal_ditetapkan)),
+			'tanggal_ditetapkan' 	=> $tanggal_ditetapkan,
 		];
-		$dataLama = $this->pengajuan->getPengajuan($id);
+		$dataLama = $this->pengajuan->getData($id);
 		// check data nomor dan tahun lama tidak berubah
 		if ($dataLama['no_dokumen'] === $data['no_dokumen'] && $dataLama['tahun'] === $data['tahun']) {
-			continue;
 			// pengecekan jika ada perubahan
 		} elseif ($this->nomorChecker($data['tahun'], $data['no_dokumen'])) {
 			session()->setFlashdata('danger', 'Data Sudah Ada');
@@ -95,61 +101,120 @@ class PengajuanNomorController extends BaseController
 		return redirect()->to('/Admin/PengajuanNomor');
 	}
 
-	public function excel()
+	public function excel($jenis, $tahun)
 	{
+		if ($jenis != 'SK' && $jenis != 'SE' && $jenis != 'PERATURAN') {
+			return redirect()->to('/Admin/PengajuanNomor');
+		}
+		$year = $this->pengajuan->getYear();
+		$data = $this->pengajuan->getData();
 		$spreadsheet =	new Spreadsheet();
+		$bulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
 		// set header & sheet
-		$kategori = ['Surat Keterangan', 'Peraturan', 'Surat Edaran'];
-		foreach ($kategori as $key => $value) {
+		foreach ($bulan as $key => $value) {
 			$spreadsheet->setActiveSheetIndex($key)
 				->setCellValue('A1', 'No')
-				->setCellValue('B1', 'Nomor Dokumen')
-				->setCellValue('C1', 'Tahun')
-				->setCellValue('D1', 'Perihal')
-				->setCellValue('E1', 'Tanggal Dokumen')
-				->setCellValue('F1', 'Created At')
-				->setCellValue('G1', 'Updated At')
-				->setTitle($value);
+				->setCellValue('B1', 'Tanggal Ditetapkan')
+				->setCellValue('C1', 'Nomor Dokumen')
+				->setCellValue('D1', 'Pengusul')
+				->setCellValue('E1', 'Tahun')
+				->setCellValue('F1', 'Perihal')
+				->setCellValue('G1', 'Created At')
+				->setCellValue('H1', 'Updated At')
+				->setTitle($jenis . '-' . $value);
 			$spreadsheet->createSheet();
 		}
-
 		// set counter 
-		$SKCounter = 2;
-		$PCounter = 2;
-		$SECounter = 2;
+		$januari = 2;
+		$februari = 2;
+		$maret = 2;
+		$april = 2;
+		$mei = 2;
+		$juni = 2;
+		$juli = 2;
+		$agustus = 2;
+		$september = 2;
+		$oktober = 2;
+		$november = 2;
+		$desember = 2;
 		// loopinng data
-		foreach ($this->pengajuan->getPengajuan() as $key => $list) {
-			if ($list['kategori'] === 'SK') {
-				$spreadsheet->setActiveSheetIndex(0)
-					->setCellValue('A' . $SKCounter, $SKCounter - 1)
-					->setCellValue('B' . $SKCounter, $list['no_dokumen'])
-					->setCellValue('C' . $SKCounter, $list['tahun'])
-					->setCellValue('D' . $SKCounter, $list['perihal'])
-					->setCellValue('E' . $SKCounter, $list['tanggal_dokumen'])
-					->setCellValue('F' . $SKCounter, $list['created_at'])
-					->setCellValue('G' . $SKCounter, $list['updated_at']);
-				$SKCounter++;
-			} elseif ($list['kategori'] === 'PERATURAN') {
-				$spreadsheet->setActiveSheetIndex(1)
-					->setCellValue('A' . $PCounter, $PCounter - 1)
-					->setCellValue('B' . $PCounter, $list['no_dokumen'])
-					->setCellValue('C' . $PCounter, $list['tahun'])
-					->setCellValue('D' . $PCounter, $list['perihal'])
-					->setCellValue('E' . $PCounter, $list['tanggal_dokumen'])
-					->setCellValue('F' . $PCounter, $list['created_at'])
-					->setCellValue('G' . $PCounter, $list['updated_at']);
-				$PCounter++;
-			} else {
-				$spreadsheet->setActiveSheetIndex(3)
-					->setCellValue('A' . $SECounter, $SECounter - 1)
-					->setCellValue('B' . $SECounter, $list['no_dokumen'])
-					->setCellValue('C' . $SECounter, $list['tahun'])
-					->setCellValue('D' . $SECounter, $list['perihal'])
-					->setCellValue('E' . $SECounter, $list['tanggal_dokumen'])
-					->setCellValue('F' . $SECounter, $list['created_at'])
-					->setCellValue('G' . $SECounter, $list['updated_at']);
-				$SECounter++;
+		foreach ($data as $key => $list) {
+			if ($list['kategori'] == $jenis && $list['tahun'] == $tahun) {
+				$date = strtotime($list['tanggal_ditetapkan']);
+				$month =  date("n", $date);
+				// counter thing
+				switch ($month) {
+					case 1:
+						$counter = $januari;
+						$januari++;
+						break;
+					case 2:
+						$counter = $februari;
+						$februari++;
+						break;
+					case 3:
+						$counter = $maret;
+						$maret++;
+						break;
+					case 4:
+						$counter = $april;
+						$april++;
+						break;
+					case 5:
+						$counter = $mei;
+						$mei++;
+						break;
+					case 6:
+						$counter = $juni;
+						$juni++;
+						break;
+					case 7:
+						$counter = $juli;
+						$juli++;
+						break;
+					case 8:
+						$counter = $agustus;
+						$agustus++;
+						break;
+					case 9:
+						$counter = $september;
+						$september++;
+						break;
+					case 10:
+						$counter = $oktober;
+						$oktober++;
+						break;
+					case 11:
+						$counter = $november;
+						$november++;
+						break;
+					case 12:
+						$counter = $desember;
+						$desember++;
+						break;
+
+					default:
+						$counter = $januari;
+						break;
+				}
+				$spreadsheet->setActiveSheetIndex($month - 1)
+					->setCellValue('A' . $counter, $counter - 1)
+					->setCellValue('B' . $counter, format_indo($list['tanggal_ditetapkan']))
+					->setCellValue('C' . $counter, $list['no_dokumen'])
+					->setCellValue('D' . $counter, $list['pengusul'])
+					->setCellValue('E' . $counter, $list['tahun'])
+					->setCellValue('F' . $counter, $list['perihal'])
+					->setCellValue('G' . $counter, $list['created_at'])
+					->setCellValue('H' . $counter, $list['updated_at']);
+				$counter++;
 			}
 		}
+		$spreadsheet->setActiveSheetIndex(0);
+		$writer = new xlsx($spreadsheet);
+		$filename = 'List Pengajuan Nomor ' . $jenis . ' perTahun ' . $tahun;
+		header('Content-Type: application/vnd.ms-excel');
+		header('Content-Disposition: attachment;filename="' . $filename . '.xlsx"');
+		header('Cache-Control: max-age=0');
+		$writer->save('php://output');
 	}
 }

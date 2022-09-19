@@ -18,6 +18,10 @@
                         <label>Pilih Jenis Dokumen</label>
                     </div>
                     <div class="form-floating mb-4">
+                        <input type="text" value="" name="pengusul" class="form-control" placeholder="pengusul" required>
+                        <label for="pengusul">Pengusul</label>
+                    </div>
+                    <div class="form-floating mb-4">
                         <input type="text" value="" name="no_dokumen" class="form-control" placeholder="no_dokumen" required>
                         <label for="no_dokumen">No</label>
                     </div>
@@ -28,8 +32,8 @@
                     <div class="form-floating mb-4">
                         <div class="row">
                             <div class="col-4">
-                                <label for="berlaku">Tanggal Pengajuan</label>
-                                <input type="date" value="" name="tanggal_dokumen" class="form-control" id="tanggal_dokumen" placeholder="tanggal_dokumen">
+                                <label for="tanggal_ditetapkan">Tanggal Ditetapkan</label>
+                                <input type="date" value="" name="tanggal_ditetapkan" class="form-control" id="tanggal_ditetapkan" placeholder="tanggal_ditetapkan">
                             </div>
                         </div>
                     </div>
@@ -62,6 +66,10 @@
                         <label>Pilih Jenis Dokumen</label>
                     </div>
                     <div class="form-floating mb-4">
+                        <input type="text" value="" name="pengusul" class="form-control" placeholder="pengusul" required>
+                        <label for="pengusul">Pengusul</label>
+                    </div>
+                    <div class="form-floating mb-4">
                         <input type="text" value="/UN27/HK/<?= date('Y'); ?>" name="no_dokumen" class="form-control" placeholder="no_dokumen" required>
                         <label for="no_dokumen">No</label>
                     </div>
@@ -72,8 +80,8 @@
                     <div class="form-floating mb-4">
                         <div class="row">
                             <div class="col-4">
-                                <label for="berlaku">Tanggal Pengajuan</label>
-                                <input type="date" value="" name="tanggal_dokumen" class="form-control" id="tanggal_dokumen" placeholder="tanggal_dokumen">
+                                <label for="tanggal_ditetapkan">Tanggal Ditetapkan</label>
+                                <input type="date" value="" name="tanggal_ditetapkan" class="form-control" id="tanggal_ditetapkan" placeholder="tanggal_ditetapkan">
                             </div>
                         </div>
                     </div>
@@ -106,6 +114,10 @@
                         <label>Pilih Jenis Dokumen</label>
                     </div>
                     <div class="form-floating mb-4">
+                        <input type="text" value="" name="pengusul" class="form-control" placeholder="pengusul" required>
+                        <label for="pengusul">Pengusul</label>
+                    </div>
+                    <div class="form-floating mb-4">
                         <input type="text" value="/UN27/" name="no_dokumen" class="form-control" placeholder="no_dokumen" required>
                         <label for="no_dokumen">No</label>
                     </div>
@@ -116,8 +128,8 @@
                     <div class="form-floating mb-4">
                         <div class="row">
                             <div class="col-4">
-                                <label for="berlaku">Tanggal Pengajuan</label>
-                                <input type="date" value="" name="tanggal_dokumen" class="form-control" id="tanggal_dokumen" placeholder="tanggal_dokumen">
+                                <label for="tanggal_ditetapkan">Tanggal Ditetapkan</label>
+                                <input type="date" value="" name="tanggal_ditetapkan" class="form-control" id="tanggal_ditetapkan" placeholder="tanggal_ditetapkan">
                             </div>
                         </div>
                     </div>
@@ -174,18 +186,22 @@
                         <label>Pilih Jenis Dokumen</label>
                     </div>
                     <div class="form-floating mb-4">
-                        <textarea id="perihal" name="perihal" style="height:100px;" class='form-control' required></textarea>
-                        <label for="perihal">Perihal</label>
+                        <input type="text" value="<?= old('pengusul'); ?>" name="pengusul" class="form-control " id="pengusul" placeholder="pengusul">
+                        <label for="pengusul">Pengusul</label>
                     </div>
                     <div class="form-floating mb-4">
                         <input type="text" value="<?= old('no_dokumen'); ?>" name="no_dokumen" class="form-control " id="no_dokumen" placeholder="no_dokumen">
                         <label for="no_dokumen">No</label>
                     </div>
                     <div class="form-floating mb-4">
+                        <textarea id="perihal" name="perihal" style="height:100px;" class='form-control' required></textarea>
+                        <label for="perihal">Perihal</label>
+                    </div>
+                    <div class="form-floating mb-4">
                         <div class="row">
                             <div class="col-4">
-                                <label for="tanggal_dokumen"> Tanggal_dokumen</label>
-                                <input type="date" value="" name="tanggal_dokumen" class="form-control" id="tanggal_dokumen" placeholder="tanggal_dokumen">
+                                <label for="tanggal_ditetapkan"> tanggal_ditetapkan</label>
+                                <input type="date" value="" name="tanggal_ditetapkan" class="form-control" id="tanggal_ditetapkan" placeholder="tanggal_ditetapkan">
                             </div>
                         </div>
                     </div>

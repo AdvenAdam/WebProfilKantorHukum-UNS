@@ -17,7 +17,7 @@
             </div>
         <?php } ?>
         <div class="row">
-            <div class="col-sm-12 col-md-4 m-b-md">
+            <div class="col-sm-12 col-md-3 m-b-md">
                 <!-- menu ajuan nomor -->
                 <div class="card">
                     <?php
@@ -54,7 +54,7 @@
                                         <div class="email-list-item">
                                             <div class="email-author">
                                                 <i class="fas fa-book"></i>
-                                                <span class="author-name">Surat Keterangan</span>
+                                                <span class="author-name">Surat Keputusan</span>
                                                 <span class="email-date"><?= $jml_SK . ' Nomor'; ?></span>
                                             </div>
                                         </div>
@@ -92,10 +92,11 @@
                                                 <div class="email-author">
                                                     <span class="author-name"><?= $value['kategori']; ?></span>
                                                     <span class="email-date"><?= 'Nomor : '  . $value['no_dokumen']; ?></span>
+                                                    <span class="email-date"><?= $value['pengusul']; ?></span>
                                                 </div>
                                                 <div class="email-info">
                                                     <span class="email-text">
-                                                        <?= format_indo($value['tanggal_dokumen']); ?>
+                                                        <?= format_indo($value['tanggal_ditetapkan']); ?>
                                                     </span>
                                                 </div>
                                             </div>
@@ -108,17 +109,26 @@
                 </div>
             </div>
             <!-- content Peraturan -->
-            <div class="col-sm-12 col-md-8 tabcontent" id="Peraturan">
+            <div class="col-sm-12 col-md-9 tabcontent" id="Peraturan">
                 <div class="card ">
                     <div class="card-body">
                         <div class="open-email-content">
-                            <div class="mail-header">
-                                <div class="mail-title">
+                            <div class="mail-header" style="overflow:visible !important;">
+                                <div class=" mail-title">
                                     <h4>PERATURAN</h4>
                                 </div>
-                                <div class="mail-actions">
+                                <div class="mail-action" style="display:block; text-align: right; ">
                                     <div class="btn-group">
-                                        <button type="button" class="btn btn-success">Download Rekap</button>
+                                        <div class="dropdown">
+                                            <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                                Download Rekap
+                                            </button>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <?php foreach ($perYear as $val) { ?>
+                                                    <li><a class="dropdown-item" href="PengajuanNomor/excel/PERATURAN/<?= $val['tahun']; ?>"><?= $val['tahun']; ?></a></li>
+                                                <?php } ?>
+                                            </ul>
+                                        </div>
                                         <button type="button" data-bs-toggle="modal" data-bs-target="#inputDataPeraturan" class="btn btn-primary">Tambah Data</button>
                                     </div>
                                 </div>
@@ -129,6 +139,7 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Tanggal</th>
+                                            <th>Pengusul</th>
                                             <th>Perihal</th>
                                             <th>#</th>
                                         </tr>
@@ -139,15 +150,16 @@
                                             } else {
                                                 continue;
                                             } ?>
-                                            <tr>
+                                            <tr style="font-size:12px;">
                                                 <td width="5%"><?= $value['no_dokumen']; ?></td>
-                                                <td width="20%"><?= format_indo($value['tanggal_dokumen']); ?></td>
-                                                <td><?= $value['perihal']; ?></td>
+                                                <td><?= format_indo($value['tanggal_ditetapkan']); ?></td>
+                                                <td><?= $value['pengusul']; ?></td>
+                                                <td width='50%'><?= $value['perihal']; ?></td>
                                                 <!-- action -->
                                                 <td width='5%'>
                                                     <div class="btn-group">
                                                         <div class="btn-group">
-                                                            <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#updateData" data-no='<?= $value['no_dokumen']; ?>' data-perihal='<?= $value['perihal'] ?>' data-kategori='<?= $value['kategori']; ?>' data-idupdate='PengajuanNomor/update/<?= $value['id']; ?>' data-nomor="<?= $value['no_dokumen']; ?> " data-tanggal_dokumen=<?= $value['tanggal_dokumen']; ?> title="Edit Data"><i data-feather="edit"></i> </a>
+                                                            <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#updateData" data-no='<?= $value['no_dokumen']; ?>' data-perihal='<?= $value['perihal'] ?>' data-kategori='<?= $value['kategori']; ?>' data-idupdate='PengajuanNomor/update/<?= $value['id']; ?>' data-nomor="<?= $value['no_dokumen']; ?> " data-tanggal_ditetapkan=<?= $value['tanggal_ditetapkan']; ?> title="Edit Data"><i data-feather="edit"></i> </a>
                                                             <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#confirm" data-id='PengajuanNomor/delete/<?= $value['id']; ?>' title="Hapus Data"><i data-feather="delete"></i> </a>
                                                         </div>
                                                     </div>
@@ -163,17 +175,27 @@
                 </div>
             </div>
             <!-- content SK -->
-            <div class="col-sm-12 col-md-8 tabcontent " id="SK">
+            <div class="col-sm-12 col-md-9 tabcontent " id="SK">
                 <div class="card ">
                     <div class="card-body">
                         <div class="open-email-content">
-                            <div class="mail-header">
+                            <div class="mail-header" style="overflow:visible !important;">
                                 <div class="mail-title">
-                                    <h4>Surat Keterangan</h4>
+                                    <h4>SURAT KEPUTUSAN</h4>
                                 </div>
-                                <div class="mail-actions">
+                                <div class="mail-action" style="display:block; text-align: right; ">
                                     <div class="btn-group">
-                                        <button type="button" class="btn btn-success">Download Rekap</button>
+                                        <div class="dropdown">
+                                            <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                                Download Rekap
+                                            </button>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <?php foreach ($perYear as $val) { ?>
+                                                    <li><a class="dropdown-item" href="PengajuanNomor/excel/SK/<?= $val['tahun']; ?>"><?= $val['tahun']; ?></a></li>
+                                                <?php } ?>
+                                            </ul>
+                                        </div>
+                                        <!-- <a href="PengajuanNomor/excel" class="btn btn-success">Download Rekap</a> -->
                                         <button type="button" data-bs-toggle="modal" data-bs-target="#inputDataSK" class="btn btn-primary">Tambah Data</button>
                                     </div>
                                 </div>
@@ -184,6 +206,7 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Tanggal</th>
+                                            <th>Pengusul</th>
                                             <th>Perihal</th>
                                             <th>#</th>
                                         </tr>
@@ -195,15 +218,16 @@
                                             } else {
                                                 continue;
                                             } ?>
-                                            <tr>
+                                            <tr style="font-size:12px;">
                                                 <td width="5%"><?= $value['no_dokumen']; ?></td>
-                                                <td width="20%"><?= format_indo($value['tanggal_dokumen']); ?></td>
-                                                <td><?= $value['perihal']; ?></td>
+                                                <td><?= format_indo($value['tanggal_ditetapkan']); ?></td>
+                                                <td><?= $value['pengusul']; ?></td>
+                                                <td width='50%'><?= $value['perihal']; ?></td>
                                                 <!-- action -->
                                                 <td width='5%'>
                                                     <div class="btn-group">
                                                         <div class="btn-group">
-                                                            <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#updateData" data-no='<?= $value['no_dokumen']; ?>' data-perihal='<?= $value['perihal'] ?>' data-kategori='<?= $value['kategori']; ?>' data-idupdate='PengajuanNomor/update/<?= $value['id']; ?>' data-nomor="<?= $value['no_dokumen']; ?>" data-tanggal_dokumen=<?= $value['tanggal_dokumen']; ?> title=" Edit Data"><i data-feather="edit"></i> </a>
+                                                            <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#updateData" data-no='<?= $value['no_dokumen']; ?>' data-perihal='<?= $value['perihal'] ?>' data-kategori='<?= $value['kategori']; ?>' data-idupdate='PengajuanNomor/update/<?= $value['id']; ?>' data-nomor="<?= $value['no_dokumen']; ?>" data-tanggal_ditetapkan=<?= $value['tanggal_ditetapkan']; ?> title=" Edit Data"><i data-feather="edit"></i> </a>
                                                             <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#confirm" data-id='PengajuanNomor/delete/<?= $value['id']; ?>' title="Hapus Data"><i data-feather="delete"></i> </a>
                                                         </div>
                                                     </div>
@@ -218,17 +242,27 @@
                 </div>
             </div>
             <!-- content SE -->
-            <div class="col-sm-12 col-md-8 tabcontent" id="SE">
+            <div class="col-sm-12 col-md-9 tabcontent" id="SE">
                 <div class="card ">
                     <div class="card-body">
                         <div class="open-email-content">
-                            <div class="mail-header">
-                                <div class="mail-title">
-                                    <h4>Surat Edaran</h4>
+                            <div class="mail-header" style="overflow:visible !important;">
+                                <div class=" mail-title">
+                                    <h4>SURAT EDARAN</h4>
                                 </div>
-                                <div class="mail-actions">
+                                <div class="mail-action" style="display:block; text-align: right; ">
                                     <div class="btn-group">
-                                        <button type="button" class="btn btn-success">Download Rekap</button>
+                                        <div class="dropdown">
+                                            <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                                Download Rekap
+                                            </button>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <?php foreach ($perYear as $val) { ?>
+                                                    <li><a class="dropdown-item" href="PengajuanNomor/excel/SE/<?= $val['tahun']; ?>"><?= $val['tahun']; ?></a></li>
+                                                <?php } ?>
+                                            </ul>
+                                        </div>
+                                        <!-- <a href="PengajuanNomor/excel" class="btn btn-success">Download Rekap</a> -->
                                         <button type="button" data-bs-toggle="modal" data-bs-target="#inputDataSE" class="btn btn-primary">Tambah Data</button>
                                     </div>
                                 </div>
@@ -239,6 +273,7 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Tanggal</th>
+                                            <th>Pengusul</th>
                                             <th>Perihal</th>
                                             <th>#</th>
                                         </tr>
@@ -250,15 +285,16 @@
                                             } else {
                                                 continue;
                                             } ?>
-                                            <tr>
+                                            <tr style="font-size:12px;">
                                                 <td width="5%"><?= $value['no_dokumen']; ?></td>
-                                                <td width="20%"><?= format_indo($value['tanggal_dokumen']); ?></td>
-                                                <td><?= $value['perihal']; ?></td>
+                                                <td><?= format_indo($value['tanggal_ditetapkan']); ?></td>
+                                                <td><?= $value['pengusul']; ?></td>
+                                                <td width='50%'><?= $value['perihal']; ?></td>
                                                 <!-- action -->
                                                 <td width="5%">
                                                     <div class="btn-group">
                                                         <div class="btn-group">
-                                                            <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#updateData" data-no='<?= $value['no_dokumen']; ?>' data-perihal='<?= $value['perihal'] ?>' data-kategori='<?= $value['kategori']; ?>' data-idupdate='PengajuanNomor/update/<?= $value['id']; ?>' data-nomor="<?= $value['no_dokumen']; ?>" data-tanggal_dokumen=<?= $value['tanggal_dokumen']; ?> title="Edit Data"><i data-feather="edit"></i> </a>
+                                                            <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#updateData" data-no='<?= $value['no_dokumen']; ?>' data-perihal='<?= $value['perihal'] ?>' data-kategori='<?= $value['kategori']; ?>' data-idupdate='PengajuanNomor/update/<?= $value['id']; ?>' data-nomor="<?= $value['no_dokumen']; ?>" data-tanggal_ditetapkan=<?= $value['tanggal_ditetapkan']; ?> title="Edit Data"><i data-feather="edit"></i> </a>
                                                             <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#confirm" data-id='PengajuanNomor/delete/<?= $value['id']; ?>' title="Hapus Data"><i data-feather="delete"></i> </a>
                                                         </div>
                                                     </div>
@@ -281,13 +317,10 @@
 <?= $this->renderSection('input'); ?>
 <?= $this->endSection(); ?>
 <?= $this->section('source'); ?>
-<script src="/tema/admin/circl/theme/assets/js/pages/charts.js"></script>
 <script>
     window.onload = function() {
         document.getElementById('SK').style.display = "block";
         evt.currentTarget.className += " active";
-
-
     }
 
     function openNomor(evt, namaAjuan) {
@@ -311,7 +344,7 @@
             modal.find('#idupdate').attr("action", div.data('idupdate'));
             modal.find('#perihal').val(div.data('perihal'));
             modal.find('#no_dokumen').attr("value", div.data('nomor'));
-            modal.find('#tanggal_dokumen').attr("value", div.data('tanggal_dokumen'));
+            modal.find('#tanggal_ditetapkan').attr("value", div.data('tanggal_ditetapkan'));
             modal.find('#kategori').val(div.data('kategori'));
 
         });
@@ -331,12 +364,4 @@
     });
 </script>
 
-<!-- fungsi date picker format tahun -->
-<script>
-    $(".tahun").datepicker({
-        format: "yyyy",
-        viewMode: "years",
-        minViewMode: "years"
-    });
-</script>
 <?= $this->endSection(); ?>

@@ -52,14 +52,6 @@
                             </div>
                             <div class="shop-descriptions-list d-flex">
                                 <ul class="shop-list-1">
-                                    <li>Di Unggah Pada</li>
-                                </ul>
-                                <ul class="shop-list-2">
-                                    <li><?= $dokumen['created_at'] == '0000-00-00' ? '-' : format_indo($dokumen['created_at']); ?></li>
-                                </ul>
-                            </div>
-                            <div class="shop-descriptions-list d-flex">
-                                <ul class="shop-list-1">
                                     <li>Berlaku Mulai</li>
                                 </ul>
                                 <ul class="shop-list-2">
