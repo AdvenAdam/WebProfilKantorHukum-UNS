@@ -109,7 +109,7 @@
                         <select class="form-select " name="kategori">
                             <option value="SE">SE</option>
                             <option value="PERATURAN">PERATURAN</option>
-                            <option value="SE">SE</option>
+                            <option value="SK">SK</option>
                         </select>
                         <label>Pilih Jenis Dokumen</label>
                     </div>

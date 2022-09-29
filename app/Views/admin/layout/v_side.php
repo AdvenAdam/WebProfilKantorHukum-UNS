@@ -46,6 +46,9 @@
         <li class="<?= $active == 'profil' ? 'active-page' : ''; ?>">
             <a href="/Admin/User/edit/<?= session()->user_id; ?>"><i data-feather="user"></i>Profil</a>
         </li>
+        <li class="<?= $active == 'user' ? 'active-page' : ''; ?>">
+            <a href="/Admin/User"><i data-feather="user"></i>Manajemen User</a>
+        </li>
         <li>
             <a href="/logout"><i data-feather="log-out"></i>Logout</a>
         </li>

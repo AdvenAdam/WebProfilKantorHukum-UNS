@@ -69,10 +69,10 @@
                                <a class="nav-link" href="/#berita">Berita</a>
                            </li>
                            <li class="nav-item">
-                               <a class="nav-link" href="/LegalDraft">Legal Draft</a>
+                               <a class="nav-link" href="/LegalDraft">SOP</a>
                            </li>
                            <li class="nav-item">
-                               <a class="nav-link" href="/Template">Unduh</a>
+                               <a class="nav-link" href="/Template">Template SK</a>
                            </li>
                        </ul>
                    </div>
